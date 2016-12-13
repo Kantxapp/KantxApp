@@ -1,2 +1,0 @@
-# KantxApp
-Smart-City 
