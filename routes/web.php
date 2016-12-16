@@ -26,3 +26,5 @@ Route::get('/callback/{provider}', 'SocialAuthController@callback');
 
 Route::get('settings/account', 'AccountsController@edit');
 Route::patch('settings/account', 'AccountsController@update');
+
+Route::post('/contacto', 'ContactController@sendContact');

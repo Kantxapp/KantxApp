@@ -414,6 +414,9 @@ h6,
 .scrollToTop_wraper {
   opacity: 0 !important;
 }
+.white {
+  color: #ffffff !important;
+}
 #header4-0 .mbr-section-lead {
   font-family: 'Oxygen', sans-serif;
 }
