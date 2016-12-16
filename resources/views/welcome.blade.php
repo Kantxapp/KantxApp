@@ -36,8 +36,8 @@
                 <div class="mbr-table-cell">
 
                     <div class="navbar-brand">
-                        <a href="/" class="navbar-logo"><img src="assets/images/logo-128x128-78.png" alt="Mobirise"></a>
-                        <a class="navbar-caption" href="https://mobirise.com">KANTXAPP</a>
+                        <a href="/" class="navbar-logo"><img src="assets/images/logo-128x128-78-txuria.png" alt="Mobirise"></a>
+                        <a class="navbar-caption" href="/">KANTXAPP</a>
                     </div>
 
                 </div>
@@ -68,7 +68,8 @@
 
         <div class="container">
             <div class="row">
-                <div class="mbr-section col-md-10 col-md-offset-2 text-xs-right">
+                <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
+                <!--<div class="mbr-section col-md-10 col-md-offset-2 text-xs-right">-->
 
                     <h1 class="mbr-section-title display-1">KANTXAPP</h1>
                     <p class="mbr-section-lead lead">Sin tiempo, sin un círculo de amigos deportistas, <br>sin saber dónde, ni cómo se encuentra el recinto…<br>Ya no hay escusas, con la red social deportiva nunca estarás solo y siempre dispondrás de la información que necesites.<br></p>
