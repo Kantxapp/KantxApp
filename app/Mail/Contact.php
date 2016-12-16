@@ -18,14 +18,16 @@ class Contact extends Mailable
     protected $formemail;
     protected $formphone;
     protected $formmessage;
+    protected $formtime;
 
-    public function __construct($formname, $formemail, $formphone, $formmessage)
+    public function __construct($formname, $formemail, $formphone, $formmessage, $formtime)
     {
         // $this->formdata = $formdata;
         $this->formname = $formname;
         $this->formemail = $formemail;
         $this->formphone = $formphone;
         $this->formmessage = $formmessage;
+        $this->formtime = $formtime;
         
         
     }
@@ -41,6 +43,7 @@ class Contact extends Mailable
                         'email' => $this->formemail,
                         'phone' => $this->formphone,
                         'messagee' => $this->formmessage,
+                        'time' => $this->formtime,
                         ]);
 
     }

@@ -50,7 +50,7 @@
                         <div class="hamburger-icon"></div>
                     </button>
 
-                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar"><li class="nav-item dropdown"><a class="nav-link link" href="index.html#features6-8">CARACTERÍSTICAS</a></li><li class="nav-item"><a class="nav-link link" href="index.html#form1-f">CONTACTO</a></li>@if (Route::has('login'))<li class="nav-item nav-btn"><a class="nav-link btn btn-warning-outline btn-warning" href="{{ url('/login') }}">ENTRAR</a></li><li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="{{ url('/register') }}">REGISTRAR</a></li>@endif</ul>
+                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar"><li class="nav-item dropdown"><a class="nav-link link" href="{{ url('/#features6-8') }}">CARACTERÍSTICAS</a></li><li class="nav-item"><a class="nav-link link" href="{{ url('/#form1-f') }}" >CONTACTO</a></li>@if (Route::has('login'))<li class="nav-item nav-btn"><a class="nav-link btn btn-warning-outline btn-warning" href="{{ url('/login') }}">ENTRAR</a></li><li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="{{ url('/register') }}">REGISTRAR</a></li>@endif</ul>
                     <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                         <div class="close-icon"></div>
                     </button>

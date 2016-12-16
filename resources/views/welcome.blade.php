@@ -161,7 +161,7 @@
         </div>
     </div>
      @if (session('status'))
-        <div class="alert alert-success">
+        <div class="alert alert-success text-xs-center">
             {{ session('status') }}
         </div>
     @endif

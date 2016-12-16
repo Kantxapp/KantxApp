@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ContactRequest;
 use App\Http\Controllers\Controller;
 use Session;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
@@ -30,13 +31,15 @@ class ContactController extends Controller
     $formemail = $request->email;
     $formphone = $request->phone;
     $formmessage = $request->message;
-   
+    $formtime = (array)  Carbon::now();
+    $formtime = $formtime['date'] ;
     
-    Mail::to('kantxapp@gmail.com')->send(new Contact($formname, $formemail, $formphone, $formmessage));
     
-    return Redirect::to(URL::previous(). "#form1-f")->with('status', 'We sent you an activation code. Check your email.');
+    Mail::to('kantxapp@gmail.com')->send(new Contact($formname, $formemail, $formphone, $formmessage, $formtime));
+    
+    return redirect('/#form1-f')->with('status', 'Gracias por contactar con nosotros!');
 
-    // return view('mails.contactsend');
+    // // return view('mails.contactsend');
   }
 
 }
