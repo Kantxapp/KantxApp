@@ -1,6 +1,6 @@
 @extends('layouts.land')
 
-@section('title', 'Inicio')
+@section('title', 'KantxApp')
 
 @section('content')
 <section class="engine"><a rel="external" href="https://mobirise.com">mobile site builder</a></section><section class="mbr-section mbr-section-hero mbr-section-full mbr-section-with-arrow mbr-after-navbar" id="header4-0" data-bg-video="https://www.youtube.com/embed/X914l3IPFAg?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0">
@@ -161,7 +161,9 @@
         </div>
     </div>
      @if (session('status'))
-        <div class="alert alert-success text-xs-center">
+        <div class="alert alert-success text-xs-center alert-dismissible fade in" role="alert">
+            
+            <button type="button" class="close " data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             {{ session('status') }}
         </div>
     @endif

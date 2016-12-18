@@ -11,8 +11,6 @@ use App\Http\Controllers\Controller;
 use Session;
 use Carbon\Carbon;
 
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\URL;
 
 class ContactController extends Controller
 {

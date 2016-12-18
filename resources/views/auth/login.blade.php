@@ -1,5 +1,7 @@
 @extends('layouts.land')
 
+@section('title', 'Iniciar sesión')
+
 @section('content')
 
 
@@ -53,7 +55,7 @@
                 <div class="col-xs-12 col-lg-10 col-lg-offset-1" data-form-type="formoid">
 
 
-                @if (session('status'))-->
+                @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>

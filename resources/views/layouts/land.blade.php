@@ -40,7 +40,7 @@
 
                     <div class="navbar-brand">
                         <a href="/" class="navbar-logo"><img src="assets/images/logo-128x128-78-txuria.png" alt="Mobirise"></a>
-                        <a class="navbar-caption" href="/">KANTXAPP</a>
+                        <a class="navbar-caption"@yield('kantxcolor') href="/">KANTXAPP</a>
                     </div>
 
                 </div>
