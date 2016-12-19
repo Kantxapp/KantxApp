@@ -1,13 +1,14 @@
 @extends('layouts.land')
 
 @section('title', 'Registrar')
-
+@section('kantxcolor','style="color: #fff;')
+@section('body','style="background-color: rgb(46, 46, 46);')
 @section('content')
 
 
 
-@section('body','style="background-color: rgb(46, 46, 46);')
-@section('kantxcolor','style="color: #fff;')
+
+
 
 <section class="mbr-section mbr-after-navbar" id="form2-5" style="background-color: rgb(46, 46, 46); padding-top: 120px; padding-bottom: 120px;">
         <div class="mbr-section mbr-section__container mbr-section__container--middle">
