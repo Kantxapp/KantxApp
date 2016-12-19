@@ -41,12 +41,12 @@
                             </div>
                         </div>
                         <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                            <div class="mbr-subscribe mbr-subscribe-dark input-group col-xs-12 col-lg-10 col-lg-offset-1" style="margin-top:20px;">
+                            <div class="mbr-subscribe mbr-subscribe-dark input-group col-xs-12 col-lg-5 col-lg-offset-1" style="margin-top:20px; margin-right:5px; ">
                                <input id="password" type="password" class="form-control" name="password" data-form-field="Password" placeholder="Contraseña" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="mbr-subscribe mbr-subscribe-dark input-group col-xs-12 col-lg-10 col-lg-offset-1">
+                            <div class="mbr-subscribe mbr-subscribe-dark input-group col-xs-12 col-lg-5" style="margin-top:20px; ">
                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" data-form-field="Password_Confirmation" placeholder="Confirmación Contraseña" required>
 
                             </div>
