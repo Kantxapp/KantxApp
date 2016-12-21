@@ -96,7 +96,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 text-xs-center">
-                        <h3 class="mbr-section-title display-2">NUESTRO FANTÁSTICOS USUARIOS</h3>
+                        <h3 class="mbr-section-title display-2">NUESTROS FANTÁSTICOS USUARIOS</h3>
                         <small class="mbr-section-subtitle">Siempre activos BE ACTIVE.</small>
                     </div>
                 </div>

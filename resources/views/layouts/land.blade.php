@@ -74,20 +74,20 @@
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
                 <p><strong>Address</strong><br>
-1234 Street Name<br>
-City, AA 99999</p>
+Alejandria Kalea, 2<br>
+20013 Donostia, Gipuzkoa</p>
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
                 <p><strong>Contacts</strong><br>
-Email: support@mobirise.com<br>
-Phone: +1 (0) 000 0000 001<br>
-Fax: +1 (0) 000 0000 002</p>
+Email: kantxapp@gmail.com<br>
+Phone: +34 666 666 666<br>
+Fax: +34 943 555 666</p>
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
                 <p><strong>Links</strong><br>
-<a class="text-primary" href="https://mobirise.com/">Website builder</a><br>
-<a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a><br>
-<a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a></p>
+<a class="text-primary" href="https://facebook.com/">Facebook</a><br>
+<a class="text-primary" href="https://twitter.com/">Twitter</a><br>
+<a class="text-primary" href="https://plus.google.com/">Google+</a></p>
             </div>
 
         </div>
