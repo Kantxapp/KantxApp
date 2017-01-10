@@ -32,8 +32,8 @@ class SocialAccountService
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
                     'name' => $providerUser->getName(),
-                    'token'=> $providerUser->token,
-                    'tokenSecret'=>$providerUser->tokenSecret
+                    'avatar' =>$providerUser->getAvatar(),
+                    'slug' => str_slug($providerUser->getName()),
                 ]);
             }
 

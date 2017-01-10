@@ -55,6 +55,11 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    @if (Auth::user()->avatar == null)
+                                    <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" style="width:50px; height:50px; float:left; border-radius:50%; margin-right:25px;" />
+                                    @else
+                                        <img src="{{ Auth::user()->avatar}}" style="width:50px; height:50px; float:left; border-radius:50%; margin-right:25px;"/>
+                                    @endif
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
