@@ -1,92 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+  <!-- Site made with Mobirise Website Builder v3.10.3, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v3.10.3, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assets/images/logo-128x128-78.png" type="image/x-icon">
+  <meta name="description" content="">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>@yield('title')</title>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="/assets/bootstrap-material-design-font/css/material.css">
+  <link rel="stylesheet" href="/assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="/assets/et-line-font-plugin/style.css">
+  <link rel="stylesheet" href="/assets/tether/tether.min.css">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/animate.css/animate.min.css">
+  <link rel="stylesheet" href="/assets/socicon/css/socicon.min.css">
+  <link rel="stylesheet" href="/assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="/assets/theme/css/style.css">
+  <link rel="stylesheet" href="/assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="/assets/mobirise2/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="/assets/theme2/css/style.css">
+  
+  
+  @yield('head')
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<body @yield('body')>
+    <section id="menu-2">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+    <nav class="navbar navbar-dropdown navbar-fixed-top" style="background: #88b04b;">
+        <div class="container">
+
+            <div class="mbr-table">
+                <div class="mbr-table-cell">
+
+                    <div class="navbar-brand">
+                        <a href="/" class="navbar-logo"><img src="/assets/images/logo-128x128-81.png" alt="logo_kantxapp"></a>
+                        <a class="navbar-caption text-white"@yield('kantxcolor') href="/home">KANTXAPP</a>
+                    </div>
+
+                </div>
+                <div class="mbr-table-cell">
+
+                    <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="hamburger-icon"></div>
                     </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
+                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
+                        <li class="nav-item"><a class="nav-link link" href="https://mobirise.com/">OVERVIEW</a></li>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    @if (Auth::user()->avatar == null)
-                                    <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" style="width:50px; height:50px; float:left; border-radius:50%; margin-right:25px;" />
+                        <li class="nav-item dropdown open">
+                            <a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="https://mobirise.com/" aria-expanded="true">
+                                @if (Auth::user()->avatar == null)
+                                    <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" style="width:35px; height:30px; float:left; border-radius:50%; margin-right:25px;" />
                                     @else
-                                        <img src="{{ Auth::user()->avatar}}" style="width:50px; height:50px; float:left; border-radius:50%; margin-right:25px;"/>
+                                        <img src="{{ Auth::user()->avatar}}" style="width:35px; height:35px; float:left; border-radius:50%; margin-right:25px;"/>
                                     @endif
                                     {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
+                            </a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="http://forums.mobirise.com/">Mi Cuenta</a>
+                            <a class="dropdown-item" href="{{ route('profile',['slug' => Auth::user()->slug]) }}">Mi Perfil</a>
+                            <a class="dropdown-item" href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                                     document.getElementById('logout-form').submit();">Salir</a>
+                                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
+                            </div>
+                        </li>
                     </ul>
+                    <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="close-icon"></div>
+                    </button>
+
                 </div>
             </div>
-        </nav>
 
-        @yield('content')
+        </div>
+    </nav>
+
+</section>
+@yield('content')
+
+
+<section class="mbr-section mbr-section-md-padding mbr-footer footer1" id="contacts1-i" style="background-color: rgb(46, 46, 46); padding-top: 90px; padding-bottom: 90px;">
+    
+    <div class="container">
+        <div class="row">
+            <div class="mbr-footer-content col-xs-12 col-md-3">
+                <div><img src="/assets/images/logo-128x128-81.png"></div>
+            </div>
+            <div class="mbr-footer-content col-xs-12 col-md-3">
+                <p><strong>Address</strong><br>
+1234 Street Name<br>
+City, AA 99999</p>
+            </div>
+            <div class="mbr-footer-content col-xs-12 col-md-3">
+                <p><strong>Contacts</strong><br>
+Email: support@mobirise.com<br>
+Phone: +1 (0) 000 0000 001<br>
+Fax: +1 (0) 000 0000 002</p>
+            </div>
+            <div class="mbr-footer-content col-xs-12 col-md-3">
+                <p><strong>Links</strong><br>
+<a class="text-primary" href="https://mobirise.com/">Website builder</a><br>
+<a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a><br>
+<a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a></p>
+            </div>
+
+        </div>
     </div>
+</section>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
-</body>
+<footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-h" style="background-color: rgb(46, 46, 46); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+    @yield('footer')
+    <div class="container">
+        <p class="text-xs-center">Copyright (c) 2016 KantxApp.</p>
+    </div>
+</footer>
+
+
+  <script src="/assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="/assets/tether/tether.min.js"></script>
+  <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/assets/smooth-scroll/SmoothScroll.js"></script>
+  <script src="/assets/viewportChecker/jquery.viewportchecker.js"></script>
+  <script src="/assets/jquery-mb-ytplayer/jquery.mb.YTPlayer.min.js"></script>
+  <script src="/assets/social-likes/social-likes.js"></script>
+  <script src="/assets/dropdown/js/script.min.js"></script>
+  <script src="/assets/touchSwipe/jquery.touchSwipe.min.js"></script>
+  <script src="/assets/theme/js/script.js"></script>
+  @yield('script')
+  
+  
+  <input name="animation" type="hidden">
+  </body>
 </html>

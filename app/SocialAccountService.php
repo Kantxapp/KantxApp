@@ -4,6 +4,8 @@ namespace App;
 
 use Laravel\Socialite\Contracts\Provider;
 
+use App\Profile;
+
 class SocialAccountService
 {
     public function createOrGetUser(Provider $provider)
@@ -35,6 +37,8 @@ class SocialAccountService
                     'avatar' =>$providerUser->getAvatar(),
                     'slug' => str_slug($providerUser->getName()),
                 ]);
+                
+                Profile::create(['user_id' => $user->id ]);
             }
 
             $account->user()->associate($user);

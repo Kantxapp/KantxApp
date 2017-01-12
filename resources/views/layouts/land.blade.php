@@ -115,6 +115,8 @@ Fax: +1 (0) 000 0000 002</p>
   @yield('script')
   
   
+  
   <input name="animation" type="hidden">
+   <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon"></i></a></div>
   </body>
 </html>
