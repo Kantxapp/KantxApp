@@ -102,7 +102,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'slug' => str_slug($data['name']),
         ]);
-        Profile::create(['user_id' => $user->id ]);
+        Profile::create(['user_id' => $user->id, 'name' => $user->name ]);
         return $user;
     }
 }

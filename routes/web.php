@@ -24,8 +24,9 @@ Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name
 Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('/callback/{provider}', 'SocialAuthController@callback');
 
-Route::get('settings/account', 'AccountsController@edit');
-Route::patch('settings/account', 'AccountsController@update');
+Route::get('settings/account/show', 'AccountsController@show')->name('account.show');
+Route::get('settings/account/edit', 'AccountsController@edit')->name('account.edit');
+Route::patch('settings/account/update', 'AccountsController@update')->name('account.update');
 
 Route::post('/contacto', 'ContactController@sendContact');
 
@@ -40,7 +41,7 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'ProfilesController@edit',
         'as' => 'profile.edit'
     ]);
-    Route::post('/profile/update/profile', [
+    Route::patch('/profile/update/profile', [
         'uses' => 'ProfilesController@update',
         'as' => 'profile.update'
     ]);

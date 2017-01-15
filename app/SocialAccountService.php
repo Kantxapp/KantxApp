@@ -38,7 +38,7 @@ class SocialAccountService
                     'slug' => str_slug($providerUser->getName()),
                 ]);
                 
-                Profile::create(['user_id' => $user->id ]);
+                Profile::create(['user_id' => $user->id, 'name' => $user->name ]);
             }
 
             $account->user()->associate($user);

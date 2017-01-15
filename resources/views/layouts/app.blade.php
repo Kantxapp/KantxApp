@@ -64,7 +64,7 @@
                                     @endif
                                     {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="http://forums.mobirise.com/">Mi Cuenta</a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="{{ route('account.show') }}">Mi Cuenta</a>
                             <a class="dropdown-item" href="{{ route('profile',['slug' => Auth::user()->slug]) }}">Mi Perfil</a>
                             <a class="dropdown-item" href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

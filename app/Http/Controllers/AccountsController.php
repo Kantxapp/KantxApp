@@ -12,6 +12,14 @@ class AccountsController extends Controller
     {
         $this->middleware('auth');
     }
+    public function show()
+    {
+        return view('accounts.show', [
+            
+                'user' => auth()->user()
+            
+            ]);
+    }
     public function edit()
     {
         return view('accounts.edit', [
@@ -34,17 +42,24 @@ class AccountsController extends Controller
                     $query->where('activated', 1);
                 })
                 
-                ]
+                ],
+            'password' => 'required|min:6|confirmed',
             
         ]);
         
         auth()->user()->update([
             
             'name' => request('name'),
-            'email' => request('email')
+            'email' => request('email'),
+            'password' => bcrypt(request('password')),
+            'activated' => true,
             
             ]);
         
-        return back();
+        return view('accounts.show', [
+            
+                'user' => auth()->user()
+            
+            ]);
     }
 }

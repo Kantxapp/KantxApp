@@ -30,12 +30,22 @@ class ProfilesController extends Controller
     public function update(Request $r)
     {
         $this->validate($r, [
-            'location' => 'required',
-            'about' => 'required|max:255'
+            'name' => 'required|max:25',
+            'surname1' => 'required|max:50',
+            'surname2' => 'required|max:50',
+            'phone' => 'size:9',
+            'province' => 'required|max:50',
+            'city' => 'required|max:50',
+            'about' => 'max:250',
         ]);
         Auth::user()->profile()->update([
-            'location' => $r->location,
-            'about' => $r->about
+            'name' => $r->name,
+            'surname1' => $r->surname1,
+            'surname2' => $r->surname2,
+            'phone' => $r->phone,
+            'province'=> $r->province,
+            'city' => $r->city,
+            'about' => $r->about,
         ]);
         if($r->hasFile('avatar'))
         {
@@ -43,7 +53,7 @@ class ProfilesController extends Controller
                 'avatar' => $r->avatar->store('public/avatars')
             ]);
         }
-        Session::flash('success', 'Profile updated.');
+        Session::flash('success', 'Perfil actualizado.');
         return redirect()->back();
     }
 }
