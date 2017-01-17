@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use Image;
+use Storage;
 use Session;
 use App\User;
 
@@ -49,11 +51,37 @@ class ProfilesController extends Controller
         ]);
         if($r->hasFile('avatar'))
         {
+        // dd($r->avatar);
             Auth::user()->update([
-                'avatar' => $r->avatar->store('public/avatars')
+                'avatar' => $r->avatar->store('/public/avatars')
             ]);
+            $arrayAvatar = explode("/", Auth::user()->avatar);
+            $arrayAvatar[0] = 'storage';
+            $arrayAvatarCorrect = '/' . $arrayAvatar[0] . '/' . $arrayAvatar[1] . '/' . $arrayAvatar[2];
+            Auth::user()->update([
+                'avatar' => $arrayAvatarCorrect
+            ]);
+        // Storage::put(
+        //     'avatars/'.Auth::user()->id,
+        //     file_get_contents($r->file('avatar')->getRealPath())
+        // );
+        
+        // $pathToFile = 'public/avatars/'.  Auth::user()->id;
+        
+        // // resize image
+        // Image::make($r->file('avatar')->getRealPath())
+        //   ->resize(300, 300)
+        //   ->save($pathToFile);
+        
+        // // save image to database
+        // Auth::user()->avatar = $pathToFile;
+        // Auth::user()->save();
         }
         Session::flash('success', 'Perfil actualizado.');
-        return redirect()->back();
+        
+        // return redirect()->back();
+        return redirect()->action(
+            'ProfilesController@index',['slug' => Auth::user()->slug]
+        );
     }
 }

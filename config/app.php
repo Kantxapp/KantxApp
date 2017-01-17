@@ -180,6 +180,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         
         Laravolt\Avatar\ServiceProvider::class,
+        Codecourse\Notify\NotifyServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -230,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Avatar'    => Laravolt\Avatar\Facade::class,
+        'Notify' => Codecourse\Notify\Facades\Notify::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

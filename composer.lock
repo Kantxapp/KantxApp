@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0d8c0b40d1d87687066e7912fbef06fb",
-    "content-hash": "afe9ca07427526911dc3ea8c8853bbfe",
+    "hash": "7bf4fe7ec7dde633a6f80c67ba01e290",
+    "content-hash": "71ee810ea2e96828ce84e15bda81b7af",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -60,6 +60,46 @@
                 "preload"
             ],
             "time": "2016-09-16 12:50:15"
+        },
+        {
+            "name": "codecourse/notify",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codecourse/notify.git",
+                "reference": "1abffc3d9a6d8ef79d9f2c0af0a1bcadc86bf4c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codecourse/notify/zipball/1abffc3d9a6d8ef79d9f2c0af0a1bcadc86bf4c1",
+                "reference": "1abffc3d9a6d8ef79d9f2c0af0a1bcadc86bf4c1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Codecourse\\Notify\\": "src/"
+                },
+                "files": [
+                    "src/Codecourse/Notify/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Garrett",
+                    "email": "alex@codecourse.com"
+                }
+            ],
+            "description": "Flexible flash notifications for Laravel",
+            "time": "2015-12-01 09:20:03"
         },
         {
             "name": "danielstjules/stringy",
@@ -390,16 +430,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.3.8",
+            "version": "2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "4064a980324f6c3bfa2bd981dfb247afa705ec3c"
+                "reference": "2bce9a59c43b868300b02a7d31a1e4aa67a200ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/4064a980324f6c3bfa2bd981dfb247afa705ec3c",
-                "reference": "4064a980324f6c3bfa2bd981dfb247afa705ec3c",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/2bce9a59c43b868300b02a7d31a1e4aa67a200ae",
+                "reference": "2bce9a59c43b868300b02a7d31a1e4aa67a200ae",
                 "shasum": ""
             },
             "require": {
@@ -448,7 +488,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2016-09-01 17:04:03"
+            "time": "2017-01-10 14:15:56"
         },
         {
             "name": "jakub-onderka/php-console-color",

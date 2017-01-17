@@ -9,7 +9,9 @@
         "laravel/framework": "5.3.*",
         "laravel/socialite": "^2.0",
         "guzzlehttp/guzzle": "^6.2",
-        "laravolt/avatar": "^1.8"
+        "laravolt/avatar": "^1.8",
+        "codecourse/notify": "^1.1",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

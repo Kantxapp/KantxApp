@@ -20,6 +20,7 @@ class ComposerStaticInit9cf7c1d5dcd76dbafbc42ff3c23a0bce
         '65fec9ebcfbb3cbb4fd0d519687aea01' => __DIR__ . '/..' . '/danielstjules/stringy/src/Create.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'd92e6dafb93e67e5b59c39d9b9d00659' => __DIR__ . '/..' . '/codecourse/notify/src/Codecourse/Notify/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -326,10 +327,15 @@ class ComposerStaticInit9cf7c1d5dcd76dbafbc42ff3c23a0bce
             array (
                 0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src',
             ),
+            'Codecourse\\Notify\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/codecourse/notify/src',
+            ),
         ),
     );
 
     public static $classMap = array (
+        'CreateFriendshipsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_16_145821_create_friendships_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProfilesTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_12_184610_create_profiles_table.php',
         'CreateSocialAccountsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_13_080841_create_social_accounts_table.php',

@@ -1,0 +1,24 @@
+{
+    "name": "codecourse/notify",
+    "description": "Flexible flash notifications for Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Garrett",
+            "email": "alex@codecourse.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Codecourse\\Notify\\": "src/"
+        },
+        "files": [
+            "src/Codecourse/Notify/functions.php"
+        ]
+    },
+    "minimum-stability": "stable"
+}

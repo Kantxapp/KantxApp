@@ -136,6 +136,7 @@ Fax: +1 (0) 000 0000 002</p>
   <script src="/assets/dropdown/js/script.min.js"></script>
   <script src="/assets/touchSwipe/jquery.touchSwipe.min.js"></script>
   <script src="/assets/theme/js/script.js"></script>
+  <script src="/js/app.js"></script>
   @yield('script')
   
   

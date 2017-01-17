@@ -31,13 +31,17 @@
                 
             </div>
         </div>
-        
+                      
     </div>
 
 </section>
 
 <section class="mbr-section" id="form1-8" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
-
+       @if (session('success'))
+                        <div class="alert alert-success col-xs-12col-md-12">
+                            <div class="col-xs-12 col-md-offset-5 col-md-4">{{ session('success') }}</div>
+                        </div>
+                    @endif               
     <div class="mbr-section mbr-section-nopadding">
         <div class="container">
             <div class="row">

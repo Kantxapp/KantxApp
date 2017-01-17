@@ -45,7 +45,12 @@
                         {{ method_field('PATCH') }}
 
                         <div class="row row-sm-offset">
-
+                            <div class="col-xs-12 col-md-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-8-avatar">Cambiar Avatar</label>
+                                    <input id="avatar" type="file" class="form-control" name="avatar">
+                                </div>
+                            </div>
                             <div class="col-xs-12 col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="form1-8-name">Nombre<span class="form-asterisk">*</span></label>
