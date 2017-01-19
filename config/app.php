@@ -182,6 +182,7 @@ return [
         Laravolt\Avatar\ServiceProvider::class,
         Codecourse\Notify\NotifyServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Aloha\Twilio\Support\Laravel\ServiceProvider::class,
 
     ],
 
@@ -234,6 +235,7 @@ return [
         'Avatar'    => Laravolt\Avatar\Facade::class,
         'Notify' => Codecourse\Notify\Facades\Notify::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Twilio' => Aloha\Twilio\Support\Laravel\Facade::class,
 
     ],
 

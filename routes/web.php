@@ -30,6 +30,9 @@ Route::patch('settings/account/update', 'AccountsController@update')->name('acco
 
 Route::post('/contacto', 'ContactController@sendContact');
 
+Route::get('/twilio/send/{message}', 'TwilioController@sendMessage');
+Route::post('/twilio/receive', 'TwilioController@receiveMessage');
+
 // Rutas futuras:
 
 Route::group(['middleware' => 'auth'], function(){
