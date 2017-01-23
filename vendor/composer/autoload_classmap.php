@@ -10,6 +10,7 @@ return array(
     'CreateKantxasTable' => $baseDir . '/database/migrations/2017_01_18_094125_create_kantxas_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProfilesTable' => $baseDir . '/database/migrations/2017_01_12_184610_create_profiles_table.php',
+    'CreateSensorsTable' => $baseDir . '/database/migrations/2017_01_22_174706_create_sensors_table.php',
     'CreateSocialAccountsTable' => $baseDir . '/database/migrations/2016_12_13_080841_create_social_accounts_table.php',
     'CreateUserActivationsTable' => $baseDir . '/database/migrations/2016_12_15_083248_create_user_activations_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',

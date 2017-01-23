@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Twilio;
-use Kantxa;
+use App\Sensor;
+use DB;
 class TwilioController extends Controller
 {
     //
@@ -14,25 +15,28 @@ class TwilioController extends Controller
     }
     public function receiveMessage(Request $request)
     {
+    
+    
+    $body =$request['Body'];
+    
+    $params = explode(",", $body);
+    
+    $viento = explode("=", $params[0]);
+    $sol = explode("=", $params[1]);
+    $ocupado = explode("=", $params[2]);
+    
+    $sensor =  Sensor::create([
+            'viento' => $viento[1],
+            'sol' => $sol[1],
+            'ocupado' => (int)$ocupado[1],
 
-        $kantxa = Kantxa::create([
-            'clima' => $request->Body,
-            ]);
-        $kantxa2 = Kantxa::create([
-            'clima' => $request['Body'],
-            ]);
-        $kantxa3 = Kantxa::create([
-            'clima' => $request['body'],
-            ]);
-        $kantxa4 = Kantxa::create([
-            'clima' => $_POST->Body,
-            ]);
-        $kantxa5 = Kantxa::create([
-            'clima' => $_POST['Body'],
-            ]);
-        $kantxa6 = Kantxa::create([
-            'clima' => $_POST['body'],
-            ]);
-        return $kantxa . $kantxa2 . $kantxa3;
+        ]);
+        header("Content-type: text/xml");
+        echo "<?xml version='1.0' encoding='UTF-8'?>";
+        echo "<Response>";
+        echo "<Sms>Kantxapp</Sms>";
+        echo "</Response>";
     }
 }
+
+
