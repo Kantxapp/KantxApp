@@ -33,9 +33,6 @@ Route::post('/contacto', 'ContactController@sendContact');
 Route::get('/twilio/send/{message}', 'TwilioController@sendMessage');
 Route::post('/twilio/receive', 'TwilioController@receiveMessage');
 Route::get('/localidades/{filter}', function ($filter){
-   /*  return response('Hello World', 200)
-                  ->header('Content-Type', 'text/plain');*/
-    //Header("Content-type: text/xml"); 
 	$str = '<'.'?xml version="1.0" encoding="ISO-8859-1" ?'.'>';
     $xml = simplexml_load_file('provinciasypoblaciones.xml');
 	$result = $xml->xpath("/lista/provincia[@id='$filter']/localidades");
@@ -44,7 +41,6 @@ Route::get('/localidades/{filter}', function ($filter){
    return response($str, 200)
                   ->header('Content-Type', 'application/xml'); //text/plain
    
-    //return $filter;
 });
 
 // Rutas futuras:
