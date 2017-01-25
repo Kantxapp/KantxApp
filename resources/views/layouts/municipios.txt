@@ -1,0 +1,199 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset= utf-8">
+<script language="JavaScript" type="text/javascript">
+  var XmlHttpObj;
+  var Utf8 = {
+    //Convierte de UTF-8 a ISO
+    decode : function (utftext) {
+        var string = "";
+        var i = 0;
+        var c = c1 = c2 = 0;
+
+        while ( i < utftext.length ) {
+
+            c = utftext.charCodeAt(i);
+
+            if (c < 128) {
+                string += String.fromCharCode(c);
+                i++;
+            }
+            else if((c > 191) && (c < 224)) {
+                c2 = utftext.charCodeAt(i+1);
+                string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                i += 2;
+            }
+            else {
+                c2 = utftext.charCodeAt(i+1);
+                c3 = utftext.charCodeAt(i+2);
+                string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                i += 3;
+            }
+
+        }
+
+        return string;
+    }
+
+}
+
+function CreateXmlHttpObj()
+{
+	try
+	{
+		XmlHttpObj = new ActiveXObject("Msxml2.XMLHTTP");
+	
+	}
+	catch(e)
+	{
+		try
+		{
+			XmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");
+		} 
+		catch(oc)
+		{
+			XmlHttpObj = null;
+		}
+	}
+		if(!XmlHttpObj && typeof XMLHttpRequest != "undefined") 
+	{
+		XmlHttpObj = new XMLHttpRequest();
+	}
+}
+
+function provinciaListOnChange() {
+
+    var provinciaList = document.getElementById("provinciaList");
+ 
+    var selectedprovincia = provinciaList.options[provinciaList.selectedIndex].value;
+    var requestUrl;
+
+     requestUrl = "xml_data_provider.php" + "?filter=" + encodeURIComponent(selectedprovincia);
+    
+	CreateXmlHttpObj();
+	
+	if(XmlHttpObj)
+	{
+	
+		XmlHttpObj.onreadystatechange = StateChangeHandler;
+		XmlHttpObj.open( "POST", requestUrl, true );
+		XmlHttpObj.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		XmlHttpObj.send();		
+	}
+}
+
+
+function StateChangeHandler()
+{
+	if(XmlHttpObj.readyState == 4)
+	{
+		if(XmlHttpObj.status == 200)
+		{			
+			PopulatelocalidadList(XmlHttpObj.responseXML.documentElement);
+		}
+		else
+		{
+			alert("Código de error: "  + XmlHttpObj.status);
+		}
+	}
+}
+
+function PopulatelocalidadList(localidadNode)
+{	
+    var localidadList = document.getElementById("localidadList");
+	for (var count = localidadList.options.length-1; count >-1; count--)
+	{
+		localidadList.options[count] = null;
+	}
+
+	var localidadNodes = localidadNode.getElementsByTagName('localidad');
+	var textValue; 
+	var optionItem;
+	for (var count = 0; count < localidadNodes.length; count++)
+	{ 
+   		textValue = Utf8.decode(GetInnerText(localidadNodes[count]));
+		idValue=count;		
+		optionItem = new Option( textValue, textValue,  false, false);
+		localidadList.options[localidadList.length] = optionItem;
+	}
+var to=document.getElementById("advice");
+to.innerHTML="";
+}
+
+function GetInnerText (node)
+{
+	 return (node.textContent || node.innerText || node.text) ;
+}
+
+
+
+
+</script>
+</head>
+<body>
+Seleccione su provincia:
+<select name="provinciaList" id="provinciaList" onChange="return provinciaListOnChange()">
+  <option >Seleccione su provincia...</option>		
+  <option value='01'>Alava</option>
+  <option value='02'>Albacete</option>
+  <option value='03'>Alicante</option>
+  <option value='04'>Almeria</option>
+  <option value='33'>Asturias</option>
+  <option value='05'>Avila</option>
+  <option value='06'>Badajoz</option>
+  <option value='08'>Barcelona</option>
+  <option value='09'>Burgos</option>
+  <option value='10'>Caceres</option>
+  <option value='11'>Cadiz</option>
+  <option value='39'>Cantabria</option>
+  <option value='12'>Castellon</option>
+  <option value='51'>Ceuta</option>
+  <option value='13'>Ciudad Real</option>
+  <option value='14'>Cordoba</option>
+  <option value='15'>Coruña, A</option>
+  <option value='16'>Cuenca</option>
+  <option value='17'>Girona</option>
+  <option value='18'>Granada</option>
+  <option value='19'>Guadalajara</option>
+  <option value='20'>Guipuzcoa</option>
+  <option value='21'>Huelva</option>
+  <option value='22'>Huesca</option>
+  <option value='07'>Illes Balears</option>
+  <option value='23'>Jaen</option>
+  <option value='24'>Leon</option>
+  <option value='25'>Lleida</option>
+  <option value='27'>Lugo</option>
+  <option value='28'>Madrid</option>
+  <option value='29'>Malaga</option>
+  <option value='52'>Melilla</option>
+  <option value='30'>Murcia</option>
+  <option value='31'>Navarra</option>
+  <option value='32'>Ourense</option>
+  <option value='34'>Palencia</option>
+  <option value='35'>Palmas, Las</option>
+  <option value='36'>Pontevedra</option>
+  <option value='26'>Rioja, La</option>
+  <option value='37'>Salamanca</option>
+  <option value='38'>Santa Cruz De Tenerife</option>
+  <option value='40'>Segovia</option>
+  <option value='41'>Sevilla</option>
+  <option value='42'>Soria</option>
+  <option value='43'>Tarragona</option>
+  <option value='44'>Teruel</option>
+  <option value='45'>Toledo</option>
+  <option value='46'>Valencia</option>
+  <option value='47'>Valladolid</option>
+  <option value='48'>Vizcaya</option>
+  <option value='49'>Zamora</option>
+  <option value='50'>Zaragoza</option>
+</select>
+
+	<br>
+	<br>
+Seleccione su localidad:
+	<select name="localidadList" id="localidadList" >
+<option >Seleccione antes una provincia</option>
+	</select> <span id="advice"> </span>
+</body>
+</html>
