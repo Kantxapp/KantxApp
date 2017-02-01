@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/deportes', 'DeportesController@index');
+Route::get('/campos', 'CamposController@index');
+Route::get('/partidas', 'GmapsController@index');
+// Route::get('/partidas', ['as ' => 'gmaps', 'uses' => 'GmapsController@index']);
 
 Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name('user.activate');
 
@@ -41,6 +45,7 @@ Route::get('/localidades/{filter}', function ($filter){
    return response($str, 200)
                   ->header('Content-Type', 'application/xml'); //text/plain
    
+    //return $filter;
 });
 
 // Rutas futuras:

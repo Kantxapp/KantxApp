@@ -12,7 +12,8 @@
         "laravolt/avatar": "^1.8",
         "codecourse/notify": "^1.1",
         "intervention/image": "^2.3",
-        "aloha/twilio": "^3.0"
+        "aloha/twilio": "^3.0",
+        "genealabs/phpgmaps": "~0.3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -53,4 +54,5 @@
     "config": {
         "preferred-install": "dist"
     }
+
 }

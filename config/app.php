@@ -183,6 +183,9 @@ return [
         Codecourse\Notify\NotifyServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Aloha\Twilio\Support\Laravel\ServiceProvider::class,
+        //Mapa
+        // GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
+
 
     ],
 
@@ -236,6 +239,7 @@ return [
         'Notify' => Codecourse\Notify\Facades\Notify::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Twilio' => Aloha\Twilio\Support\Laravel\Facade::class,
+        // 'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
 
     ],
 

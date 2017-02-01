@@ -79,15 +79,77 @@
                         </div>
                         <div class="row row-sm-offset">
                             <div class="col-xs-12 col-md-4">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="form1-8-province">Provincia<span class="form-asterisk">*</span></label>
-                                    <input id="province" type="text" class="form-control" name="province" value="{{ Auth::user()->profile->province}}" required >
+                               <div class="form-group">
+                                    <!--/<label class="form-control-label" for="form1-8-province">Provincia<span class="form-asterisk">*</span></label>-->
+                                    <!--<input id="province" type="text" class="form-control" name="province" value="{{ Auth::user()->profile->province}}" disabled >-->
+                                    <label class="form-control-label" for="form1-8-province">Seleccione su provincia<span class="form-asterisk">*</span></label>
+                                    <select name="provinciaList" id="provinciaList" onChange="return provinciaListOnChange()">
+                                      <option >Seleccione su provincia...</option>		
+                                      <option value='01'>Alava</option>
+                                      <option value='02'>Albacete</option>
+                                      <option value='03'>Alicante</option>
+                                      <option value='04'>Almeria</option>
+                                      <option value='33'>Asturias</option>
+                                      <option value='05'>Avila</option>
+                                      <option value='06'>Badajoz</option>
+                                      <option value='08'>Barcelona</option>
+                                      <option value='09'>Burgos</option>
+                                      <option value='10'>Caceres</option>
+                                      <option value='11'>Cadiz</option>
+                                      <option value='39'>Cantabria</option>
+                                      <option value='12'>Castellon</option>
+                                      <option value='51'>Ceuta</option>
+                                      <option value='13'>Ciudad Real</option>
+                                      <option value='14'>Cordoba</option>
+                                      <option value='15'>Coruña, A</option>
+                                      <option value='16'>Cuenca</option>
+                                      <option value='17'>Girona</option>
+                                      <option value='18'>Granada</option>
+                                      <option value='19'>Guadalajara</option>
+                                      <option value='20'>Guipuzcoa</option>
+                                      <option value='21'>Huelva</option>
+                                      <option value='22'>Huesca</option>
+                                      <option value='07'>Illes Balears</option>
+                                      <option value='23'>Jaen</option>
+                                      <option value='24'>Leon</option>
+                                      <option value='25'>Lleida</option>
+                                      <option value='27'>Lugo</option>
+                                      <option value='28'>Madrid</option>
+                                      <option value='29'>Malaga</option>
+                                      <option value='52'>Melilla</option>
+                                      <option value='30'>Murcia</option>
+                                      <option value='31'>Navarra</option>
+                                      <option value='32'>Ourense</option>
+                                      <option value='34'>Palencia</option>
+                                      <option value='35'>Palmas, Las</option>
+                                      <option value='36'>Pontevedra</option>
+                                      <option value='26'>Rioja, La</option>
+                                      <option value='37'>Salamanca</option>
+                                      <option value='38'>Santa Cruz De Tenerife</option>
+                                      <option value='40'>Segovia</option>
+                                      <option value='41'>Sevilla</option>
+                                      <option value='42'>Soria</option>
+                                      <option value='43'>Tarragona</option>
+                                      <option value='44'>Teruel</option>
+                                      <option value='45'>Toledo</option>
+                                      <option value='46'>Valencia</option>
+                                      <option value='47'>Valladolid</option>
+                                      <option value='48'>Vizcaya</option>
+                                      <option value='49'>Zamora</option>
+                                      <option value='50'>Zaragoza</option>
+                                    </select>
+
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="form1-8-city">Localidad<span class="form-asterisk">*</span></label>
-                                    <input id="city" type="text" class="form-control" name="city" value="{{ Auth::user()->profile->city}}"  required>
+                                    <label class="form-control-label" for="form1-8-city">Seleccione su localidad<span class="form-asterisk">*</span></label>
+                                    <!--<input id="city" type="text" class="form-control" name="city" value="{{ Auth::user()->profile->city}}" disabled >-->
+                                    
+                                    	<select name="localidadList" id="localidadList" >
+                                    <option >Seleccione antes una provincia</option>
+                                    	</select> <span id="advice"> </span>
+
                                 </div>
                             </div>
                         </div>
