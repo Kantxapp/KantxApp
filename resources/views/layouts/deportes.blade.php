@@ -28,78 +28,39 @@
   <link rel="stylesheet" href="/assets/mobirise2/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="/assets/theme2/css/style.css">
   <script src="https://code.jquery.com/jquery-1.11.1.js" ></script>
+<style>
+/*
 
+</style>
 <script type="text/javascript">
-    var div;
+    // var modal = document.getElementById('myModal');
     
-    $(document).ready(function() {
-        
-                var container = $("#sports-wrapper").find("#box1");                   
-                container.addClass("sport-checked");                   
-        
-                var container = $("#sports-wrapper").find("#box2");                   
-                container.addClass("sport-checked");                   
-        
-                var container = $("#sports-wrapper").find("#box6");                   
-                container.addClass("sport-checked");                   
-        
-                var container = $("#sports-wrapper").find("#box11");                   
-                container.addClass("sport-checked");                   
-        
-
-        $('.deportesSort').sortElements(function(a, b){
-            return $(a).attr("sort") > $(b).attr("sort") ? 1 : -1;
-        });
-
-        $(".sport-box").tipsy({gravity:"s"});
-        
-        
-        
-        var container;
-        $(".sport-box").click(function(){                
-            div = $(this);            
-            if (div.hasClass("transparent")) return;                                
-            div.addClass("transparent");
-            var input = $(this).find("input");                
-            if($(this).hasClass("sport-checked")){ // lo tienes añadido
-                $(this).removeClass("sport-checked");                    
-                $.post("/players?delSportProfile","deporte="+input.val(),function(){div.removeClass("transparent");});
-
-            }else{ // no lo tienes añadido 
-                if (input.val() === '7'){ //padel
-                    //window.location = "/players?calculatePaddleLevelForm=1";
-                    $.fancybox({
-                        href            : '/players?calculatePaddleLevelForm=1',
-                        type		: 'iframe',
-                        height          : 550,
-                        maxHeight       : 550,
-                        afterClose : function(){
-                            window.location = "/players?myprofile";
-                        }
-                    });
-                } else {
-                    $.fancybox({
-                        type : 'ajax',
-                        href  : '/players?addFullSportProfileForm&deporte='+input.val(),
-                        afterClose : function(){
-                            div.removeClass("transparent");
-                        }
-                    })
-                }                    
-            }
-            return false;
-        });
-        My.List.Filter('#searchsport', '.namesport');
-        
-        $("#change-icons").click(function(){
-            $.ajax({
-                url : "players?changeIcons=1",
-                success : function(){
-                    window.location= "players?mySports";
-                }
-            });
-        })
-    }); 
+    // // Get the image and insert it inside the modal - use its "alt" text as a caption
+    // var img = document.getElementById('myImg');
+    // var modalImg = document.getElementById("img01");
+    // var captionText = document.getElementById("caption");
+    // img.onclick = function(){
+    //     modal.style.display = "block";
+    //     modalImg.src = this.src;
+    //     captionText.innerHTML = this.alt;
+    // }
+    
+    // // Get the <span> element that closes the modal
+    // var span = document.getElementsByClassName("close")[0];
+    
+    // // When the user clicks on <span> (x), close the modal
+    // span.onclick = function() { 
+    //     modal.style.display = "none";
+    // }
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
 </script>
   @yield('head')
 </head>
