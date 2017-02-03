@@ -13,7 +13,6 @@ namespace Psy\Command;
 
 use Psy\Formatter\DocblockFormatter;
 use Psy\Formatter\SignatureFormatter;
-use Psy\Reflection\ReflectionLanguageConstruct;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -56,26 +55,20 @@ HELP
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $value = $input->getArgument('value');
-        if (ReflectionLanguageConstruct::isLanguageConstruct($value)) {
-            $reflector = new ReflectionLanguageConstruct($value);
-            $doc = $this->getManualDocById($value);
-        } else {
-            list($target, $reflector) = $this->getTargetAndReflector($value);
-            $doc = $this->getManualDoc($reflector) ?: DocblockFormatter::format($reflector);
-        }
+        list($value, $reflector) = $this->getTargetAndReflector($input->getArgument('value'));
 
-        $db = $this->getApplication()->getManualDb();
+        $doc = $this->getManualDoc($reflector) ?: DocblockFormatter::format($reflector);
+        $db  = $this->getApplication()->getManualDb();
 
         $output->page(function ($output) use ($reflector, $doc, $db) {
             $output->writeln(SignatureFormatter::format($reflector));
-            $output->writeln('');
-
             if (empty($doc) && !$db) {
+                $output->writeln('');
                 $output->writeln('<warning>PHP manual not found</warning>');
                 $output->writeln('    To document core PHP functionality, download the PHP reference manual:');
                 $output->writeln('    https://github.com/bobthecow/psysh#downloading-the-manual');
             } else {
+                $output->writeln('');
                 $output->writeln($doc);
             }
         });
@@ -96,11 +89,6 @@ HELP
                 return false;
         }
 
-        return $this->getManualDocById($id);
-    }
-
-    private function getManualDocById($id)
-    {
         if ($db = $this->getApplication()->getManualDb()) {
             return $db
                 ->query(sprintf('SELECT doc FROM php_manual WHERE id = %s', $db->quote($id)))

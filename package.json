@@ -7,16 +7,26 @@
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
     "buble": "^0.15.2",
+    "buble-loader": "^0.4.0",
     "css-loader": "^0.26.1",
     "gulp": "^3.9.1",
     "jquery": "^3.1.0",
+    "laravel-echo": "^1.2.3",
     "laravel-elixir": "^6.0.0-9",
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.16.2",
+    "noty": "^2.4.0",
+    "pusher-js": "^4.0.0",
     "vue": "^2.0.1",
     "vue-loader": "^10.0.2",
     "vue-resource": "^1.0.3",
     "vue-template-compiler": "^2.1.10"
+  },
+  "dependencies": {
+    "algoliasearch": "^3.20.4",
+    "laravel-echo": "^1.2.3",
+    "pusher-js": "^4.0.0",
+    "vuex": "^2.1.1"
   }
 }

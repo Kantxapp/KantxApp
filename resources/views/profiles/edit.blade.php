@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 @if (Auth::user()->avatar == null)
-<section class="mbr-section article mbr-parallax-background mbr-after-navbar" id="msg-box8-6" style="background-image: url(https://cdn.pixabay.com/photo/2014/10/14/20/24/the-ball-488714_960_720.jpg); padding-top: 160px; padding-bottom: 80px;">
+<section class="mbr-section article mbr-parallax-background mbr-after-navbar" id="msg-box8-6" style="background-image: url(/assets/images/edit_top.jpg); padding-top: 160px; padding-bottom: 80px;">
 @else
 <section class="mbr-section article mbr-parallax-background mbr-after-navbar" id="msg-box8-6" style="background-image: url({{ Auth::user()->avatar}}); padding-top: 160px; padding-bottom: 60px;">
 
@@ -79,11 +79,22 @@
                         </div>
                         <div class="row row-sm-offset">
                             <div class="col-xs-12 col-md-4">
-                               <div class="form-group">
+                            <!--    <div class="form-group">-->
+                            <!--        <label class="form-control-label" for="form1-8-province">Provincia<span class="form-asterisk">*</span></label>-->
+                            <!--        <input id="province" type="text" class="form-control" name="province" value="{{ Auth::user()->profile->province}}" required >-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-12 col-md-4">-->
+                            <!--    <div class="form-group">-->
+                            <!--        <label class="form-control-label" for="form1-8-city">Localidad<span class="form-asterisk">*</span></label>-->
+                            <!--        <input id="city" type="text" class="form-control" name="city" value="{{ Auth::user()->profile->city}}"  required>-->
+                            <!--    </div>-->
+                            <!--</div>-->
+                            <div class="form-group">
                                     <!--/<label class="form-control-label" for="form1-8-province">Provincia<span class="form-asterisk">*</span></label>-->
                                     <!--<input id="province" type="text" class="form-control" name="province" value="{{ Auth::user()->profile->province}}" disabled >-->
                                     <label class="form-control-label" for="form1-8-province">Seleccione su provincia<span class="form-asterisk">*</span></label>
-                                    <select name="provinciaList" id="provinciaList" onChange="return provinciaListOnChange()">
+                                    <select name="province" id="provinciaList" onChange="return provinciaListOnChange()">
                                       <option >Seleccione su provincia...</option>		
                                       <option value='01'>Alava</option>
                                       <option value='02'>Albacete</option>
@@ -146,13 +157,14 @@
                                     <label class="form-control-label" for="form1-8-city">Seleccione su localidad<span class="form-asterisk">*</span></label>
                                     <!--<input id="city" type="text" class="form-control" name="city" value="{{ Auth::user()->profile->city}}" disabled >-->
                                     
-                                    	<select name="localidadList" id="localidadList" >
+                                    	<select name="city" id="localidadList" >
                                     <option >Seleccione antes una provincia</option>
                                     	</select> <span id="advice"> </span>
 
                                 </div>
                             </div>
                         </div>
+                        
 
                         <div class="form-group">
                             <label class="form-control-label" for="form1-8-message">Sobre Mí</label>

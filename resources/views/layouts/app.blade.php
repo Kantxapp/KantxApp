@@ -27,174 +27,48 @@
   <link rel="stylesheet" href="/assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="/assets/mobirise2/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="/assets/theme2/css/style.css">
-  <script src="https://code.jquery.com/jquery-1.11.1.js" ></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-  var XmlHttpObj;
-  var Utf8 = {
-    //Convierte de UTF-8 a ISO
-    decode : function (utftext) {
-        var string = "";
-        var i = 0;
-        var c = c1 = c2 = 0;
-
-        while ( i < utftext.length ) {
-
-            c = utftext.charCodeAt(i);
-
-            if (c < 128) {
-                string += String.fromCharCode(c);
-                i++;
-            }
-            else if((c > 191) && (c < 224)) {
-                c2 = utftext.charCodeAt(i+1);
-                string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
-                i += 2;
-            }
-            else {
-                c2 = utftext.charCodeAt(i+1);
-                c3 = utftext.charCodeAt(i+2);
-                string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-                i += 3;
-            }
-
-        }
-
-        return string;
-    }
-
-}
-
-function CreateXmlHttpObj()
-{
-	try
-	{
-		XmlHttpObj = new ActiveXObject("Msxml2.XMLHTTP");
-	
-	}
-	catch(e)
-	{
-		try
-		{
-			XmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");
-		} 
-		catch(oc)
-		{
-			XmlHttpObj = null;
-		}
-	}
-		if(!XmlHttpObj && typeof XMLHttpRequest != "undefined") 
-	{
-		XmlHttpObj = new XMLHttpRequest();
-	}
-}
-
-function provinciaListOnChange() {
-
-    var provinciaList = document.getElementById("provinciaList");
- 
-    var selectedprovincia = provinciaList.options[provinciaList.selectedIndex].value;
-    var requestUrl;
-
-    //requestUrl = "data.php" + "?filter=" + encodeURIComponent(selectedprovincia);
-    requestUrl = "/localidades/" + selectedprovincia;
-    
-	CreateXmlHttpObj();
-	
-	if(XmlHttpObj)
-	{
-	
-		XmlHttpObj.onreadystatechange = StateChangeHandler;
-		XmlHttpObj.open( "GET", requestUrl, true );
-		XmlHttpObj.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-		XmlHttpObj.send("");		
-	}
-}
-
-
-function StateChangeHandler()
-{
-	if(XmlHttpObj.readyState == 4)
-	{
-		if(XmlHttpObj.status == 200)
-		{			
-			PopulatelocalidadList(XmlHttpObj.responseXML.documentElement);
-		}
-		else
-		{
-			alert("Código de error: "  + XmlHttpObj.status);
-		}
-	}
-}
-
-function PopulatelocalidadList(localidadNode)
-{	
-    var localidadList = document.getElementById("localidadList");
-	for (var count = localidadList.options.length-1; count >-1; count--)
-	{
-		localidadList.options[count] = null;
-	}
-
-	var localidadNodes = localidadNode.getElementsByTagName('localidad');
-	var textValue; 
-	var optionItem;
-	for (var count = 0; count < localidadNodes.length; count++)
-	{ 
-   		textValue = Utf8.decode(GetInnerText(localidadNodes[count]));
-		idValue=count;		
-		optionItem = new Option( textValue, textValue,  false, false);
-		localidadList.options[localidadList.length] = optionItem;
-	}
-var to=document.getElementById("advice");
-to.innerHTML="";
-}
-
-function GetInnerText (node)
-{
-	 return (node.textContent || node.innerText || node.text) ;
-}
-
-
-</script>
+  <script>
+  
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+  </script>
+  
   @yield('head')
 </head>
-<body @yield('body')>
-<section id="menu-2">
+<body @yield('body') >
+<div class="vue">
+    <section id="menu-2">
 
-    <nav class="navbar navbar-dropdown navbar-fixed-top" style="background: #88b04b;">
+    <nav class="navbar navbar-dropdown navbar-fixed-top app" style="background: #88b04b;">
         <div class="container">
 
             <div class="mbr-table">
                 <div class="mbr-table-cell">
 
                     <div class="navbar-brand">
-                        <a href="/" class="navbar-logo"><img src="/assets/images/logo-128x128-81.png" alt="logo_kantxapp"></a>
+                        <a href="/home" class="navbar-logo"><img src="/assets/images/logo-128x128-81.png" alt="logo_kantxapp"></a>
                         <a class="navbar-caption text-white"@yield('kantxcolor') href="/home">KANTXAPP</a>
-                        
                     </div>
-                    
+
                 </div>
-                
                 <div class="mbr-table-cell">
 
                     <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                         <div class="hamburger-icon"></div>
                     </button>
-                    
+
                     <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
-                        
-                         <li class="nav-item"><a class="nav-link link" href="/partidas">Partidas y Eventos</a></li>
-                         <li class="nav-item"><a class="nav-link link" href="/deportes">Deportes</a></li>
-                         <li class="nav-item"><a class="nav-link link" href="/campos">Campos</a></li>
-                         
-                         <form class="navbar-form navbar-left">
-                            <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Buscar" />
-                             
-                            </div>
-                            <!--<button type="submit" class="btn btn-default">Submit</button>-->
-                         </form>
-                        
+                        <li class="nav-item"><a class="nav-link link" href="{{ route('events') }}">Partidas y Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link link" href="{{ route('sports') }}">Deportes</a></li>
+                        <li class="nav-item"><a class="nav-link link" href="{{ route('kantxas') }}">Kantxas</a></li>
+
                         <li class="nav-item dropdown open">
                             <a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="https://mobirise.com/" aria-expanded="true">
                                 @if (Auth::user()->avatar == null)
@@ -204,16 +78,23 @@ function GetInnerText (node)
                                     @endif
                                     {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="{{ route('account.show') }}">Mi Cuenta</a>
+
+                            <div class="dropdown-menu">
+                            
+                            <a class="dropdown-item" href="{{ route('account.show') }}">Mi Cuenta</a>
                             <a class="dropdown-item" href="{{ route('profile',['slug' => Auth::user()->slug]) }}">Mi Perfil</a>
                             <a class="dropdown-item" href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Salir</a>
                                                      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
+                                                        {{ csrf_field() }}
+                                                     </form>
                             </div>
+                            
                         </li>
+                        <li class="nav-item"><unread></unread></li>
+                        
+                        
                     </ul>
                     <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                         <div class="close-icon"></div>
@@ -227,6 +108,8 @@ function GetInnerText (node)
 
 </section>
 @yield('content')
+<search></search>    
+
 <section class="mbr-section mbr-section-md-padding mbr-footer footer1" id="contacts1-i" style="background-color: rgb(46, 46, 46); padding-top: 90px; padding-bottom: 90px;">
     
     <div class="container">
@@ -263,17 +146,32 @@ Fax: +34 943 999 888</p>
     </div>
 </footer>
 
+        <init></init>
+        @if(Auth::check())
+            <notification :id="{{ Auth::id() }}"></notification>
+        @endif
+        <audio id="noty_audio">
+            <source src="{{ asset('audio/notify.mp3') }}">
+            <source src="{{ asset('audio/notify.ogg') }}">
+            <source src="{{ asset('audio/notify.wav') }}">
+        </audio>
+</div>
 
   <script src="/assets/web/assets/jquery/jquery.min.js"></script>
   <script src="/assets/tether/tether.min.js"></script>
   <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="/assets/smooth-scroll/SmoothScroll.js"></script>
   <script src="/assets/viewportChecker/jquery.viewportchecker.js"></script>
+  <script src="/assets/jarallax/jarallax.js"></script>
   <script src="/assets/jquery-mb-ytplayer/jquery.mb.YTPlayer.min.js"></script>
   <script src="/assets/social-likes/social-likes.js"></script>
   <script src="/assets/dropdown/js/script.min.js"></script>
   <script src="/assets/touchSwipe/jquery.touchSwipe.min.js"></script>
   <script src="/assets/theme/js/script.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/location.js"></script>
+
+  
   @yield('script')
   
   

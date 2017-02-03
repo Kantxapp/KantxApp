@@ -13,8 +13,18 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+
+Vue.component('init', require('./components/Init.vue'));
+Vue.component('feed', require('./components/Feed.vue'));
+Vue.component('post', require('./components/Post.vue'));
+Vue.component('search', require('./components/Search.vue'));
+Vue.component('friend', require('./components/Friend.vue'));
+Vue.component('unread', require('./components/UnreadNots.vue'));
+Vue.component('notification', require('./components/Notification.vue'));
+
+import { store } from './store'
 
 const app = new Vue({
-    el: '#app'
+    el: '.vue',
+    store
 });

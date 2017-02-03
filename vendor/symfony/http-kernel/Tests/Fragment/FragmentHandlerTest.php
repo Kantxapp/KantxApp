@@ -74,7 +74,7 @@ class FragmentHandlerTest extends \PHPUnit_Framework_TestCase
 
     protected function getHandler($returnValue, $arguments = array())
     {
-        $renderer = $this->getMockBuilder('Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface')->getMock();
+        $renderer = $this->getMock('Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface');
         $renderer
             ->expects($this->any())
             ->method('getName')

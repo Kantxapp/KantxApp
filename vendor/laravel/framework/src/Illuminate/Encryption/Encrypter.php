@@ -61,7 +61,7 @@ class Encrypter implements EncrypterContract
     /**
      * Encrypt the given value.
      *
-     * @param  mixed  $value
+     * @param  string  $value
      * @return string
      *
      * @throws \Illuminate\Contracts\Encryption\EncryptException
@@ -93,7 +93,7 @@ class Encrypter implements EncrypterContract
     /**
      * Decrypt the given value.
      *
-     * @param  mixed  $payload
+     * @param  string  $payload
      * @return string
      *
      * @throws \Illuminate\Contracts\Encryption\DecryptException
@@ -117,7 +117,7 @@ class Encrypter implements EncrypterContract
      * Create a MAC for the given value.
      *
      * @param  string  $iv
-     * @param  mixed  $value
+     * @param  string  $value
      * @return string
      */
     protected function hash($iv, $value)

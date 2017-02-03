@@ -21,14 +21,14 @@ abstract class AbstractAdapter implements AdapterInterface
      *
      * @param string $prefix
      *
-     * @return void
+     * @return self
      */
     public function setPathPrefix($prefix)
     {
         $is_empty = empty($prefix);
 
         if ( ! $is_empty) {
-            $prefix = rtrim($prefix, '\\/') . $this->pathSeparator;
+            $prefix = rtrim($prefix, $this->pathSeparator) . $this->pathSeparator;
         }
 
         $this->pathPrefix = $is_empty ? null : $prefix;

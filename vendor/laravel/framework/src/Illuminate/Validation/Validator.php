@@ -10,9 +10,9 @@ use Throwable;
 use DateTimeZone;
 use RuntimeException;
 use DateTimeInterface;
-use BadMethodCallException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use BadMethodCallException;
 use InvalidArgumentException;
 use Illuminate\Support\Fluent;
 use Illuminate\Support\MessageBag;
@@ -620,13 +620,7 @@ class Validator implements ValidatorContract
     protected function passesOptionalCheck($attribute)
     {
         if ($this->hasRule($attribute, ['Sometimes'])) {
-            $data = Arr::dot($this->initializeAttributeOnData($attribute));
-
-            $data = array_merge($data, $this->extractValuesForWildcards(
-                $data, $attribute
-            ));
-
-            return array_key_exists($attribute, $data)
+            return array_key_exists($attribute, Arr::dot($this->data))
                 || in_array($attribute, array_keys($this->data));
         }
 
@@ -1338,10 +1332,8 @@ class Validator implements ValidatorContract
 
         $attributeData = $this->extractDataFromPath($explicitPath);
 
-        $pattern = str_replace('\*', '[^.]+', preg_quote($attributeName, '#'));
-
-        $data = Arr::where(Arr::dot($attributeData), function ($value, $key) use ($attribute, $attributeName, $pattern) {
-            return $key != $attribute && (bool) preg_match('#^'.$pattern.'\z#u', $key);
+        $data = Arr::where(Arr::dot($attributeData), function ($value, $key) use ($attribute, $attributeName) {
+            return $key != $attribute && Str::is($attributeName, $key);
         });
 
         return ! in_array($value, array_values($data));
@@ -1402,6 +1394,7 @@ class Validator implements ValidatorContract
 
         return $verifier->getCount(
             $table, $column, $value, $id, $idColumn, $extra
+
         ) == 0;
     }
 
@@ -2237,7 +2230,7 @@ class Validator implements ValidatorContract
             }
 
             $line = Arr::get(
-                $this->translator->trans('validation.attributes'),
+                $this->translator->get('validation.attributes'),
                 $expectedAttributeName
             );
 

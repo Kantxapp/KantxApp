@@ -2,10 +2,10 @@
 
 namespace PhpParser\Serializer;
 
-use PhpParser\Comment;
-use PhpParser\Node;
-use PhpParser\Serializer;
 use XMLWriter;
+use PhpParser\Node;
+use PhpParser\Comment;
+use PhpParser\Serializer;
 
 class XML implements Serializer
 {

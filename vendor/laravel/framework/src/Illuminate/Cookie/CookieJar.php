@@ -21,7 +21,7 @@ class CookieJar implements JarContract
      *
      * @var string
      */
-    protected $domain;
+    protected $domain = null;
 
     /**
      * The default secure setting (defaults to false).

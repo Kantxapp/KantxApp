@@ -52,14 +52,7 @@ class CookieTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidExpiration()
     {
-        new Cookie('MyCookie', 'foo', 'bar');
-    }
-
-    public function testNegativeExpirationIsNotPossible()
-    {
-        $cookie = new Cookie('foo', 'bar', -100);
-
-        $this->assertSame(0, $cookie->getExpiresTime());
+        $cookie = new Cookie('MyCookie', 'foo', 'bar');
     }
 
     public function testGetValue()
@@ -82,13 +75,6 @@ class CookieTest extends \PHPUnit_Framework_TestCase
         $cookie = new Cookie('foo', 'bar', 3600);
 
         $this->assertEquals(3600, $cookie->getExpiresTime(), '->getExpiresTime() returns the expire date');
-    }
-
-    public function testGetExpiresTimeIsCastToInt()
-    {
-        $cookie = new Cookie('foo', 'bar', 3600.9);
-
-        $this->assertSame(3600, $cookie->getExpiresTime(), '->getExpiresTime() returns the expire date as an integer');
     }
 
     public function testConstructorWithDateTime()
@@ -157,23 +143,21 @@ class CookieTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         $cookie = new Cookie('foo', 'bar', strtotime('Fri, 20-May-2011 15:25:52 GMT'), '/', '.myfoodomain.com', true);
-        $this->assertEquals('foo=bar; expires=Fri, 20-May-2011 15:25:52 GMT; path=/; domain=.myfoodomain.com; secure; httponly', (string) $cookie, '->__toString() returns string representation of the cookie');
+        $this->assertEquals('foo=bar; expires=Fri, 20-May-2011 15:25:52 GMT; path=/; domain=.myfoodomain.com; secure; httponly', $cookie->__toString(), '->__toString() returns string representation of the cookie');
 
         $cookie = new Cookie('foo', null, 1, '/admin/', '.myfoodomain.com');
-        $this->assertEquals('foo=deleted; expires='.gmdate('D, d-M-Y H:i:s T', time() - 31536001).'; path=/admin/; domain=.myfoodomain.com; httponly', (string) $cookie, '->__toString() returns string representation of a cleared cookie if value is NULL');
+        $this->assertEquals('foo=deleted; expires='.gmdate('D, d-M-Y H:i:s T', time() - 31536001).'; path=/admin/; domain=.myfoodomain.com; httponly', $cookie->__toString(), '->__toString() returns string representation of a cleared cookie if value is NULL');
 
         $cookie = new Cookie('foo', 'bar', 0, '/', '');
-        $this->assertEquals('foo=bar; path=/; httponly', (string) $cookie);
+        $this->assertEquals('foo=bar; path=/; httponly', $cookie->__toString());
     }
 
     public function testRawCookie()
     {
-        $cookie = new Cookie('foo', 'b a r', 0, '/', null, false, false);
+        $cookie = new Cookie('foo', 'bar', 3600, '/', '.myfoodomain.com', false, true);
         $this->assertFalse($cookie->isRaw());
-        $this->assertEquals('foo=b+a+r; path=/', (string) $cookie);
 
-        $cookie = new Cookie('foo', 'b+a+r', 0, '/', null, false, false, true);
+        $cookie = new Cookie('foo', 'bar', 3600, '/', '.myfoodomain.com', false, true, true);
         $this->assertTrue($cookie->isRaw());
-        $this->assertEquals('foo=b+a+r; path=/', (string) $cookie);
     }
 }

@@ -708,9 +708,7 @@ class MySqlGrammar extends Grammar
      */
     protected function modifyNullable(Blueprint $blueprint, Fluent $column)
     {
-        if (is_null($column->virtualAs) && is_null($column->storedAs)) {
-            return $column->nullable ? ' null' : ' not null';
-        }
+        return $column->nullable ? ' null' : ' not null';
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App;
 
 use Storage;
 use App\Traits\Friendable;
+use Laravel\Scout\Searchable;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,6 +13,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use Friendable;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -35,11 +37,11 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Profile');
     }
-    // public function posts()
-    // {
-    //     return $this->hasMany('App\Post')
-    //                 ->orderBy('created_at');
-    // }
+    public function posts()
+    {
+        return $this->hasMany('App\Post')
+                    ->orderBy('created_at');
+    }
     // public function getAvatarAttribute($avatar)
     // {
     //     return asset(Storage::url($avatar));

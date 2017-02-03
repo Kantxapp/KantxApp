@@ -11,8 +11,8 @@ use DateTimeInterface;
 use Illuminate\Support\Arr;
 use Illuminate\Database\Query\Expression;
 use Illuminate\Contracts\Events\Dispatcher;
-use Doctrine\DBAL\Connection as DoctrineConnection;
 use Illuminate\Database\Query\Processors\Processor;
+use Doctrine\DBAL\Connection as DoctrineConnection;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Schema\Builder as SchemaBuilder;
 use Illuminate\Database\Query\Grammars\Grammar as QueryGrammar;
@@ -290,12 +290,11 @@ class Connection implements ConnectionInterface
      *
      * @param  string  $query
      * @param  array   $bindings
-     * @param  bool  $useReadPdo
      * @return mixed
      */
-    public function selectOne($query, $bindings = [], $useReadPdo = true)
+    public function selectOne($query, $bindings = [])
     {
-        $records = $this->select($query, $bindings, $useReadPdo);
+        $records = $this->select($query, $bindings);
 
         return count($records) > 0 ? reset($records) : null;
     }

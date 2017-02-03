@@ -2,14 +2,13 @@
 
 namespace Illuminate\Notifications\Events;
 
-use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class BroadcastNotificationCreated implements ShouldBroadcast
 {
-    use Queueable, SerializesModels;
+    use SerializesModels;
 
     /**
      * The notifiable entity who received the notification.

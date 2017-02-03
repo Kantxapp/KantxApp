@@ -82,7 +82,7 @@ class ForkingLoop extends Loop
         fwrite($up, $this->serializeReturn($shell->getScopeVariables()));
         fclose($up);
 
-        posix_kill(posix_getpid(), SIGKILL);
+        exit;
     }
 
     /**

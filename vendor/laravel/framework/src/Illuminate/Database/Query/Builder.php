@@ -1847,9 +1847,7 @@ class Builder
         $lastId = 0;
 
         do {
-            $clone = clone $this;
-
-            $results = $clone->forPageAfterId($count, $lastId, $column)->get();
+            $results = $this->forPageAfterId($count, $lastId, $column)->get();
 
             $countResults = $results->count();
 

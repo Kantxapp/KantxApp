@@ -86,7 +86,7 @@ abstract class AbstractDescriptorTest extends \PHPUnit_Framework_TestCase
 
     abstract protected function getFormat();
 
-    protected function getDescriptionTestData(array $objects)
+    private function getDescriptionTestData(array $objects)
     {
         $data = array();
         foreach ($objects as $name => $object) {

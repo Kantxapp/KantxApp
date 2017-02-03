@@ -29,10 +29,7 @@ if (empty($files)) {
 $lexer = new PhpParser\Lexer\Emulative(array('usedAttributes' => array(
     'startLine', 'endLine', 'startFilePos', 'endFilePos', 'comments'
 )));
-$parser = (new PhpParser\ParserFactory)->create(
-    PhpParser\ParserFactory::PREFER_PHP7,
-    $lexer
-);
+$parser = (new PhpParser\ParserFactory)->create(PhpParser\ParserFactory::PREFER_PHP7, $lexer);
 $dumper = new PhpParser\NodeDumper(['dumpComments' => true]);
 $prettyPrinter = new PhpParser\PrettyPrinter\Standard;
 $serializer = new PhpParser\Serializer\XML;
@@ -53,23 +50,20 @@ foreach ($files as $file) {
         echo "====> File $file:\n";
     }
 
-    if ($attributes['with-recovery']) {
-        $errorHandler = new PhpParser\ErrorHandler\Collecting;
-        $stmts = $parser->parse($code, $errorHandler);
-        foreach ($errorHandler->getErrors() as $error) {
-            $message = formatErrorMessage($error, $code, $attributes['with-column-info']);
-            echo $message . "\n";
+    try {
+        $stmts = $parser->parse($code);
+    } catch (PhpParser\Error $e) {
+        if ($attributes['with-column-info'] && $e->hasColumnInfo()) {
+            $startLine = $e->getStartLine();
+            $endLine = $e->getEndLine();
+            $startColumn = $e->getStartColumn($code);
+            $endColumn   = $e->getEndColumn($code);
+            $message .= $e->getRawMessage() . " from $startLine:$startColumn to $endLine:$endColumn";
+        } else {
+            $message = $e->getMessage();
         }
-        if (null === $stmts) {
-            continue;
-        }
-    } else {
-        try {
-            $stmts = $parser->parse($code);
-        } catch (PhpParser\Error $error) {
-            $message = formatErrorMessage($error, $code, $attributes['with-column-info']);
-            die($message . "\n");
-        }
+
+        die($message . "\n");
     }
 
     foreach ($operations as $operation) {
@@ -92,14 +86,6 @@ foreach ($files as $file) {
     }
 }
 
-function formatErrorMessage(PhpParser\Error $e, $code, $withColumnInfo) {
-    if ($withColumnInfo && $e->hasColumnInfo()) {
-        return $e->getMessageWithColumnInfo($code);
-    } else {
-        return $e->getMessage();
-    }
-}
-
 function showHelp($error = '') {
     if ($error) {
         echo $error . "\n\n";
@@ -117,7 +103,6 @@ Operations is a list of the following options (--dump by default):
         --var-dump          var_dump() nodes (for exact structure)
     -N, --resolve-names     Resolve names using NodeVisitor\NameResolver
     -c, --with-column-info  Show column-numbers for errors (if available)
-    -r, --with-recovery     Use parsing with error recovery
     -h, --help              Display this page
 
 Example:
@@ -134,8 +119,7 @@ function parseArgs($args) {
     $operations = array();
     $files = array();
     $attributes = array(
-        'with-column-info'    => false,
-        'with-recovery' => false,
+        'with-column-info' => false,
     );
 
     array_shift($args);
@@ -168,10 +152,6 @@ function parseArgs($args) {
             case '--with-column-info':
             case '-c';
                 $attributes['with-column-info'] = true;
-                break;
-            case '--with-recovery':
-            case '-r':
-                $attributes['with-recovery'] = true;
                 break;
             case '--help':
             case '-h';

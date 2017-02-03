@@ -6,11 +6,10 @@ use Aws\Ses\SesClient;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Manager;
 use GuzzleHttp\Client as HttpClient;
-use Swift_MailTransport as MailTransport;
 use Swift_SmtpTransport as SmtpTransport;
+use Swift_MailTransport as MailTransport;
 use Illuminate\Mail\Transport\LogTransport;
 use Illuminate\Mail\Transport\SesTransport;
-use Illuminate\Mail\Transport\ArrayTransport;
 use Illuminate\Mail\Transport\MailgunTransport;
 use Illuminate\Mail\Transport\MandrillTransport;
 use Illuminate\Mail\Transport\SparkPostTransport;
@@ -149,16 +148,6 @@ class TransportManager extends Manager
     protected function createLogDriver()
     {
         return new LogTransport($this->app->make('Psr\Log\LoggerInterface'));
-    }
-
-    /**
-     * Create an instance of the Array Swift Transport Driver.
-     *
-     * @return \Illuminate\Mail\Transport\ArrayTransport
-     */
-    protected function createArrayDriver()
-    {
-        return new ArrayTransport;
     }
 
     /**

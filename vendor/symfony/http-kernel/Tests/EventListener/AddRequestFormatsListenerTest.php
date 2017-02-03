@@ -64,7 +64,7 @@ class AddRequestFormatsListenerTest extends \PHPUnit_Framework_TestCase
 
     protected function getRequestMock()
     {
-        return $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')->getMock();
+        return $this->getMock('Symfony\Component\HttpFoundation\Request');
     }
 
     protected function getGetResponseEventMock(Request $request)

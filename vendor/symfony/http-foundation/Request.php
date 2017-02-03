@@ -261,7 +261,7 @@ class Request
     /**
      * Creates a new request with values from PHP's super globals.
      *
-     * @return static
+     * @return Request A new request
      */
     public static function createFromGlobals()
     {
@@ -304,7 +304,7 @@ class Request
      * @param array  $server     The server parameters ($_SERVER)
      * @param string $content    The raw body data
      *
-     * @return static
+     * @return Request A Request instance
      */
     public static function create($uri, $method = 'GET', $parameters = array(), $cookies = array(), $files = array(), $server = array(), $content = null)
     {
@@ -422,7 +422,7 @@ class Request
      * @param array $files      The FILES parameters
      * @param array $server     The SERVER parameters
      *
-     * @return static
+     * @return Request The duplicated request
      */
     public function duplicate(array $query = null, array $request = null, array $attributes = null, array $cookies = null, array $files = null, array $server = null)
     {
@@ -1475,21 +1475,15 @@ class Request
     /**
      * Checks whether the method is safe or not.
      *
-     * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
-     *
-     * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
-     *
      * @return bool
      */
-    public function isMethodSafe(/* $andCacheable = true */)
+    public function isMethodSafe()
     {
-        return in_array($this->getMethod(), 0 < func_num_args() && !func_get_arg(0) ? array('GET', 'HEAD', 'OPTIONS', 'TRACE') : array('GET', 'HEAD'));
+        return in_array($this->getMethod(), array('GET', 'HEAD', 'OPTIONS', 'TRACE'));
     }
 
     /**
      * Checks whether the method is cacheable or not.
-     *
-     * @see https://tools.ietf.org/html/rfc7231#section-4.2.3
      *
      * @return bool
      */

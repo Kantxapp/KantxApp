@@ -26,8 +26,5 @@
             "dev-master": "5.3-dev"
         }
     },
-    "config": {
-        "sort-packages": true
-    },
     "minimum-stability": "dev"
 }

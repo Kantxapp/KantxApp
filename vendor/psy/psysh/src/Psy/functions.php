@@ -11,7 +11,6 @@
 
 namespace Psy;
 
-use Psy\VersionUpdater\Checker;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputDefinition;
@@ -50,15 +49,6 @@ if (!function_exists('Psy\info')) {
             // 'config dir'  => $config->getConfigDir(),
             // 'data dir'    => $config->getDataDir(),
             // 'runtime dir' => $config->getRuntimeDir(),
-        );
-
-        // Use an explicit, fresh update check here, rather than relying on whatever is in $config.
-        $checker = new Checker();
-        $updates = array(
-            'update available'       => !$checker->isLatest(),
-            'latest release version' => $checker->getLatest(),
-            'update check interval'  => $config->getUpdateCheck(),
-            'update cache file'      => $config->getUpdateCheckCacheFile(),
         );
 
         if ($config->hasReadline()) {
@@ -129,7 +119,7 @@ if (!function_exists('Psy\info')) {
             'custom matchers'        => array_map('get_class', $config->getTabCompletionMatchers()),
         );
 
-        return array_merge($core, compact('updates', 'pcntl', 'readline', 'history', 'docs', 'autocomplete'));
+        return array_merge($core, compact('pcntl', 'readline', 'history', 'docs', 'autocomplete'));
     }
 }
 

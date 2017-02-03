@@ -137,10 +137,6 @@ EOTXT;
 
     public function testJsonCast()
     {
-        if (ini_get('xdebug.overload_var_dump') == 2) {
-            $this->markTestSkipped('xdebug is active');
-        }
-
         $data = (array) json_decode('{"1":{}}');
 
         $cloner = new VarCloner();

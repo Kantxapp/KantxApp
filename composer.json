@@ -13,7 +13,13 @@
         "codecourse/notify": "^1.1",
         "intervention/image": "^2.3",
         "aloha/twilio": "^3.0",
-        "genealabs/phpgmaps": "~0.3.0"
+        "ext-gd": "^7.0",
+        "pusher/pusher-php-server": "^2.6",
+        "vinkla/pusher": "^2.5",
+        "laravel/scout": "2.0.2",
+        "algolia/algoliasearch-client-php": "^1.13",
+        "genealabs/phpgmaps": "^0.3.9"
+        
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -54,5 +60,4 @@
     "config": {
         "preferred-install": "dist"
     }
-
 }

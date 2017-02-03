@@ -60,22 +60,12 @@ class File extends AbstractNode
     /**
      * @var int
      */
-    private $numClasses = null;
+    private $numTestedTraits = 0;
 
     /**
      * @var int
      */
     private $numTestedClasses = 0;
-
-    /**
-     * @var int
-     */
-    private $numTraits = null;
-
-    /**
-     * @var int
-     */
-    private $numTestedTraits = 0;
 
     /**
      * @var int
@@ -233,21 +223,7 @@ class File extends AbstractNode
      */
     public function getNumClasses()
     {
-        if ($this->numClasses === null) {
-            $this->numClasses = 0;
-
-            foreach ($this->classes as $class) {
-                foreach ($class['methods'] as $method) {
-                    if ($method['executableLines'] > 0) {
-                        $this->numClasses++;
-
-                        continue 2;
-                    }
-                }
-            }
-        }
-
-        return $this->numClasses;
+        return count($this->classes);
     }
 
     /**
@@ -267,21 +243,7 @@ class File extends AbstractNode
      */
     public function getNumTraits()
     {
-        if ($this->numTraits === null) {
-            $this->numTraits = 0;
-
-            foreach ($this->traits as $trait) {
-                foreach ($trait['methods'] as $method) {
-                    if ($method['executableLines'] > 0) {
-                        $this->numTraits++;
-
-                        continue 2;
-                    }
-                }
-            }
-        }
-
-        return $this->numTraits;
+        return count($this->traits);
     }
 
     /**
@@ -522,12 +484,12 @@ class File extends AbstractNode
             if ($trait['executableLines'] > 0) {
                 $trait['coverage'] = ($trait['executedLines'] /
                         $trait['executableLines']) * 100;
-
-                if ($trait['coverage'] == 100) {
-                    $this->numTestedClasses++;
-                }
             } else {
                 $trait['coverage'] = 100;
+            }
+
+            if ($trait['coverage'] == 100) {
+                $this->numTestedClasses++;
             }
 
             $trait['crap'] = $this->crap(
@@ -556,12 +518,12 @@ class File extends AbstractNode
             if ($class['executableLines'] > 0) {
                 $class['coverage'] = ($class['executedLines'] /
                         $class['executableLines']) * 100;
-
-                if ($class['coverage'] == 100) {
-                    $this->numTestedClasses++;
-                }
             } else {
                 $class['coverage'] = 100;
+            }
+
+            if ($class['coverage'] == 100) {
+                $this->numTestedClasses++;
             }
 
             $class['crap'] = $this->crap(

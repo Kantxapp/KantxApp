@@ -13,7 +13,6 @@ namespace Psy\ExecutionLoop;
 
 use Psy\Configuration;
 use Psy\Exception\BreakException;
-use Psy\Exception\ErrorException;
 use Psy\Exception\ThrowUpException;
 use Psy\Exception\TypeErrorException;
 use Psy\Shell;
@@ -41,7 +40,7 @@ class Loop
     /**
      * Run the execution loop.
      *
-     * @throws ThrowUpException if thrown by the `throw-up` command
+     * @throws ThrowUpException if thrown by the `throw-up` command.
      *
      * @param Shell $shell
      */
@@ -105,12 +104,6 @@ class Loop
                         ob_end_clean();
                     }
                     $__psysh__->writeException(TypeErrorException::fromTypeError($_e));
-                } catch (\Error $_e) {
-                    restore_error_handler();
-                    if (ob_get_level() > 0) {
-                        ob_end_clean();
-                    }
-                    $__psysh__->writeException(ErrorException::fromError($_e));
                 } catch (\Exception $_e) {
                     restore_error_handler();
                     if (ob_get_level() > 0) {

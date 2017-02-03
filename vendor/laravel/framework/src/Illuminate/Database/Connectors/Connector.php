@@ -112,25 +112,10 @@ class Connector
      */
     protected function createPdoConnection($dsn, $username, $password, $options)
     {
-        if (class_exists(PDOConnection::class) && ! $this->isPersistentConnection($options)) {
+        if (class_exists(PDOConnection::class)) {
             return new PDOConnection($dsn, $username, $password, $options);
         }
 
         return new PDO($dsn, $username, $password, $options);
-    }
-
-    /**
-     * Determine if the connection is persistent.
-     *
-     * @param  array  $options
-     * @return bool
-     */
-    protected function isPersistentConnection($options)
-    {
-        if (isset($options[PDO::ATTR_PERSISTENT]) && $options[PDO::ATTR_PERSISTENT]) {
-            return true;
-        }
-
-        return false;
     }
 }

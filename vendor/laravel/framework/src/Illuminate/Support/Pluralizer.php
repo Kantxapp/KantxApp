@@ -22,7 +22,6 @@ class Pluralizer
         'education',
         'emoji',
         'equipment',
-        'evidence',
         'feedback',
         'fish',
         'furniture',

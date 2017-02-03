@@ -388,7 +388,7 @@ class Builder
             // On each chunk result set, we will pass them to the callback and then let the
             // developer take care of everything within the callback, which allows us to
             // keep the memory low for spinning through large result sets for working.
-            if ($callback($results) === false) {
+            if (call_user_func($callback, $results) === false) {
                 return false;
             }
 
@@ -411,9 +411,7 @@ class Builder
         $lastId = 0;
 
         do {
-            $clone = clone $this;
-
-            $results = $clone->forPageAfterId($count, $lastId, $column)->get();
+            $results = $this->forPageAfterId($count, $lastId, $column)->get();
 
             $countResults = $results->count();
 
@@ -421,7 +419,7 @@ class Builder
                 break;
             }
 
-            if ($callback($results) === false) {
+            if (call_user_func($callback, $results) === false) {
                 return false;
             }
 
@@ -598,9 +596,7 @@ class Builder
     public function delete()
     {
         if (isset($this->onDelete)) {
-            $closure = $this->onDelete;
-
-            return $closure($this);
+            return call_user_func($this->onDelete, $this);
         }
 
         return $this->toBase()->delete();
@@ -679,7 +675,7 @@ class Builder
 
         $relation->addEagerConstraints($models);
 
-        $constraints($relation);
+        call_user_func($constraints, $relation);
 
         $models = $relation->initRelation($models, $name);
 
@@ -771,9 +767,9 @@ class Builder
         $builder = $this;
 
         if ($value) {
-            $builder = $callback($builder);
+            $builder = call_user_func($callback, $builder);
         } elseif ($default) {
-            $builder = $default($builder);
+            $builder = call_user_func($default, $builder);
         }
 
         return $builder;
@@ -793,11 +789,11 @@ class Builder
         if ($column instanceof Closure) {
             $query = $this->model->newQueryWithoutScopes();
 
-            $column($query);
+            call_user_func($column, $query);
 
             $this->query->addNestedWhereQuery($query->getQuery(), $boolean);
         } else {
-            $this->query->where(...func_get_args());
+            call_user_func_array([$this->query, 'where'], func_get_args());
         }
 
         return $this;
@@ -1080,7 +1076,7 @@ class Builder
     public function withCount($relations)
     {
         if (is_null($this->query->columns)) {
-            $this->query->select([$this->query->from.'.*']);
+            $this->query->select(['*']);
         }
 
         $relations = is_array($relations) ? $relations : func_get_args();
@@ -1090,8 +1086,6 @@ class Builder
             // and if it has we will extract the actual relationship name and the desired name of
             // the resulting column. This allows multiple counts on the same relationship name.
             $segments = explode(' ', $name);
-
-            unset($alias);
 
             if (count($segments) == 3 && Str::lower($segments[1]) == 'as') {
                 list($name, $alias) = [$segments[0], $segments[2]];
@@ -1230,7 +1224,7 @@ class Builder
         // query as their own isolated nested where statement and avoid issues.
         $originalWhereCount = count($query->wheres);
 
-        $result = $scope(...array_values($parameters)) ?: $this;
+        $result = call_user_func_array($scope, $parameters) ?: $this;
 
         if ($this->shouldNestWheresForScope($query, $originalWhereCount)) {
             $this->nestWheresForScope($query, $originalWhereCount);
@@ -1459,7 +1453,7 @@ class Builder
         if (isset($this->macros[$method])) {
             array_unshift($parameters, $this);
 
-            return $this->macros[$method](...$parameters);
+            return call_user_func_array($this->macros[$method], $parameters);
         }
 
         if (method_exists($this->model, $scope = 'scope'.ucfirst($method))) {
@@ -1467,10 +1461,10 @@ class Builder
         }
 
         if (in_array($method, $this->passthru)) {
-            return $this->toBase()->$method(...$parameters);
+            return call_user_func_array([$this->toBase(), $method], $parameters);
         }
 
-        $this->query->$method(...$parameters);
+        call_user_func_array([$this->query, $method], $parameters);
 
         return $this;
     }

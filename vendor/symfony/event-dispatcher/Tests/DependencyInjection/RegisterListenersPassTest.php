@@ -29,7 +29,7 @@ class RegisterListenersPassTest extends \PHPUnit_Framework_TestCase
             'my_event_subscriber' => array(0 => array()),
         );
 
-        $definition = $this->getMockBuilder('Symfony\Component\DependencyInjection\Definition')->getMock();
+        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
         $definition->expects($this->atLeastOnce())
             ->method('isPublic')
             ->will($this->returnValue(true));
@@ -37,7 +37,10 @@ class RegisterListenersPassTest extends \PHPUnit_Framework_TestCase
             ->method('getClass')
             ->will($this->returnValue('stdClass'));
 
-        $builder = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->setMethods(array('hasDefinition', 'findTaggedServiceIds', 'getDefinition'))->getMock();
+        $builder = $this->getMock(
+            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            array('hasDefinition', 'findTaggedServiceIds', 'getDefinition')
+        );
         $builder->expects($this->any())
             ->method('hasDefinition')
             ->will($this->returnValue(true));
@@ -61,7 +64,7 @@ class RegisterListenersPassTest extends \PHPUnit_Framework_TestCase
             'my_event_subscriber' => array(0 => array()),
         );
 
-        $definition = $this->getMockBuilder('Symfony\Component\DependencyInjection\Definition')->getMock();
+        $definition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
         $definition->expects($this->atLeastOnce())
             ->method('isPublic')
             ->will($this->returnValue(true));
@@ -69,7 +72,10 @@ class RegisterListenersPassTest extends \PHPUnit_Framework_TestCase
             ->method('getClass')
             ->will($this->returnValue('Symfony\Component\EventDispatcher\Tests\DependencyInjection\SubscriberService'));
 
-        $builder = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->setMethods(array('hasDefinition', 'findTaggedServiceIds', 'getDefinition', 'findDefinition'))->getMock();
+        $builder = $this->getMock(
+            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            array('hasDefinition', 'findTaggedServiceIds', 'getDefinition', 'findDefinition')
+        );
         $builder->expects($this->any())
             ->method('hasDefinition')
             ->will($this->returnValue(true));

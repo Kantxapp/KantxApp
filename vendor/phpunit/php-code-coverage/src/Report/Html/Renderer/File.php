@@ -147,26 +147,12 @@ class File extends Renderer
                 }
             }
 
-            if ($item['executableLines'] > 0) {
-                $numClasses                   = 1;
-                $numTestedClasses             = $numTestedMethods == $numMethods ? 1 : 0;
-                $linesExecutedPercentAsString = Util::percent(
-                    $item['executedLines'],
-                    $item['executableLines'],
-                    true
-                );
-            } else {
-                $numClasses                   = 'n/a';
-                $numTestedClasses             = 'n/a';
-                $linesExecutedPercentAsString = 'n/a';
-            }
-
             $buffer .= $this->renderItemTemplate(
                 $template,
                 [
                     'name'                         => $name,
-                    'numClasses'                   => $numClasses,
-                    'numTestedClasses'             => $numTestedClasses,
+                    'numClasses'                   => 1,
+                    'numTestedClasses'             => $numTestedMethods == $numMethods ? 1 : 0,
                     'numMethods'                   => $numMethods,
                     'numTestedMethods'             => $numTestedMethods,
                     'linesExecutedPercent'         => Util::percent(
@@ -174,7 +160,11 @@ class File extends Renderer
                         $item['executableLines'],
                         false
                     ),
-                    'linesExecutedPercentAsString' => $linesExecutedPercentAsString,
+                    'linesExecutedPercentAsString' => Util::percent(
+                        $item['executedLines'],
+                        $item['executableLines'],
+                        true
+                    ),
                     'numExecutedLines'             => $item['executedLines'],
                     'numExecutableLines'           => $item['executableLines'],
                     'testedMethodsPercent'         => Util::percent(

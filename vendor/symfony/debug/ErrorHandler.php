@@ -529,11 +529,7 @@ class ErrorHandler
             }
         }
         if ($this->loggedErrors & $type) {
-            try {
-                $this->loggers[$type][0]->log($this->loggers[$type][1], $message, $e);
-            } catch (\Exception $handlerException) {
-            } catch (\Throwable $handlerException) {
-            }
+            $this->loggers[$type][0]->log($this->loggers[$type][1], $message, $e);
         }
         if ($exception instanceof FatalErrorException && !$exception instanceof OutOfMemoryException && $error) {
             foreach ($this->getFatalErrorHandlers() as $handler) {

@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         
+        
 
         /*
          * Package Service Providers...
@@ -175,7 +176,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         
@@ -183,9 +184,11 @@ return [
         Codecourse\Notify\NotifyServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Aloha\Twilio\Support\Laravel\ServiceProvider::class,
+        Vinkla\Pusher\PusherServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
+
         //Mapa
         // GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
-
 
     ],
 
@@ -240,6 +243,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Twilio' => Aloha\Twilio\Support\Laravel\Facade::class,
         // 'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
+
 
     ],
 

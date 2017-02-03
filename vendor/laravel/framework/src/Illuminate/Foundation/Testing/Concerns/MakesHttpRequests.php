@@ -351,7 +351,7 @@ trait MakesHttpRequests
             return $this->seeJson();
         }
 
-        if (is_null($responseData)) {
+        if (! $responseData) {
             $responseData = $this->decodeResponseJson();
         }
 

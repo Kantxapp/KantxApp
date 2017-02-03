@@ -3,6 +3,7 @@
 namespace Illuminate\Foundation\Support\Providers;
 
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Routing\UrlGenerator;
 
@@ -30,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
             $this->loadRoutes();
 
             $this->app->booted(function () {
-                $this->app['router']->getRoutes()->refreshNameLookups();
+                Route::getRoutes()->refreshNameLookups();
             });
         }
     }

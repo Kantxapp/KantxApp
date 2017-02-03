@@ -30,17 +30,10 @@ class ImplicitReturnPassTest extends CodeCleanerTestCase
 
     public function implicitReturns()
     {
-        $values = array(
+        return array(
             array('4',     'return 4;'),
             array('foo()', 'return foo();'),
+            array('exit()', 'die;'),
         );
-
-        if (version_compare(PHP_VERSION, '5.4', '<')) {
-            $values[] = array('exit()', 'die;');
-        } else {
-            $values[] = array('exit()', 'exit;');
-        }
-
-        return $values;
     }
 }

@@ -62,7 +62,7 @@ abstract class Renderer
      */
     public function __construct($templatePath, $generator, $date, $lowUpperBound, $highLowerBound)
     {
-        $version = new Version('4.0.5', dirname(dirname(dirname(dirname(__DIR__)))));
+        $version = new Version('4.0.3', dirname(dirname(dirname(dirname(__DIR__)))));
 
         $this->templatePath   = $templatePath;
         $this->generator      = $generator;
@@ -92,10 +92,9 @@ abstract class Renderer
                 $data['testedClassesPercent']
             );
         } else {
-            $classesLevel                         = '';
-            $classesNumber                        = '0' . $numSeparator . '0';
-            $classesBar                           = '';
-            $data['testedClassesPercentAsString'] = 'n/a';
+            $classesLevel  = 'success';
+            $classesNumber = '0' . $numSeparator . '0';
+            $classesBar    = $this->getCoverageBar(100);
         }
 
         if ($data['numMethods'] > 0) {
@@ -108,10 +107,10 @@ abstract class Renderer
                 $data['testedMethodsPercent']
             );
         } else {
-            $methodsLevel                         = '';
+            $methodsLevel                         = 'success';
             $methodsNumber                        = '0' . $numSeparator . '0';
-            $methodsBar                           = '';
-            $data['testedMethodsPercentAsString'] = 'n/a';
+            $methodsBar                           = $this->getCoverageBar(100);
+            $data['testedMethodsPercentAsString'] = '100.00%';
         }
 
         if ($data['numExecutableLines'] > 0) {
@@ -124,10 +123,10 @@ abstract class Renderer
                 $data['linesExecutedPercent']
             );
         } else {
-            $linesLevel                           = '';
+            $linesLevel                           = 'success';
             $linesNumber                          = '0' . $numSeparator . '0';
-            $linesBar                             = '';
-            $data['linesExecutedPercentAsString'] = 'n/a';
+            $linesBar                             = $this->getCoverageBar(100);
+            $data['linesExecutedPercentAsString'] = '100.00%';
         }
 
         $template->setVar(

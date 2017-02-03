@@ -337,7 +337,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param int $position The position
      *
-     * @return self
+     * @return Crawler A new instance of the Crawler with the selected node, or an empty Crawler if it does not exist
      */
     public function eq($position)
     {
@@ -380,7 +380,7 @@ class Crawler implements \Countable, \IteratorAggregate
      * @param int $offset
      * @param int $length
      *
-     * @return self
+     * @return Crawler A Crawler instance with the sliced nodes
      */
     public function slice($offset = 0, $length = null)
     {
@@ -394,7 +394,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param \Closure $closure An anonymous function
      *
-     * @return self
+     * @return Crawler A Crawler instance with the selected nodes
      */
     public function reduce(\Closure $closure)
     {
@@ -411,7 +411,7 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Returns the first node of the current selection.
      *
-     * @return self
+     * @return Crawler A Crawler instance with the first selected node
      */
     public function first()
     {
@@ -421,7 +421,7 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Returns the last node of the current selection.
      *
-     * @return self
+     * @return Crawler A Crawler instance with the last selected node
      */
     public function last()
     {
@@ -431,7 +431,7 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Returns the siblings nodes of the current selection.
      *
-     * @return self
+     * @return Crawler A Crawler instance with the sibling nodes
      *
      * @throws \InvalidArgumentException When current node is empty
      */
@@ -447,7 +447,7 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Returns the next siblings nodes of the current selection.
      *
-     * @return self
+     * @return Crawler A Crawler instance with the next sibling nodes
      *
      * @throws \InvalidArgumentException When current node is empty
      */
@@ -463,7 +463,7 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Returns the previous sibling nodes of the current selection.
      *
-     * @return self
+     * @return Crawler A Crawler instance with the previous sibling nodes
      *
      * @throws \InvalidArgumentException
      */
@@ -479,7 +479,7 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Returns the parents nodes of the current selection.
      *
-     * @return self
+     * @return Crawler A Crawler instance with the parents nodes of the current selection
      *
      * @throws \InvalidArgumentException When current node is empty
      */
@@ -504,7 +504,7 @@ class Crawler implements \Countable, \IteratorAggregate
     /**
      * Returns the children nodes of the current selection.
      *
-     * @return self
+     * @return Crawler A Crawler instance with the children nodes
      *
      * @throws \InvalidArgumentException When current node is empty
      */
@@ -637,7 +637,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param string $xpath An XPath expression
      *
-     * @return self
+     * @return Crawler A new instance of Crawler with the filtered list of nodes
      */
     public function filterXPath($xpath)
     {
@@ -658,7 +658,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param string $selector A CSS selector
      *
-     * @return self
+     * @return Crawler A new instance of Crawler with the filtered list of nodes
      *
      * @throws \RuntimeException if the CssSelector Component is not available
      */
@@ -679,7 +679,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param string $value The link text
      *
-     * @return self
+     * @return Crawler A new instance of Crawler with the filtered list of nodes
      */
     public function selectLink($value)
     {
@@ -694,7 +694,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param string $value The image alt
      *
-     * @return self A new instance of Crawler with the filtered list of nodes
+     * @return Crawler A new instance of Crawler with the filtered list of nodes
      */
     public function selectImage($value)
     {
@@ -708,7 +708,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param string $value The button text
      *
-     * @return self
+     * @return Crawler A new instance of Crawler with the filtered list of nodes
      */
     public function selectButton($value)
     {
@@ -900,7 +900,7 @@ class Crawler implements \Countable, \IteratorAggregate
             }
         }
 
-        return sprintf('concat(%s)', implode(', ', $parts));
+        return sprintf('concat(%s)', implode($parts, ', '));
     }
 
     /**
@@ -910,7 +910,7 @@ class Crawler implements \Countable, \IteratorAggregate
      *
      * @param string $xpath
      *
-     * @return self
+     * @return Crawler
      */
     private function filterRelativeXPath($xpath)
     {

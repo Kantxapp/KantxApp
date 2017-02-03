@@ -18,10 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/deportes', 'DeportesController@index');
-Route::get('/campos', 'CamposController@index');
-Route::get('/partidas', 'GmapsController@index');
-// Route::get('/partidas', ['as ' => 'gmaps', 'uses' => 'GmapsController@index']);
 
 Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name('user.activate');
 
@@ -36,17 +32,6 @@ Route::post('/contacto', 'ContactController@sendContact');
 
 Route::get('/twilio/send/{message}', 'TwilioController@sendMessage');
 Route::post('/twilio/receive', 'TwilioController@receiveMessage');
-Route::get('/localidades/{filter}', function ($filter){
-	$str = '<'.'?xml version="1.0" encoding="ISO-8859-1" ?'.'>';
-    $xml = simplexml_load_file('provinciasypoblaciones.xml');
-	$result = $xml->xpath("/lista/provincia[@id='$filter']/localidades");
-    $str = $str . $result[0]->asXML();
-   
-   return response($str, 200)
-                  ->header('Content-Type', 'application/xml'); //text/plain
-   
-    //return $filter;
-});
 
 // Rutas futuras:
 
@@ -63,39 +48,58 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'ProfilesController@update',
         'as' => 'profile.update'
     ]);
-    // Route::get('/check_relationship_status/{id}', [
-    //     'uses' => 'FriendshipsController@check',
-    //     'as' => 'check'
-    // ]);
-    // Route::get('/add_friend/{id}', [
-    //     'uses' => 'FriendshipsController@add_friend',
-    //     'as' => 'add_friend'
-    // ]);
-    // Route::get('/accept_friend/{id}', [
-    //     'uses' => 'FriendshipsController@accept_friend',
-    //     'as' => 'accept_friend'
-    // ]);
-    // Route::get('get_unread', function(){
-    //     return Auth::user()->unreadNotifications;
-    // });
-    // Route::get('/notifications', [
-    //     'uses' => 'HomeController@notifications',
-    //     'as' => 'notifications'
-    // ]);
-    // Route::get('/feed', [
-    //     'uses' => 'FeedsController@feed',
-    //     'as' => 'feed'
-    // ]);
-    // Route::post('/create/post', [
-    //     'uses' => 'PostsController@store'
-    // ]);
-    // Route::get('/get_auth_user_data', function(){
-    //     return Auth::user();
-    // });
-    // Route::get('/like/{id}', [
-    //     'uses' => 'LikesController@like'
-    // ]);
-    // Route::get('/unlike/{id}', [
-    //     'uses' => 'LikesController@unlike'
-    // ]);
+    Route::get('/check_relationship_status/{id}', [
+        'uses' => 'FriendshipsController@check',
+        'as' => 'check'
+    ]);
+    Route::get('/add_friend/{id}', [
+        'uses' => 'FriendshipsController@add_friend',
+        'as' => 'add_friend'
+    ]);
+    Route::get('/accept_friend/{id}', [
+        'uses' => 'FriendshipsController@accept_friend',
+        'as' => 'accept_friend'
+    ]);
+    Route::get('get_unread', function(){
+        return Auth::user()->unreadNotifications;
+    });
+    Route::get('/notifications', [
+        'uses' => 'HomeController@notifications',
+        'as' => 'notifications'
+    ]);
+    Route::get('/feed', [
+        'uses' => 'FeedsController@feed',
+        'as' => 'feed'
+    ]);
+    Route::post('/create/post', [
+        'uses' => 'PostsController@store'
+    ]);
+    Route::get('/get_auth_user_data', function(){
+        return Auth::user();
+    });
+    Route::get('/like/{id}', [
+        'uses' => 'LikesController@like'
+    ]);
+    Route::get('/unlike/{id}', [
+        'uses' => 'LikesController@unlike'
+    ]);
+    Route::get('/localidades/{filter}', [
+        'uses' => 'LocationController@cityXML',
+        'as' => 'city'
+    ]);
+    Route::get('/sports', [
+        'uses' => 'SportsController@index',
+        'as' => 'sports'
+    ]);
+    Route::get('/kantxas', [
+        'uses' => 'KantxasController@index',
+        'as' => 'kantxas'
+    ]);
+    Route::get('/events', [
+        'uses' => 'GmapsController@index',
+        'as' => 'events'
+    ]);    
+
+
+    
 });
