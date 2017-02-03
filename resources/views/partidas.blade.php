@@ -63,25 +63,34 @@
                     </select>
                         </br>
                         </br>
-                        <div class="list-group" id="div_todosEvent">
-                          <a href="#" class="list-group-item "> 12:00 </a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                        <div class="list-group" id="div_todosEvent" data-toggle="modal" data-target="#exampleModal">
+                          <a href="#" class="list-group-item "> 12:00 Bicicleta de montaña</a></br>
+                          <a href="#" class="list-group-item "> 14:45 Futbol de once jugadores</a></br>
+                          <a href="#" class="list-group-item "> 17:30 Judo</a></br>
+                          <a href="#" class="list-group-item "> 09:00 Motociclismo</a></br>
+                          <a href="#" class="list-group-item "> 20:30 Taekwondo</a></br>
                         </div>
-                       <div class="list-group" id="div_misDeport">
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                       <div class="list-group" id="div_misDeport" data-toggle="modal" data-target="#exampleModal">
+                          <a href="#" class="list-group-item "> 12:45 Tenis</a></br>
+                          <a href="#" class="list-group-item "> 16:00 Futbol de siete jugadores</a></br>
+                          <a href="#" class="list-group-item "> 13:45 Futbol sala</a></br>
+                          <a href="#" class="list-group-item "> 08:30 Running</a></br>
                         </div>
-                        <div class="list-group" id="amigGrups">
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
-                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                        <div class="list-group" id="div_amigGrups" data-toggle="modal" data-target="#exampleModal">
+                          <a href="#" class="list-group-item "> 12:00 Voleibol</a></br>
+                          <a href="#" class="list-group-item "> 11:15 Padel</a></br>
+                          <a href="#" class="list-group-item "> 10:20 Frontenis</a></br>
                         </div>
-                     
+                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="exampleModalLabel">Se ha unido al evento!</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
