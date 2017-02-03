@@ -27,140 +27,79 @@
   <link rel="stylesheet" href="/assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="/assets/mobirise2/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="/assets/theme2/css/style.css">
-
   <script src="https://code.jquery.com/jquery-1.11.1.js" ></script>
-<style>
-       #map {
-        height: 600px;
-        width: 759px;
-       }
-       .controls {
-      margin-top: 10px;
-      border: 1px solid transparent;
-      border-radius: 2px 0 0 2px;
-      box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      height: 32px;
-      outline: none;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    }
-    
-    #pac-input {
-      background-color: #fff;
-      font-family: Roboto;
-      font-size: 15px;
-      font-weight: 300;
-      margin-left: 12px;
-      padding: 0 11px 0 13px;
-      text-overflow: ellipsis;
-      width: 300px;
-    }
-    
-    #pac-input:focus {
-      border-color: #4d90fe;
-    }
-    
-    .pac-container {
-      font-family: Roboto;
-    }
-    
-    #type-selector {
-      color: #fff;
-      background-color: #4d90fe;
-      padding: 5px 11px 0px 11px;
-    }
-    
-    #type-selector label {
-      font-family: Roboto;
-      font-size: 13px;
-      font-weight: 300;
-    }
 
-    </style>
 <script type="text/javascript">
+    var div;
+    
+    $(document).ready(function() {
+        
+                var container = $("#sports-wrapper").find("#box1");                   
+                container.addClass("sport-checked");                   
+        
+                var container = $("#sports-wrapper").find("#box2");                   
+                container.addClass("sport-checked");                   
+        
+                var container = $("#sports-wrapper").find("#box6");                   
+                container.addClass("sport-checked");                   
+        
+                var container = $("#sports-wrapper").find("#box11");                   
+                container.addClass("sport-checked");                   
+        
 
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 43.3275473, lng: -1.9712059},
-    zoom: 13
-  });
-  var input = /** @type {!HTMLInputElement} */(
-      document.getElementById('pac-input'));
+        $('.deportesSort').sortElements(function(a, b){
+            return $(a).attr("sort") > $(b).attr("sort") ? 1 : -1;
+        });
 
-  var types = document.getElementById('type-selector');
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+        $(".sport-box").tipsy({gravity:"s"});
+        
+        
+        
+        var container;
+        $(".sport-box").click(function(){                
+            div = $(this);            
+            if (div.hasClass("transparent")) return;                                
+            div.addClass("transparent");
+            var input = $(this).find("input");                
+            if($(this).hasClass("sport-checked")){ // lo tienes añadido
+                $(this).removeClass("sport-checked");                    
+                $.post("/players?delSportProfile","deporte="+input.val(),function(){div.removeClass("transparent");});
 
-  var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.bindTo('bounds', map);
-
-  var infowindow = new google.maps.InfoWindow();
-  var marker = new google.maps.Marker({
-    map: map,
-    anchorPoint: new google.maps.Point(0, -29)
-  });
-
-  autocomplete.addListener('place_changed', function() {
-    infowindow.close();
-    marker.setVisible(false);
-    var place = autocomplete.getPlace();
-    if (!place.geometry) {
-      window.alert("Autocomplete's returned place contains no geometry");
-      return;
-    }
-
-    // If the place has a geometry, then present it on a map.
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport);
-    } else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);  // Why 17? Because it looks good.
-    }
-    marker.setIcon(/** @type {google.maps.Icon} */({
-      url: place.icon,
-      size: new google.maps.Size(71, 71),
-      origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(17, 34),
-      scaledSize: new google.maps.Size(35, 35)
-    }));
-    marker.setPosition(place.geometry.location);
-    marker.setVisible(true);
-
-    var address = '';
-    if (place.address_components) {
-      address = [
-        (place.address_components[0] && place.address_components[0].short_name || ''),
-        (place.address_components[1] && place.address_components[1].short_name || ''),
-        (place.address_components[2] && place.address_components[2].short_name || '')
-      ].join(' ');
-    }
-
-    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-    infowindow.open(map, marker);
-  });
-
-  // Sets a listener on a radio button to change the filter type on Places
-  // Autocomplete.
-  function setupClickListener(id, types) {
-    var radioButton = document.getElementById(id);
-    radioButton.addEventListener('click', function() {
-      autocomplete.setTypes(types);
-    });
-  }
-
-  setupClickListener('changetype-all', []);
-  setupClickListener('changetype-address', ['address']);
-  setupClickListener('changetype-establishment', ['establishment']);
-  setupClickListener('changetype-geocode', ['geocode']);
-}
-//Eventos
- $(document).ready(function(){
-    $(".list-group").hide();
-    $("#BusEvento").change(function(){
-    $(".list-group").hide();
-    $("#div_" + $(this).val()).show();
-    });
-});
+            }else{ // no lo tienes añadido 
+                if (input.val() === '7'){ //padel
+                    //window.location = "/players?calculatePaddleLevelForm=1";
+                    $.fancybox({
+                        href            : '/players?calculatePaddleLevelForm=1',
+                        type		: 'iframe',
+                        height          : 550,
+                        maxHeight       : 550,
+                        afterClose : function(){
+                            window.location = "/players?myprofile";
+                        }
+                    });
+                } else {
+                    $.fancybox({
+                        type : 'ajax',
+                        href  : '/players?addFullSportProfileForm&deporte='+input.val(),
+                        afterClose : function(){
+                            div.removeClass("transparent");
+                        }
+                    })
+                }                    
+            }
+            return false;
+        });
+        My.List.Filter('#searchsport', '.namesport');
+        
+        $("#change-icons").click(function(){
+            $.ajax({
+                url : "players?changeIcons=1",
+                success : function(){
+                    window.location= "players?mySports";
+                }
+            });
+        })
+    }); 
 </script>
   @yield('head')
 </head>

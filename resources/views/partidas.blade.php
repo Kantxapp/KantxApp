@@ -53,16 +53,35 @@
             </br>
             </br>
             </br>
-
            <div class="form-inline right-buffer text-center top-buffer" >
                 <div class="form-group left-buffer-info" >
                     <label for="filter" class="lead">Eventos </label>
-                    <select class="form-control input-lg" name="filter" id="filter" style="max-width:190px">
-                        <option value="1" >Todos los eventos</option>
-                        <option value="2" selected>De mis deportes</option>
-                        <option value="3">De mis amigos y grupos</option>
+                    <select class="form-control input-lg" name="Evento" id="BusEvento" style="max-width:190px">
+                        <option value="todosEvent">Todos los eventos</option>
+                        <option value="misDeport">De mis deportes</option>
+                        <option value="amigGrups">De mis amigos y grupos</option>
                     </select>
-                    
+                        </br>
+                        </br>
+                        <div class="list-group" id="div_todosEvent">
+                          <a href="#" class="list-group-item "> 12:00 </a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                        </div>
+                       <div class="list-group" id="div_misDeport">
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                        </div>
+                        <div class="list-group" id="amigGrups">
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                          <a href="#" class="list-group-item "> Cras justo odio</a></br>
+                        </div>
+                     
                 </div>
             </div>
         </div>
