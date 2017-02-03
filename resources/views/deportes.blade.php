@@ -10,8 +10,8 @@
         </br>
         </br>
         </br>
-    
-        <div class="col-sm-6 col-md-9">
+    <center>
+        <div class="col-sm-6 col-md-12" id="imgDeportes">
                 <h1 class="neweventh1">Selecciona tus deportes</h1>
                     <p>Selecciona los deportes que quieres añadir a tu perfil:</p>
                       <img id="myImg" src="/assets/images/Deportes/futbol7.png" class="img-thumbnail" alt="Responsive image" data-toggle="modal" data-target="#exampleModal"/>
@@ -29,6 +29,8 @@
                       <img src="/assets/images/Deportes/pilates.png" class="img-thumbnail"   alt="Responsive image" data-toggle="modal" data-target="#exampleModal">
                       <img src="/assets/images/Deportes/running.png" class="img-thumbnail"   alt="Responsive image" data-toggle="modal" data-target="#exampleModal">
                       <img src="/assets/images/Deportes/senderismo.png" class="img-thumbnail"   alt="Responsive image" data-toggle="modal" data-target="#exampleModal">
+                      </br>
+                      </br>
                       <img src="/assets/images/Deportes/spinning.png" class="img-thumbnail"   alt="Responsive image" data-toggle="modal" data-target="#exampleModal">
                       <img src="/assets/images/Deportes/squash.png" class="img-thumbnail"  alt="Responsive image" data-toggle="modal" data-target="#exampleModal">
                       <img src="/assets/images/Deportes/taekwondo.png" class="img-thumbnail"   alt="Responsive image" data-toggle="modal" data-target="#exampleModal">
@@ -50,9 +52,9 @@
               </br>
               </br>
               </br>
-            <!--</div>-->
-            <!--</div>-->
+            
         </div>
+    </center>
     </div>
 </div>
 @endsection

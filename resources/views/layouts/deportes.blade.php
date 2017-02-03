@@ -29,29 +29,13 @@
   <link rel="stylesheet" href="/assets/theme2/css/style.css">
   <script src="https://code.jquery.com/jquery-1.11.1.js" ></script>
 <style>
-/*
+    #imgDeportes{
+        align: center;
+    }
 
 </style>
 <script type="text/javascript">
-    // var modal = document.getElementById('myModal');
     
-    // // Get the image and insert it inside the modal - use its "alt" text as a caption
-    // var img = document.getElementById('myImg');
-    // var modalImg = document.getElementById("img01");
-    // var captionText = document.getElementById("caption");
-    // img.onclick = function(){
-    //     modal.style.display = "block";
-    //     modalImg.src = this.src;
-    //     captionText.innerHTML = this.alt;
-    // }
-    
-    // // Get the <span> element that closes the modal
-    // var span = document.getElementsByClassName("close")[0];
-    
-    // // When the user clicks on <span> (x), close the modal
-    // span.onclick = function() { 
-    //     modal.style.display = "none";
-    // }
 $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var recipient = button.data('whatever') // Extract info from data-* attributes
