@@ -98,7 +98,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/events', [
         'uses' => 'GmapsController@index',
         'as' => 'events'
-    ]);    
+    ]); 
+    
+
+    Route::get('/kantxa/zubipe', function () {
+        return view('kantxas.kantxa');
+    });
 
 
     

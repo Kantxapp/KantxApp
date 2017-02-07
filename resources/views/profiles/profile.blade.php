@@ -30,7 +30,7 @@
                 @endif
                 @if(Auth::id() !== $user->id)
                         <div class="panel panel-default">
-                              <div class="panel-body app">
+                              <div class="panel-body vue">
                                     <friend :profile_user_id="{{ $user->id }}"></friend>
                               </div>
                         </div>
