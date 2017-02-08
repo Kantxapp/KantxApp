@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Post')
                     ->orderBy('created_at');
     }
+    
+    public function events()
+    {
+        return $this->belongsToMany('App\Event');
+    }
     // public function getAvatarAttribute($avatar)
     // {
     //     return asset(Storage::url($avatar));

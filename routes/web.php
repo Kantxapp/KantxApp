@@ -105,6 +105,9 @@ Route::group(['middleware' => 'auth'], function(){
         return view('kantxas.kantxa');
     });
 
-
+    Route::get('/mapa/{izena}', [
+        'uses' => 'GoogleMapsController@getPrueba',
+        'as' => 'mapaPrueba'
+    ]);
     
 });

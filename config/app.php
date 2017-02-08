@@ -186,6 +186,8 @@ return [
         Aloha\Twilio\Support\Laravel\ServiceProvider::class,
         Vinkla\Pusher\PusherServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
+        
+        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
 
         //Mapa
         // GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
@@ -242,6 +244,7 @@ return [
         'Notify' => Codecourse\Notify\Facades\Notify::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Twilio' => Aloha\Twilio\Support\Laravel\Facade::class,
+        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
         // 'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
 
 

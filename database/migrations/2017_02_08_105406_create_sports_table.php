@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKantxasTable extends Migration
+class CreateSportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateKantxasTable extends Migration
      */
     public function up()
     {
-        Schema::create('kantxas', function (Blueprint $table) {
+        Schema::create('sports', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('clima');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateKantxasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kantxas');
+        Schema::dropIfExists('sports');
     }
 }

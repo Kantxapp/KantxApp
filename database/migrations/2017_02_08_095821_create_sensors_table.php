@@ -15,10 +15,12 @@ class CreateSensorsTable extends Migration
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('kantxa_id')->unsigned();
             $table->string('viento');
             $table->string('sol');
             $table->boolean('ocupado');
             $table->timestamps();
+
         });
     }
 
