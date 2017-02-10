@@ -15,20 +15,22 @@ class CreateKantxasTable extends Migration
     {
         Schema::create('kantxas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('address');
-            $table->string('city');
+            $table->string('name')->unique();
+            $table->string('streetNumber');
+            $table->string('route');
+            $table->string('locality');
             $table->string('province');
-            $table->string('place_id');
-            $table->integer('sensor_id')->unsigned();
-            $table->integer('event_id')->unsigned();
+            $table->string('formatedAddress');
+            $table->string('lat');
+            $table->string('lng');
+            $table->string('KantxaPic');
+            $table->string('place_id')->unique();
+            $table->integer('sensor_id')->nullable()->unique()->unsigned();
             $table->timestamps();
             
             $table->foreign('sensor_id')
                   ->references('id')->on('sensors');
-            
-            // $table->foreign('event_id')
-            //       ->references('id')->on('events');
+
         });
     }
 

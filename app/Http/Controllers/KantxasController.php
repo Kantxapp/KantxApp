@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kantxa;
 
 class KantxasController extends Controller
 {
@@ -24,5 +25,9 @@ class KantxasController extends Controller
     public function index()
     {
         return view('kantxas');
+    }
+    public function getKantxas(){
+        $kantxas = Kantxa::all();
+        return $kantxas;
     }
 }

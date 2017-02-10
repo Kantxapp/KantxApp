@@ -8,8 +8,10 @@ class Sensor extends Model
 {
     //
      protected $fillable = [
-        'kantxa_id', 'viento', 'sol', 'ocupado'
+        'llover', 'humerdad', 'temperatura', 'ocupado', 'viento', 'radiacion'
     ];
+    
+
 
     public function kantxa()
     {
