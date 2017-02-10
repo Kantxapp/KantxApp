@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,14 +9,42 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+//Pages that need to be localized
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect']
+    ],
+    function()
+    {
+        /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+        Route::get('/', function () {
+            return view('welcome');
+        });
+        Route::get('/home', 'HomeController@index');
+        
+        // Authentication Routes...
+        Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+        
+        // Registration Routes...
+        Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+        
+        // Password Reset Routes...
+        Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+        Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+        
+    });//end localized routes group
+    
+//Authentication Routes...
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Registration Routes...
+Route::post('register', 'Auth\RegisterController@register');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+// Password Reset Routes...
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('user/activation/{token}', 'Auth\LoginController@activateUser')->name('user.activate');
 
@@ -98,16 +125,18 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/events', [
         'uses' => 'GmapsController@index',
         'as' => 'events'
-    ]); 
+    ]);
     
     Route::get('/get/kantxas', [
     'uses' => 'KantxasController@getKantxas',
     'as' => 'kantxa.get'
     ]);    
 
+
     Route::get('/kantxa/zubipe', function () {
         return view('kantxas.kantxa');
     });
+
     Route::group(['middleware' => 'admin'], function()
     {
         Route::get('/create/kantxa/{name}', [
@@ -128,6 +157,5 @@ Route::group(['middleware' => 'auth'], function(){
         ]);
     
     });
-    
-    
+
 });

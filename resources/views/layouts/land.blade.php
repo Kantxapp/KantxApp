@@ -50,7 +50,28 @@
                         <div class="hamburger-icon"></div>
                     </button>
 
-                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar"><li class="nav-item dropdown"><a class="nav-link link" href="{{ url('/#features6-8') }}">CARACTERÍSTICAS</a></li><li class="nav-item"><a class="nav-link link" href="{{ url('/#form1-f') }}" >CONTACTO</a></li>@if (Route::has('login'))<li class="nav-item nav-btn"><a class="nav-link btn btn-warning-outline btn-warning" href="{{ url('/login') }}">ENTRAR</a></li><li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="{{ url('/register') }}">REGISTRAR</a></li>@endif</ul>
+                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
+                        <li class="nav-item dropdown"><a class="nav-link link" href="{{ url('/#features6-8') }}">@lang('landingPage.navbar_link_features')</a></li>
+                        <li class="nav-item"><a class="nav-link link" href="{{ url('/#form1-f') }}" >@lang('landingPage.navbar_link_contact')</a></li>
+                        @if (Route::has('login'))
+                            <li class="nav-item nav-btn"><a class="nav-link btn btn-warning-outline btn-warning" href="{{ url('/login') }}">@lang('landingPage.navbar_link_login')</a></li>
+                            <li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="{{ url('/register') }}">@lang('landingPage.navbar_link_register')</a></li>
+                        @endif
+                        <!--languageChooser-->
+                        <div class="dropdown nav-item nav-btn">
+                            <button class="dropdown-toggle btn btn-white-outline nav-link" type="button" data-toggle="dropdown">@lang('landingPage.navbar_link_lang')</button>
+                            <ul class="dropdown-menu">
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <!--end language chooser-->
+                    </ul>
                     <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                         <div class="close-icon"></div>
                     </button>
@@ -73,18 +94,18 @@
                 <div><img src="/assets/images/logo-128x128-81.png"></div>
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
-                <p><strong>Address</strong><br>
-1234 Street Name<br>
-City, AA 99999</p>
+                <p><strong>@lang('landingPage.footer_addr_header')</strong><br>
+                @lang('landingPage.footer_addr_str')<br/>
+                @lang('landingPage.footer_addr_CP')<br/>
+                @lang('landingPage.footer_addr_pr')</p>
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
-                <p><strong>Contacts</strong><br>
-Email: support@mobirise.com<br>
-Phone: +1 (0) 000 0000 001<br>
-Fax: +1 (0) 000 0000 002</p>
+                <p><strong>@lang('landingPage.footer_contact')</strong><br>
+                Email: kantxapp@gmail.com<br>
+                @lang('landingPage.landing_form_phone') +34 555 666 324<br></p>
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
-                <p><strong>Links</strong><br>
+                <p><strong>@lang('landingPage.footer_links')</strong><br>
 <a class="text-primary" href="https://mobirise.com/">Website builder</a><br>
 <a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a><br>
 <a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a></p>

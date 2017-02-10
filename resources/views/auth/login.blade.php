@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-xs-center">
-                <h3 class="mbr-section-title display-2">ENTRA CON TU CUENTA SOCIAL PREFERIDA!</h3>
+                <h3 class="mbr-section-title display-2">@lang('loginPage.login_social_acc_text')</h3>
                 <div>
 
                   <div class="mbr-social-likes" data-counters="false">
@@ -77,7 +77,7 @@
 
                             <div class="col-xs-12 col-md-6">
                                 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label class="form-control-label" for="form1-3-email">Email<span class="form-asterisk">*</span></label>
+                                    <label class="form-control-label" for="form1-3-email">@lang('loginPage.login_form_mail')<span class="form-asterisk">*</span></label>
                                     <input type="email" class="form-control" name="email" required="" data-form-field="Email" id="form1-3-email" value="{{ old('email') }}" required autofocus>
                                      @if ($errors->has('email'))
                                     <span class="help-block">
@@ -89,7 +89,7 @@
 
                             <div class="col-xs-12 col-md-6">
                                 <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label class="form-control-label" for="form1-3-password">Contraseña<span class="form-asterisk">*</span></label>
+                                    <label class="form-control-label" for="form1-3-password">@lang('loginPage.login_form_pass')<span class="form-asterisk">*</span></label>
                                     <input type="password" class="form-control" name="password" data-form-field="Password" id="form1-3-password" required>
                                      @if ($errors->has('password'))
                                     <span class="help-block">
@@ -103,7 +103,7 @@
                             <div class="col-xs-12 col-md-6">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember"> Recuérdame
+                                        <input type="checkbox" name="remember"> @lang('loginPage.login_form_rmmbr')
                                     </label>
                                 </div>
                             </div>
@@ -114,8 +114,8 @@
 
 
                         <div>
-                            <button type="submit" class="btn btn-danger"><span class="mbri-play mbr-iconfont mbr-iconfont-btn"></span>ENTRAR</button>
-                            <a class="white" href="{{ url('/password/reset') }}">  ¿Has olvidado la contraseña?</a>
+                            <button type="submit" class="btn btn-danger"><span class="mbri-play mbr-iconfont mbr-iconfont-btn"></span>@lang('loginPage.login_form_submit')</button>
+                            <a class="white" href="{{ url('/password/reset') }}">@lang('loginPage.login_pass_forgot')</a>
                         
                         </div>
                         

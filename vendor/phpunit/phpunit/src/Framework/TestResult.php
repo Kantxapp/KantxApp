@@ -225,6 +225,10 @@ class PHPUnit_Framework_TestResult implements Countable
             $this->risky[] = new PHPUnit_Framework_TestFailure($test, $t);
             $notifyMethod  = 'addRiskyTest';
 
+            if ($test instanceof PHPUnit_Framework_TestCase) {
+                $test->markAsRisky();
+            }
+
             if ($this->stopOnRisky) {
                 $this->stop();
             }
@@ -307,6 +311,10 @@ class PHPUnit_Framework_TestResult implements Countable
             $e instanceof PHPUnit_Framework_OutputError) {
             $this->risky[] = new PHPUnit_Framework_TestFailure($test, $e);
             $notifyMethod  = 'addRiskyTest';
+
+            if ($test instanceof PHPUnit_Framework_TestCase) {
+                $test->markAsRisky();
+            }
 
             if ($this->stopOnRisky) {
                 $this->stop();
@@ -716,27 +724,30 @@ class PHPUnit_Framework_TestResult implements Countable
             } elseif ($e instanceof PHPUnit_Framework_SkippedTestError) {
                 $skipped = true;
             }
-        } catch (AssertionError $e) {
-            $test->addToAssertionCount(1);
-
-            $failure = true;
-            $frame   = $e->getTrace()[0];
-
-            $e = new PHPUnit_Framework_AssertionFailedError(
-                sprintf(
-                    '%s in %s:%s',
-                    $e->getMessage(),
-                    $frame['file'],
-                    $frame['line']
-                )
-            );
         } catch (PHPUnit_Framework_Warning $e) {
             $warning = true;
         } catch (PHPUnit_Framework_Exception $e) {
             $error = true;
         } catch (Throwable $e) {
-            $e     = new PHPUnit_Framework_ExceptionWrapper($e);
-            $error = true;
+            // @see https://github.com/sebastianbergmann/phpunit/issues/2394
+            if (PHP_MAJOR_VERSION === 7 && $e instanceof \AssertionError) {
+                $test->addToAssertionCount(1);
+
+                $failure = true;
+                $frame   = $e->getTrace()[0];
+
+                $e = new PHPUnit_Framework_AssertionFailedError(
+                    sprintf(
+                        '%s in %s:%s',
+                        $e->getMessage(),
+                        $frame['file'],
+                        $frame['line']
+                    )
+                );
+            } else {
+                $e     = new PHPUnit_Framework_ExceptionWrapper($e);
+                $error = true;
+            }
         } catch (Exception $e) {
             $e     = new PHPUnit_Framework_ExceptionWrapper($e);
             $error = true;
@@ -1224,11 +1235,17 @@ class PHPUnit_Framework_TestResult implements Countable
     /**
      * Returns whether the entire test was successful or not.
      *
+     * @param bool $includeWarnings
+     *
      * @return bool
      */
-    public function wasSuccessful()
+    public function wasSuccessful($includeWarnings = true)
     {
-        return empty($this->errors) && empty($this->failures) && empty($this->warnings);
+        if ($includeWarnings) {
+            return empty($this->errors) && empty($this->failures) && empty($this->warnings);
+        } else {
+            return empty($this->errors) && empty($this->failures);
+        }
     }
 
     /**
@@ -1242,7 +1259,7 @@ class PHPUnit_Framework_TestResult implements Countable
      */
     public function setTimeoutForSmallTests($timeout)
     {
-        if (!is_integer($timeout)) {
+        if (!is_int($timeout)) {
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
         }
 
@@ -1260,7 +1277,7 @@ class PHPUnit_Framework_TestResult implements Countable
      */
     public function setTimeoutForMediumTests($timeout)
     {
-        if (!is_integer($timeout)) {
+        if (!is_int($timeout)) {
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
         }
 
@@ -1278,7 +1295,7 @@ class PHPUnit_Framework_TestResult implements Countable
      */
     public function setTimeoutForLargeTests($timeout)
     {
-        if (!is_integer($timeout)) {
+        if (!is_int($timeout)) {
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
         }
 
