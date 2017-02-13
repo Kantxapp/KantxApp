@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kantxa;
+use App\Sensor;
 
 class KantxasController extends Controller
 {
@@ -28,6 +29,8 @@ class KantxasController extends Controller
     }
     public function getKantxas(){
         $kantxas = Kantxa::all();
-        return $kantxas;
+        $sensors = Sensor::all();
+        // return $kantxas;
+        return view('kantxas.getkantxas', compact('kantxas','sensors'));
     }
 }
