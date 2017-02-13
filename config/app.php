@@ -188,6 +188,7 @@ return [
         Laravel\Scout\ScoutServiceProvider::class,
         
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
         //Mapa
         // GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
@@ -245,6 +246,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Twilio' => Aloha\Twilio\Support\Laravel\Facade::class,
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
+        'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         // 'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
 
 

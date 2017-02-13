@@ -118,21 +118,21 @@
                 <div><img src="/assets/images/logo-128x128-81.png"></div>
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
-                <p><strong>Address</strong><br>
- Alejandria Kalea, 2<br>
-20013 Donostia, Gipuzkoa</p>
+                <p><strong>@lang('landingPage.footer_addr_header')</strong><br>
+                @lang('landingPage.footer_addr_str')<br/>
+                @lang('landingPage.footer_addr_CP')<br/>
+                @lang('landingPage.footer_addr_pr')</p>
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
-                <p><strong>Contacts</strong><br>
-Email: kantxapp@gmail.com<br>
-Phone: +34 666 555 666<br>
-Fax: +34 943 999 888</p>
+                <p><strong>@lang('landingPage.footer_contact')</strong><br>
+                Email: kantxapp@gmail.com<br>
+                @lang('landingPage.landing_form_phone') +34 555 666 324<br></p>
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
-                <p><strong>Links</strong><br>
-<a class="text-primary" href="https://facebook.com/">Facebook</a><br>
-<a class="text-primary" href="https://twitter.com/">Twitter</a><br>
-<a class="text-primary" href="https://plus.google.com/">Google+</a></p>
+                <p><strong>@lang('landingPage.footer_links')</strong><br>
+<a class="text-primary" href="https://mobirise.com/">Website builder</a><br>
+<a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a><br>
+<a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a></p>
             </div>
 
         </div>

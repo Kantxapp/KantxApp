@@ -15,8 +15,8 @@
                 <!--<div class="mbr-section col-md-10 col-md-offset-2 text-xs-right">-->
 
                     <h1 class="mbr-section-title display-1">KANTXAPP</h1>
-                    <p class="mbr-section-lead lead">Sin tiempo, sin un círculo de amigos deportistas, <br>sin saber dónde, ni cómo se encuentra el recinto…<br>Ya no hay escusas, con la red social deportiva nunca estarás solo y siempre dispondrás de la información que necesites.<br></p>
-                    <div class="mbr-section-btn"><a class="btn btn-lg btn-warning" href="{{ url('/register') }}">REGÍSTRATE GRATIS</a>  </div>
+                    <p class="mbr-section-lead lead">@lang('landingPage.landing_welcome_text')</p>
+                    <div class="mbr-section-btn"><a class="btn btn-lg btn-warning" href="{{ url('/register') }}">@lang('landingPage.landing_register_btn')</a>  </div>
                 </div>
             </div>
         </div>
@@ -36,9 +36,9 @@
               <div class="card cart-block">
                   <div class="card-img"><span class="mbri-edit mbr-iconfont mbr-iconfont-features3"></span></div>
                   <div class="card-block">
-                    <h4 class="card-title">Organizar</h4>
+                    <h4 class="card-title">@lang('landingPage.landing_feat_org')</h4>
                     
-                    <p class="card-text">Organiza eventos deportivos.<br>¿Dónde es el partido? ¿Estamos ya todos? ¿Jugamos a las seis o a las siete? ¿Quién lleva bolas?.... Todas estas preguntas tienen respuesta inmediata gracias a KantxApp.&nbsp;<br></p>
+                    <p class="card-text">@lang('landingPage.landing_feat_org_text')&nbsp;<br></p>
                     
                     </div>
                 </div>
@@ -49,9 +49,9 @@
                 <div class="card cart-block">
                     <div class="card-img"><span class="mbri-users mbr-iconfont mbr-iconfont-features3"></span></div>
                     <div class="card-block">
-                        <h4 class="card-title">Social</h4>
+                        <h4 class="card-title">@lang('landingPage.landing_feat_soc')</h4>
                         
-                        <p class="card-text">Conoce a gente a través de KantxApp o juega con los amigos de siempre.</p>
+                        <p class="card-text">@lang('landingPage.landing_feat_soc_text')</p>
                         
                     </div>
                 </div>
@@ -62,9 +62,9 @@
                 <div class="card cart-block">
                     <div class="card-img"><span class="etl-icon icon-lightbulb mbr-iconfont mbr-iconfont-features3"></span></div>
                     <div class="card-block">
-                        <h4 class="card-title">Kantxas</h4>
+                        <h4 class="card-title">@lang('landingPage.landing_feat_kan')</h4>
                         
-                        <p class="card-text">Gracias a la última tecnología conoce en cualquier instante el estado de las Kantxas.</p>
+                        <p class="card-text">@lang('landingPage.landing_feat_kan_text')</p>
                         
                     </div>
                 </div>
@@ -75,9 +75,9 @@
                 <div class="card cart-block">
                     <div class="card-img"><span class="etl-icon icon-map-pin mbr-iconfont mbr-iconfont-features3"></span></div>
                     <div class="card-block">
-                        <h4 class="card-title">Ubicación</h4>
+                        <h4 class="card-title">@lang('landingPage.landing_feat_loc')</h4>
                         
-                        <p class="card-text">Siempre sabrás como llegar.</p>
+                        <p class="card-text">@lang('landingPage.landing_feat_loc_text')</p>
                         
                     </div>
                 </div>
@@ -96,8 +96,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 text-xs-center">
-                        <h3 class="mbr-section-title display-2">NUESTRO FANTÁSTICOS USUARIOS</h3>
-                        <small class="mbr-section-subtitle">Siempre activos BE ACTIVE.</small>
+                        <h3 class="mbr-section-title display-2">@lang('landingPage.landing_user_header')</h3>
+                        <small class="mbr-section-subtitle">@lang('landingPage.landing_user_caption')</small>
                     </div>
                 </div>
             </div>
@@ -111,31 +111,31 @@
                 <div class="col-xs-12 col-lg-4">
 
                     <div class="mbr-testimonial card mbr-testimonial-lg">
-                        <div class="card-block"><p>“Se trata de una herramienta que te permite conocer gente nueva de tu entorno que practica el mismo deporte que tú.”</p></div>
+                        <div class="card-block"><p>@lang('landingPage.landing_user1_feedback')</p></div>
                         <div class="mbr-author card-footer">
                             <div class="mbr-author-img"><img src="assets/images/face3.jpg" class="img-circle"></div>
                             <div class="mbr-author-name">Abanoub S.</div>
-                            <small class="mbr-author-desc">User</small>
+                            <small class="mbr-author-desc">@lang('landingPage.landing_user_word')</small>
                         </div>
                     </div>
                 </div><div class="col-xs-12 col-lg-4">
 
                     <div class="mbr-testimonial card mbr-testimonial-lg">
-                        <div class="card-block"><p>“Una quedada tremenda! Aunque me daba 'palo' ir solo. Hubo muy buen rollo y me llevé nuevos amigos”</p></div>
+                        <div class="card-block"><p>@lang('landingPage.landing_user2_feedback')</p></div>
                         <div class="mbr-author card-footer">
                             <div class="mbr-author-img"><img src="assets/images/face1.jpg" class="img-circle"></div>
                             <div class="mbr-author-name">Suffian A.</div>
-                            <small class="mbr-author-desc">User</small>
+                            <small class="mbr-author-desc">@lang('landingPage.landing_user_word')</small>
                         </div>
                     </div>
                 </div><div class="col-xs-12 col-lg-4">
 
                     <div class="mbr-testimonial card mbr-testimonial-lg">
-                        <div class="card-block"><p>“Gracias a la aplicación supimos que necesitábamos calentadores y ropa abrigada, no pasamos frio. ”</p></div>
+                        <div class="card-block"><p>@lang('landingPage.landing_user3_feedback')</p></div>
                         <div class="mbr-author card-footer">
                             <div class="mbr-author-img"><img src="assets/images/face2.jpg" class="img-circle"></div>
                             <div class="mbr-author-name">Jhollman C.</div>
-                            <small class="mbr-author-desc">User</small>
+                            <small class="mbr-author-desc">@lang('landingPage.landing_user_word')</small>
                         </div>
                     </div>
                 </div>
@@ -154,8 +154,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-xs-center">
-                    <h3 class="mbr-section-title display-2">CONTÁCTACTANOS</h3>
-                    <small class="mbr-section-subtitle">Si tienes alguna pregunta en mente no dudes en escribírnosla.</small>
+                    <h3 class="mbr-section-title display-2">@lang('landingPage.landing_form_header')</h3>
+                    <small class="mbr-section-subtitle">@lang('landingPage.landing_form_caption')</small>
                 </div>
             </div>
         </div>
@@ -184,21 +184,21 @@
 
                             <div class="col-xs-12 col-md-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="form1-f-name">Nombre<span class="form-asterisk">*</span></label>
+                                    <label class="form-control-label" for="form1-f-name">@lang('landingPage.landing_form_name')<span class="form-asterisk">*</span></label>
                                     <input type="text" class="form-control" name="name" required="" data-form-field="Name" id="form1-f-name">
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-md-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="form1-f-email">Email<span class="form-asterisk">*</span></label>
+                                    <label class="form-control-label" for="form1-f-email">@lang('landingPage.landing_form_mail')<span class="form-asterisk">*</span></label>
                                     <input type="email" class="form-control" name="email" required="" data-form-field="Email" id="form1-f-email">
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-md-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="form1-f-phone">Teléfono</label>
+                                    <label class="form-control-label" for="form1-f-phone">@lang('landingPage.landing_form_phone')</label>
                                     <input type="tel" class="form-control" name="phone" data-form-field="Phone" id="form1-f-phone">
                                 </div>
                             </div>
@@ -206,11 +206,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-control-label" for="form1-f-message">Mensaje</label>
+                            <label class="form-control-label" for="form1-f-message">@lang('landingPage.landing_form_text')</label>
                             <textarea class="form-control" name="message" rows="7" data-form-field="Message" id="form1-f-message"></textarea>
                         </div>
 
-                        <div><button type="submit" class="btn btn-warning">ENVIAR</button></div>
+                        <div><button type="submit" class="btn btn-warning">@lang('landingPage.landing_form_submit')</button></div>
 
                     </form>
                 </div>
@@ -224,7 +224,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-xs-center">
-                <h3 class="mbr-section-title display-2">COMPARTELO!</h3>
+                <h3 class="mbr-section-title display-2">@lang('landingPage.landing_share')</h3>
                 <div>
 
                   <div class="mbr-social-likes" data-counters="false">

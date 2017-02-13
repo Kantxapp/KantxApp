@@ -19,7 +19,8 @@
         "laravel/scout": "2.0.2",
         "algolia/algoliasearch-client-php": "^1.13",
         "genealabs/phpgmaps": "^0.3.9",
-        "alexpechkarev/google-maps": "1.0.7"
+        "alexpechkarev/google-maps": "1.0.7",
+        "mcamara/laravel-localization": "1.2.*"
         
     },
     "require-dev": {
