@@ -119,7 +119,7 @@ Route::group(['middleware' => 'auth'], function(){
             'as' => 'kantxa.save'
         ]);
         Route::get('/edit/kantxa/{name}', [
-            'uses' => 'GoogleMapsControlle@editKantxa',
+            'uses' => 'GoogleMapsController@editKantxa',
             'as' => 'kantxa.edit'
         ]);
         Route::patch('/update/kantxa/{name}', [
