@@ -17,6 +17,7 @@ class CreateSportsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->string('img_path');
             $table->timestamps();
         });
     }

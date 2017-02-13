@@ -58,6 +58,7 @@ class LoginController extends Controller
     }
     public function activateUser($token)
     {
+        $this->redirectTo='/sports';
         if ($user = $this->activationService->activateUser($token)) {
             auth()->login($user);
             return redirect($this->redirectPath());
