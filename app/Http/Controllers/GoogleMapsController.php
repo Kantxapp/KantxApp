@@ -8,10 +8,11 @@ use App\Kantxa;
 
 class GoogleMapsController extends Controller
 {
-    public function createKantxa($name){
+    public function createKantxa($name,$place_id){
         $this->name = $name;
+        $this->place_id = $place_id;
         $response = \GoogleMaps::load('geocoding')
-        ->setParam (['address' => $name])
+        ->setParam (['place_id' => $place_id])
         ->get();
         $obj = json_decode($response);
         $place_id = $obj->{"results"}[0]->{"place_id"};
@@ -39,7 +40,6 @@ class GoogleMapsController extends Controller
             
         //     ]);
         // $sensor_id = Sensor::orderBy('id', 'desc')->first()->id;
-
 
 
         
@@ -107,5 +107,6 @@ class GoogleMapsController extends Controller
                 'kantxaPic' => $arrayKantxaCorrect
             ]);
         }
+        return redirect()->route('kantxas.get');
     }
 }

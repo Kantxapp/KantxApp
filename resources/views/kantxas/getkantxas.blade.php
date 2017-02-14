@@ -7,11 +7,16 @@
     
 
     <div class="mbr-cards-row row">
+@if (Auth::user()->type == 'A')
+
+    <div class="card-btn col-lg-12"><a href="{{ route('kantxa.find')}}"  class="btn btn-danger">CREAR KANTXA</a></div>
+
+@endif
 @foreach ($kantxas as $kantxa)
     
    
 
-        <div class="mbr-cards-col col-xs-12 col-lg-2" style="padding-top: 100px; padding-bottom: 80px;">
+        <div class="mbr-cards-col col-xs-3 col-lg-2" style="padding-top: 100px; padding-bottom: 80px;">
             <div class="container">
               <div class="card cart-block">
                   <div class="card-img"><img src="{{$kantxa->KantxaPic}}" class="card-img-top" style="width: 150px; height: 100px;"></div>
@@ -23,14 +28,16 @@
                     <h5 class="card-subtitle">
 
                         <span class="list-group-icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span>
-                        <span class="list-group-text">asdfasdf</span>
+                        <span class="list-group-text">{{$sensor->radiacion}}</span>
                         <span class="list-group-icon"><i class="fa fa-tint" aria-hidden="true"></i></span>
-                        <span class="list-group-text">asdfasdf</span>
+                        <span class="list-group-text">{{$sensor->humedad}}</span>
                     </h5>
                     @endif
                     @endforeach
-                    
-                    <div class="card-btn"><a href="https://mobirise.com" class="btn btn-success">EDITAR</a></div>
+                    @if (Auth::user()->type == 'A')
+                    <div class="card-btn"><a href="{{ route('kantxa.edit',['id' => $kantxa->id]) }}"  class="btn btn-danger">EDITAR</a></div>
+                    @endif
+                    <div class="card-btn"><a href="{{ route('kantxa.info',['id' => $kantxa->id]) }}" class="btn btn-success">ENTRAR</a></div>
                     </div>
                 </div>
             </div>

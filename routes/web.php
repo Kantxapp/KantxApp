@@ -129,31 +129,36 @@ Route::group(['middleware' => 'auth'], function(){
     
     Route::get('/get/kantxas', [
     'uses' => 'KantxasController@getKantxas',
-    'as' => 'kantxa.get'
-    ]);    
+    'as' => 'kantxas.get'
+    ]);
+    
+    Route::get('/kantxa/info/{id}', [
+    'uses' => 'KantxasController@getKantxa',
+    'as' => 'kantxa.info'
+    ]); 
 
-
-    Route::get('/kantxa/zubipe', function () {
-        return view('kantxas.kantxa');
-    });
 
     Route::group(['middleware' => 'admin'], function()
     {
-        Route::get('/create/kantxa/{name}', [
+        Route::get('/create/kantxa/{name}/{place_id}', [
         'uses' => 'GoogleMapsController@createKantxa',
         'as' => 'kantxa.create'
+        ]);
+        Route::get('/find/kantxa', [
+        'uses' => 'KantxasController@findKantxa',
+        'as' => 'kantxa.find'
         ]);
         Route::post('/save/kantxa', [
             'uses' => 'GoogleMapsController@saveKantxa',
             'as' => 'kantxa.save'
         ]);
-        Route::get('/edit/kantxa/{name}', [
-            'uses' => 'GoogleMapsController@editKantxa',
+        Route::get('/edit/kantxa/{id}', [
+            'uses' => 'KantxasController@editKantxa',
             'as' => 'kantxa.edit'
         ]);
-        Route::patch('/update/kantxa/{name}', [
-            'uses' => 'GoogleMapsController@updateKantxa',
-            'as' => 'kantxa.update'
+        Route::patch('/update/kantxa/', [
+            'uses' => 'KantxasController@saveEditKantxa',
+            'as' => 'kantxa.saveEdit'
         ]);
     
     });
