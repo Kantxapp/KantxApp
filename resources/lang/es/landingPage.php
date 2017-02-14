@@ -27,7 +27,7 @@ return [
     'landing_feat_loc'      =>  'Ubicación',
     'landing_feat_loc_text' =>  'Siempre sabrás como llegar.',
     
-    'landing_user_header'   =>  'NUESTRO FANTÁSTICOS USUARIOS',
+    'landing_user_header'   =>  'NUESTROS FANTÁSTICOS USUARIOS',
     'landing_user_caption'  =>  'Siempre activos BE ACTIVE.',
     
     'landing_user_word'     =>  'Usuario',
