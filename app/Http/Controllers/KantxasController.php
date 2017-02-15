@@ -138,12 +138,10 @@ class KantxasController extends Controller
                 
         $kantxa = DB::table('kantxas')->where('id', $id)->first();
         $sensor = DB::table('sensors')->where('id', $kantxa->sensor_id)->first();
-
-
         return view('kantxas.infokantxa', compact('kantxa','sensor'));
      }
      public function findKantxa()
      {
-        return view('kantxas.findkantxa');         
+        return view('kantxas.findkantxa');   
      }
 }

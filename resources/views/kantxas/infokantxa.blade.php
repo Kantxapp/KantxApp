@@ -41,11 +41,11 @@
                         @if(isset($sensor))
                         <li class="list-group-item">
                             <span class="list-group-icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span>
-                            <span class="list-group-text">La radiación solar es de {{$sensor->radiacion}} </span>
+                            <span class="list-group-text">La radiación solar es de <span id="{{$sensor->id}}_radiacion">{{$sensor->radiacion}}</span> </span>
                         </li>
                         <li class="list-group-item">
                             <span class="list-group-icon"><i class="fa fa-tint" aria-hidden="true"></i></span>
-                            <span class="list-group-text">La humedad es de {{$sensor->humedad}} </span>
+                            <span class="list-group-text">La humedad es de <span id="{{$sensor->id}}_humedad">{{$sensor->humedad}}</span> </span>
                         </li>
                         @endif
                     </ul>

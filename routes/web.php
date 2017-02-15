@@ -61,7 +61,15 @@ Route::get('/twilio/send/{message}', 'TwilioController@sendMessage');
 Route::post('/twilio/receive', 'TwilioController@receiveMessage');
 
 // Rutas futuras:
+Route::get('/bridge', function() {
+    $pusher = App::make('pusher');
 
+    $pusher->trigger( 'test-channel',
+                      'test-event', 
+                      array('text' => 'Preparing the Pusher Laracon.eu workshop!'));
+
+    return view('pusher');
+});
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/profile/{slug}', [
         'uses' => 'ProfilesController@index',
@@ -136,6 +144,7 @@ Route::group(['middleware' => 'auth'], function(){
     'uses' => 'KantxasController@getKantxa',
     'as' => 'kantxa.info'
     ]); 
+
 
 
     Route::group(['middleware' => 'admin'], function()
