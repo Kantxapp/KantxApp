@@ -11,7 +11,7 @@
       <img src='{{$sport->img_path}}'><br>
       {{$sport->name}}
       </div>
-
+    @endforeach
     </div>
 </div>
 @endsection
