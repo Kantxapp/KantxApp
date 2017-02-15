@@ -106,9 +106,9 @@
             </div>
             <div class="mbr-footer-content col-xs-12 col-md-3">
                 <p><strong>@lang('landingPage.footer_links')</strong><br>
-<a class="text-primary" href="https://mobirise.com/">Website builder</a><br>
-<a class="text-primary" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a><br>
-<a class="text-primary" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a></p>
+<a class="text-primary" href="https://facebook.com/">Facebook</a><br>
+<a class="text-primary" href="https://twitter.com/">Twitter</a><br>
+<a class="text-primary" href="https://plus.google.com/">Google+</a></p>
             </div>
 
         </div>
