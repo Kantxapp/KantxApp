@@ -21,6 +21,7 @@ return array(
     'CreateSocialAccountsTable' => $baseDir . '/database/migrations/2016_12_13_080841_create_social_accounts_table.php',
     'CreateSportsTable' => $baseDir . '/database/migrations/2017_02_08_105406_create_sports_table.php',
     'CreateUserActivationsTable' => $baseDir . '/database/migrations/2016_12_15_083248_create_user_activations_table.php',
+    'CreateUserSportsTable' => $baseDir . '/database/migrations/2017_02_13_090629_create_user_sports_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

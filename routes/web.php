@@ -118,6 +118,10 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'SportsController@index',
         'as' => 'sports'
     ]);
+    Route::get('/asd', [
+        'uses'=> 'SportsController@userSports',
+        'as' => 'userSports'
+    ]);
     Route::get('/kantxas', [
         'uses' => 'KantxasController@index',
         'as' => 'kantxas'

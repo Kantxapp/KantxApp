@@ -405,6 +405,7 @@ class ComposerStaticInit9cf7c1d5dcd76dbafbc42ff3c23a0bce
         'CreateSocialAccountsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_13_080841_create_social_accounts_table.php',
         'CreateSportsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_08_105406_create_sports_table.php',
         'CreateUserActivationsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_15_083248_create_user_activations_table.php',
+        'CreateUserSportsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_13_090629_create_user_sports_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
