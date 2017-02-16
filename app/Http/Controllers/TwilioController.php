@@ -19,7 +19,14 @@ class TwilioController extends Controller
     {
     
     $pusher = App::make('pusher');
-
+    
+    $llover = null;
+    $humedad = null;
+    $temperatura = null;
+    $ocupado = null;
+    $viento = null;
+    $radiacion = null;
+    
     $body =$request['Body'];
     
     $params = explode(",", $body);
@@ -59,6 +66,40 @@ class TwilioController extends Controller
         }
 
     }
+
+            $arr = array();
+            
+            if(isset($idSensor)){
+                $arr['idSensor'] = $idSensor;
+            }else{
+                
+            }
+            if (isset($llover)) {
+                $arr['llover'] = $llover;
+            }else{
+                $arr['llover'] = 'NR';
+            }
+            if (isset($humedad)){
+                $arr['humedad'] = $humedad;
+            }else{
+                $arr['humedad'] = 'NR';
+            }
+            if (isset($temperatura)){
+                $arr['temperatura'] = $temperatura;
+            }else{
+                $arr['temperatura'] = 'NR';
+            }
+            if (isset($ocupado)){
+                $arr['ocupado'] = $ocupado;
+            }else{
+                $arr['ocupado'] = 0;
+            }
+            if (isset($radiacion)){
+                $arr['radiacion'] = $radiacion;
+            }else{
+                $arr['radiacion'] = 'NR';
+            }
+
     $sensor = DB::table('sensors')
             ->where('id', $idSensor)
             ->update(
@@ -71,7 +112,7 @@ class TwilioController extends Controller
                 'radiacion' => $radiacion
                 
             ]);
-    $arr = array('idSensor' => $idSensor, 'llover' => $llover, 'humedad' => $humedad, 'temperatura' => $temperatura, 'ocupado' => $ocupado, 'radiacion' => $radiacion);
+    // $arr = array('idSensor' => $idSensor, 'llover' => $llover, 'humedad' => $humedad, 'temperatura' => $temperatura, 'ocupado' => $ocupado, 'radiacion' => $radiacion);
                 $data=json_encode($arr);
     $pusher->trigger( 'sensor-channel',
                       'sensor-change', 

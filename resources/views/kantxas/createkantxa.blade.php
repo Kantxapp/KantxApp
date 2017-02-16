@@ -31,34 +31,56 @@
                                     <input id="kantxaPic" type="file" class="form-control" name="kantxaPic">
                                 </div>
                             </div>
+                            
                             <div class="col-xs-4 col-md-2">
                                 <div class="form-group">
                                     <label class="form-control-label" for="form1-8-name">Número</label>
+                                    @if(isset($streetNumber))
                                     <input id="streetNumber" type="text" class="form-control" name="streetNumber" value="{{$streetNumber}}">
+                                    @else
+                                    <input id="streetNumber" type="text" class="form-control" name="streetNumber" >
+                                    @endif
                                 </div>
                             </div>
+                            
                             <div class="col-xs-8 col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="form1-8-surname1">Calle</label>
+                                    @if(isset($route))
                                     <input id="route" type="text" class="form-control" name="route" value="{{$route}}">
+                                    @else
+                                    <input id="route" type="text" class="form-control" name="route">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xs-8 col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="form1-8-surname2">Municipio</label>
+                                    @if(isset($locality))
                                     <input id="locality" type="text" class="form-control" name="locality" value="{{$locality}}">
+                                    @else
+                                    <input id="locality" type="text" class="form-control" name="locality">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xs-4 col-md-2">
                                 <div class="form-group">
                                     <label class="form-control-label" for="form1-8-surname2">Provincia</label>
+                                    @if(isset($province))
                                     <input id="province" type="text" class="form-control" name="province" value="{{$province}}">
+                                    @else
+                                    <input id="province" type="text" class="form-control" name="province">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-12">
                                 <div class="form-group">
                                     <label class="form-control-label" for="form1-8-surname1">Dirección</label>
+                                    @if(isset($formatedAddress))
                                     <input id="formatedAddress" type="text" class="form-control" name="formatedAddress" value="{{$formatedAddress}}">
+                                    @else
+                                    <input id="formatedAddress" type="text" class="form-control" name="formatedAddress">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xs-6 col-md-6">
