@@ -7,7 +7,7 @@
                         <input type="text" class="form-control" placeholder="Buscar..." v-model="query" @keyup.enter="search()">
                         </div>
                         <div class="col-lg-1 hidden-xs">
-                        <img src="/assets/images/algolia.jpg" class="img-responsive" alt="Algolia">
+                        <img src="/assets/images/algolia.jpg" style="height: 40px; width: 100px;" class="img-responsive" alt="Algolia">
                         </div>
                         <br>
                         <div class="row" v-if="results.length">

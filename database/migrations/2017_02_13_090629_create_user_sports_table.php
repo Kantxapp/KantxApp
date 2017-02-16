@@ -15,6 +15,7 @@ class CreateUserSportsTable extends Migration
     {
         //
         Schema::create('user_sports', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('sport_id')->unsigned();
             $table->timestamps();
