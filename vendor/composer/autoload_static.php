@@ -939,9 +939,11 @@ class ComposerStaticInit9cf7c1d5dcd76dbafbc42ff3c23a0bce
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'SensorsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SensorsTableSeeder.php',
+        'SportsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SportsTableSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
-        'sportsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/sportsTableSeeder.php',
+        'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

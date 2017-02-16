@@ -27,13 +27,21 @@
   <link rel="stylesheet" href="/assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="/assets/mobirise2/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="/assets/theme2/css/style.css">
+  <link rel="stylesheet" href="/css/magic.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
   <script src="//js.pusher.com/4.0/pusher.min.js"></script>
   <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-
+    <style type="text/css">
+        .magictime {
+        -webkit-animation-duration: 3s;
+        -moz-animation-duration: 3s;
+        -o-animation-duration: 3s;
+        animation-duration: 3s;
+        }
+    </style>
   <script>
   
         window.Laravel = <?php echo json_encode([
@@ -47,6 +55,11 @@
             var sensor_data=JSON.parse(data);
             console.log(sensor_data["radiacion"]);
             $('#'+ sensor_data['idSensor']+'_radiacion').html(sensor_data["radiacion"]);
+            $('#'+ sensor_data['idSensor']+'_humedad').html(sensor_data["humedad"]);
+            
+
+ $('#'+ sensor_data['idSensor']+'_radiacion').addClass('magictime twisterInUp');
+
         });
   </script>
   
