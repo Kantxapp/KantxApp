@@ -31,7 +31,8 @@ class SportsController extends Controller
 
         $sports = DB::table('sports')->get();
         $user_id = Auth::user()->id;
-        return view('sports',compact('sports', 'user_id'));
+        $userSports = $this->userSports();
+        return view('sports',compact('sports', 'user_id', 'userSports'));
     }
     
     public function userSports()
@@ -48,23 +49,22 @@ class SportsController extends Controller
         $sports = DB::table('sports')
                     ->whereIn('id', $control)
                     ->get();
-
-        return view('user_sports',['sports' => $sports]);
+        return $sports;
+        // return view('user_sports',['sports' => $sports]);
 
         // select * from sports where id in (select sport_id from user_sports where user_id=1);
     }
     
     public function userInsert(Request $r)
     {
-        // {userId: 5, sportId:5}
-        //userId=1_sportId=3
+
         
         $ids = explode('_',$r->id);
         $idUser = explode('=',$ids[0]);
         $idUserValue = $idUser[1];
         $idSport = explode('=',$ids[1]);
         $idSportValue = $idSport[1];
-
+        
 
         $userSport = DB::table('user_sports')->where([
             ['user_id', '=', $idUserValue],
