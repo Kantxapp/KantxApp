@@ -2147,3 +2147,6 @@ html.is-builder .article .lead:not([data-app-remove-it]) + div .btn {
 .grey {
   background-color: #2E2E2E;
 }
+.greenery {
+  background-color: #88B04B;
+}
