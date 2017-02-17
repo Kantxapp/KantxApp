@@ -8,7 +8,7 @@
   <div class="row">
     @foreach($sports as $sport)
       <div class="col-md-3 col-xs-12 col-lg-3">
-      <img src='{{$sport->img_path}}'><br>
+      <img src='{{$sport->img_path}}' id='{{$sport->id}}'><br>
       {{$sport->name}}
       </div>
     @endforeach

@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
         $profile = DB::table('profiles')->insert([
             
             'user_id' => 2,
-            'name' => 'IAitor'
+            'name' => 'Aitor'
             
             ]);
             

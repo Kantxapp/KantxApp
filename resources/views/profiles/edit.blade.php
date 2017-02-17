@@ -96,58 +96,9 @@
                                     <label class="form-control-label" for="form1-8-province">Seleccione su provincia<span class="form-asterisk">*</span></label>
                                     <select name="province" id="provinciaList" onChange="return provinciaListOnChange()">
                                       <option >Seleccione su provincia...</option>		
-                                      <option value='01'>Alava</option>
-                                      <option value='02'>Albacete</option>
-                                      <option value='03'>Alicante</option>
-                                      <option value='04'>Almeria</option>
-                                      <option value='33'>Asturias</option>
-                                      <option value='05'>Avila</option>
-                                      <option value='06'>Badajoz</option>
-                                      <option value='08'>Barcelona</option>
-                                      <option value='09'>Burgos</option>
-                                      <option value='10'>Caceres</option>
-                                      <option value='11'>Cadiz</option>
-                                      <option value='39'>Cantabria</option>
-                                      <option value='12'>Castellon</option>
-                                      <option value='51'>Ceuta</option>
-                                      <option value='13'>Ciudad Real</option>
-                                      <option value='14'>Cordoba</option>
-                                      <option value='15'>Coruña, A</option>
-                                      <option value='16'>Cuenca</option>
-                                      <option value='17'>Girona</option>
-                                      <option value='18'>Granada</option>
-                                      <option value='19'>Guadalajara</option>
-                                      <option value='20'>Guipuzcoa</option>
-                                      <option value='21'>Huelva</option>
-                                      <option value='22'>Huesca</option>
-                                      <option value='07'>Illes Balears</option>
-                                      <option value='23'>Jaen</option>
-                                      <option value='24'>Leon</option>
-                                      <option value='25'>Lleida</option>
-                                      <option value='27'>Lugo</option>
-                                      <option value='28'>Madrid</option>
-                                      <option value='29'>Malaga</option>
-                                      <option value='52'>Melilla</option>
-                                      <option value='30'>Murcia</option>
-                                      <option value='31'>Navarra</option>
-                                      <option value='32'>Ourense</option>
-                                      <option value='34'>Palencia</option>
-                                      <option value='35'>Palmas, Las</option>
-                                      <option value='36'>Pontevedra</option>
-                                      <option value='26'>Rioja, La</option>
-                                      <option value='37'>Salamanca</option>
-                                      <option value='38'>Santa Cruz De Tenerife</option>
-                                      <option value='40'>Segovia</option>
-                                      <option value='41'>Sevilla</option>
-                                      <option value='42'>Soria</option>
-                                      <option value='43'>Tarragona</option>
-                                      <option value='44'>Teruel</option>
-                                      <option value='45'>Toledo</option>
-                                      <option value='46'>Valencia</option>
-                                      <option value='47'>Valladolid</option>
-                                      <option value='48'>Vizcaya</option>
-                                      <option value='49'>Zamora</option>
-                                      <option value='50'>Zaragoza</option>
+                                      @foreach($provinces as $province)
+                                          <option value='{{$province->id}}'>{{$province->name}}</option>
+                                      @endforeach
                                     </select>
 
                                 </div>
@@ -170,10 +121,23 @@
                             <label class="form-control-label" for="form1-8-message">Sobre Mí</label>
                             <textarea class="form-control" name="about" rows="7" data-form-field="About" id="form1-8-message" >{{ Auth::user()->profile->about}}</textarea>
                         </div>
+                        <div class="row">
+                        <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+                            <h3>Selecciona tus deportes</h3>
+                            @foreach($sports as $sport)
+                              <div class="col-md-3 col-xs-12 col-lg-3">
+                              <img src='{{$sport->img_path}}' id='{{$sport->id}}'><br>
+                              {{$sport->name}}
+                              </div>
+                            @endforeach
+                        </div>
+                    </div>
                         <div class="col-xs-12 col-md-12"><button type="submit" class="btn btn-success col-xs-12 col-md-12">GUARDAR</button></div>
                     </form>
                 </div>
+                
             </div>
+            
         </div>
     </div>
 </section>

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -9,10 +8,13 @@ use Image;
 use Storage;
 use Session;
 use App\User;
+use App\Traits\Get_sports;
+use App\Traits\Get_provinces;
 
 class ProfilesController extends Controller
 {
-    
+    use Get_sports;
+    use Get_provinces;
     //
     public function __construct()
     {
@@ -21,13 +23,17 @@ class ProfilesController extends Controller
     
     public function index($slug)
     {
+       $sports=$this->getUserSports();
+        
         $user = User::where('slug', $slug)->first();
-        return view('profiles.profile')
-            ->with('user', $user);
+        return view('profiles.profile',compact('user', 'sports'));
     }
     public function edit()
     {
-        return view('profiles.edit')->with('info', Auth::user()->profile);
+        $sports=$this->getAllSports();
+        $provinces=$this->getProvinces();
+        $user=Auth::user()->profile;
+        return view('profiles.edit',compact('user','sports','provinces'));
     }
     public function update(Request $r)
     {
