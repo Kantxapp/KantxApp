@@ -52,7 +52,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('123456'),
             'slug' => 'hafsa',
             'activated' => true,
-            'type' => 'U'
+            'type' => 'A'
         ]);
 
         $profile = DB::table('profiles')->insert([

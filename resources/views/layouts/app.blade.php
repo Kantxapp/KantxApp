@@ -53,16 +53,18 @@
         channel.bind('sensor-change', function(data) {
             
             var sensor_data=JSON.parse(data);
-            console.log(sensor_data["radiacion"]);
+            $('#'+ sensor_data['idSensor']+'_radiacion').removeClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_humedad').removeClass('magictime twisterInUp');
+            
             $('#'+ sensor_data['idSensor']+'_radiacion').html(sensor_data["radiacion"]);
             $('#'+ sensor_data['idSensor']+'_humedad').html(sensor_data["humedad"]);
             
 
- $('#'+ sensor_data['idSensor']+'_radiacion').addClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_radiacion').addClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_humedad').addClass('magictime twisterInUp');
 
         });
   </script>
-  
   @yield('head')
 </head>
 <body @yield('body') >
