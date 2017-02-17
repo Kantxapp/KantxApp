@@ -49,7 +49,24 @@ class SportsController extends Controller
         $sports = DB::table('sports')
                     ->whereIn('id', $control)
                     ->get();
-        return $sports;
+        $objUser = Auth::user();
+        
+        /*
+        $array = array(
+                "foo" => "bar",
+                "bar" => "foo",
+        );
+        */
+        $itzuli = array(
+                "id" => $objUser->id, 
+                "sports" => $sports);
+                
+        return $itzuli;
+        
+        
+        
+        //return $objUser;
+        //return $sports;
         // return view('user_sports',['sports' => $sports]);
 
         // select * from sports where id in (select sport_id from user_sports where user_id=1);
@@ -58,12 +75,12 @@ class SportsController extends Controller
     public function userInsert(Request $r)
     {
 
-        
+
         $ids = explode('_',$r->id);
-        $idUser = explode('=',$ids[0]);
-        $idUserValue = $idUser[1];
-        $idSport = explode('=',$ids[1]);
-        $idSportValue = $idSport[1];
+        $idUser = $ids[0];
+        $idUserValue = $ids[1];
+        $idSport = $ids[2];
+        $idSportValue = $ids[3];
         
 
         $userSport = DB::table('user_sports')->where([

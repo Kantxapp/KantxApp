@@ -2,6 +2,7 @@
 @section('title', 'Perfil')
 @section('head')
     <link rel="stylesheet"  href="/assets/profile-card/css/style.css" type="text/css" />
+
 @endsection
 @section('content')
 @if (Auth::user()->avatar == null)
@@ -124,12 +125,12 @@
                         <div class="row">
                         <div class="col-xs-12 col-lg-10 col-lg-offset-1">
                             <h3>Selecciona tus deportes</h3>
-                            @foreach($sports as $sport)
-                              <div class="col-md-3 col-xs-12 col-lg-3">
-                              <img src='{{$sport->img_path}}' id='{{$sport->id}}'><br>
-                              {{$sport->name}}
-                              </div>
-                            @endforeach
+                                @foreach($sports as $sport)
+                                    <div id="userId_{{Auth::user()->id}}_sportId_{{$sport->id}}" class="col-md-3 col-xs-3 col-lg-3 sport">
+                                    <img src='{{$sport->img_path}}'><br>
+                                    {{$sport->name}}
+                                    </div>
+                                @endforeach
                         </div>
                     </div>
                         <div class="col-xs-12 col-md-12"><button type="submit" class="btn btn-success col-xs-12 col-md-12">GUARDAR</button></div>
@@ -141,3 +142,9 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('script')
+  <script src="/js/sports.js"></script>
+  <script src="/js/sportsUser.js"></script>
+@endsection

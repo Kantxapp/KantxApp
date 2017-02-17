@@ -107,12 +107,12 @@
                     <div class="row">
                         <div class="col-xs-12 col-lg-10 col-lg-offset-1">
                             <h3>Tus deportes</h3>
-                            @foreach($sports as $sport)
-                              <div class="col-md-3 col-xs-12 col-lg-3">
-                              <img src='{{$sport->img_path}}' id='{{$sport->id}}'><br>
-                              {{$sport->name}}
-                              </div>
-                            @endforeach
+                                @foreach($sports as $sport)
+                                    <div id="userId_{{Auth::user()->id}}_sportId_{{$sport->id}}" class="col-md-3 col-xs-3 col-lg-3 sport">
+                                    <img src='{{$sport->img_path}}'><br>
+                                    {{$sport->name}}
+                                    </div>
+                                @endforeach
                         </div>
                         
                     </div>

@@ -130,6 +130,10 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'SportsController@userInsert',
         'as' => 'sports.userinsert'
     ]);
+    Route::post('/sports/user/get', [
+        'uses' => 'SportsController@userSports',
+        'as' => 'sports.userGet'
+    ]);
     Route::get('/asd', [
         'uses'=> 'SportsController@userSports',
         'as' => 'userSports'

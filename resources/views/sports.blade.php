@@ -12,12 +12,12 @@
                 <h1 class="text-center">¡Bienvenido a KantxApp!</h1><br/>
                 <h3>Por favor, selecciona los deportes que te interesan a continuación</h3>
                 <div class="row">
-                  @foreach($sports as $sport)
-                    <div id="userId={{$user_id}}_sportId={{$sport->id}}" class="col-md-3 col-xs-3 col-lg-3 sport">
-                    <img src='{{$sport->img_path}}'><br>
-                    {{$sport->name}}
-                    </div>
-                  @endforeach
+                    @foreach($sports as $sport)
+                        <div id="userId_{{Auth::user()->id}}_sportId_{{$sport->id}}" class="col-md-3 col-xs-3 col-lg-3 sport">
+                        <img src='{{$sport->img_path}}'><br>
+                        {{$sport->name}}
+                        </div>
+                    @endforeach
                   </div>
               <!--</div>-->
                 <div style="margin-top: 10px;"><a class="btn btn-secondary greenery" href="{{ url('/home') }}">CONTINUAR</a></div>
