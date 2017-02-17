@@ -2143,3 +2143,7 @@ html.is-builder .article .lead:not([data-app-remove-it]) + div .btn {
 	text-align: center;
 	padding: 0;
 }
+
+.grey {
+  background-color: #2E2E2E;
+}

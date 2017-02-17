@@ -1,43 +1,5 @@
 @extends('layouts.sports')
 
-@section('head')
-<style type="text/css">
-  .grey {
-    background-color: #2E2E2E;
-  }
-</style>
-<script
-src="https://code.jquery.com/jquery-3.1.1.min.js"
-integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-crossorigin="anonymous"></script>
-<script type="text/javascript">
-  $(function() {
-
-      $(".sport").click(function() {    
-
-          $.ajaxSetup({
-            headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-          });
-          $.ajax({ url: '/sports/user/insert',
-                   data: {id: this.id},
-                   type: 'post',
-                   success: function(output) {
-                                console.log(output);
-                                
-                            }
-          });
-          $(this).children().toggleClass('grey');
-
-      });
-  
-      
-      
-  });
-
-</script>
-@ensection
 
 @section('content')
 
@@ -55,3 +17,6 @@ crossorigin="anonymous"></script>
 </div>
 @endsection
 
+@section('script')
+  <script src="/js/sports.js"></script>
+@endsection

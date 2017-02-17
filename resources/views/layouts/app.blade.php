@@ -196,6 +196,7 @@
   <script src="/js/app.js"></script>
   <script src="/js/location.js"></script>
 
+
   
   @yield('script')
   
