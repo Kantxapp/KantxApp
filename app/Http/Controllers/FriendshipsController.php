@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
+use DB;
 
 class FriendshipsController extends Controller
 {
@@ -45,5 +46,30 @@ class FriendshipsController extends Controller
 
         User::find($id)->notify(new \App\Notifications\FriendRequestAccepted(Auth::user()) );
         return $resp;
+    }
+    
+    public function getUserFriends()
+    {
+        $my_friends_id=[];
+        $userId=Auth::user()->id;
+        $friendships=DB::table('friendships')
+                        ->where('requester',$userId)
+                        ->orwhere('user_requested',$userId)
+                        ->where('status',1)
+                        ->get();
+        for($i=0;$i<count($friendships);$i++){
+            if($friendships[$i]->requester==$userId){
+                $my_friends_id[$i]=$friendships[$i]->user_requested;
+            }else if($friendships[$i]->user_requested==$userId){
+                $my_friends_id[$i]=$friendships[$i]->requester;
+            }
+        };       
+        
+        $my_friends=DB::table('users')
+                    ->select('id','name','avatar','slug','created_at')
+                    ->whereIn('id',$my_friends_id)
+                    ->get();
+      
+        return view('friends',compact('my_friends'));
     }
 }
