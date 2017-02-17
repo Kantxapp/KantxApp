@@ -134,6 +134,10 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'FriendshipsController@getUserFriends',
         'as' => 'friends'
     ]);
+    Route::post('/sports/user/get', [
+        'uses' => 'SportsController@userSports',
+        'as' => 'sports.userGet'
+    ]);
     Route::get('/kantxas', [
         'uses' => 'KantxasController@index',
         'as' => 'kantxas'

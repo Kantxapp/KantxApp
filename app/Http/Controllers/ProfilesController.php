@@ -23,7 +23,7 @@ class ProfilesController extends Controller
     
     public function index($slug)
     {
-       $sports=$this->getUserSports();
+        $sports=$this->getUserSports($slug);
         
         $user = User::where('slug', $slug)->first();
         return view('profiles.profile',compact('user', 'sports'));
@@ -32,8 +32,10 @@ class ProfilesController extends Controller
     {
         $sports=$this->getAllSports();
         $provinces=$this->getProvinces();
+        $userSports = $this->getUserSportsAuth();
         $user=Auth::user()->profile;
-        return view('profiles.edit',compact('user','sports','provinces'));
+        
+        return view('profiles.edit',compact('user','sports','provinces', '$userSports'));
     }
     public function update(Request $r)
     {
