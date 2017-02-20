@@ -150,6 +150,10 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'EventsController@index',
         'as' => 'event.create'
     ]);
+    Route::get('/create/event/{kantxa_id}', [
+        'uses' => 'EventsController@createEventValues',
+        'as' => 'event.createkantxa'
+    ]);
     
     Route::get('/get/kantxas', [
     'uses' => 'KantxasController@getKantxas',

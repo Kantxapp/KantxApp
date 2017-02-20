@@ -4,7 +4,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 
-		<link rel="stylesheet" href="/assets/bootzard/css/form-elements.css">
+	<link rel="stylesheet" href="/assets/bootzard/css/form-elements.css">
         <link rel="stylesheet" href="/assets/bootzard/css/style.css">
 
 @endsection
@@ -15,32 +15,21 @@
         <!-- Top content -->
         <div class="top-content">
             <div class="container">
+
                 
                 <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 text">
-                        <h1>Free <strong>Bootstrap</strong> Wizard</h1>
-                        <div class="description">
-                       	    <p>
-                                This is a free responsive Bootstrap form wizard. 
-                                Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box" style="margin-top: 20px;">
                     	<form role="form" action="" method="post" class="f1">
 
-                    		<h3>Register To Our App</h3>
-                    		<p>Fill in the form to get instant access</p>
+                    		<h3>CREAR EVENTO</h3>
+                    		<p>Rellena los campos y activate</p>
                     		<div class="f1-steps">
                     			<div class="f1-progress">
-                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
+                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="4" style="width: 16.66%;"></div>
                     			</div>
                     			<div class="f1-step active">
                     				<div class="f1-step-icon"><i class="fa fa-user"></i></div>
-                    				<p>about</p>
+                    				<p>Nombre y deporte</p>
                     			</div>
                     			<div class="f1-step">
                     				<div class="f1-step-icon"><i class="fa fa-key"></i></div>
@@ -50,23 +39,26 @@
                     				<div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
                     				<p>social</p>
                     			</div>
+
+
                     		</div>
                     		
                     		<fieldset>
-                    		    <h4>Tell us who you are:</h4>
-                    			<div class="form-group">
-                    			    <label class="sr-only" for="f1-first-name">First name</label>
-                                    <input type="text" name="f1-first-name" placeholder="First name..." class="f1-first-name form-control" id="f1-first-name">
+                    		    <h4>Paso 1: Nombre y deporte</h4>
+                    		<div class="form-group">
+                    	            <label class="sr-only" for="f1-event-name">Nombre del Evento</label>
+                                    <input type="text" id="f1-event-name" name="f1-event-name" placeholder="Nombre del Evento..." class="f1-first-name form-control" id="f1-first-name">
                                 </div>
+                                
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-last-name">Last name</label>
-                                    <input type="text" name="f1-last-name" placeholder="Last name..." class="f1-last-name form-control" id="f1-last-name">
+                    	            <label class="sr-only" for="f1-event-sport">Seleccione el Deporte</label>
+                                        <select class="form-control" id="f1-event-sport">
+
+                                        </select>
                                 </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-about-yourself">About yourself</label>
-                                    <textarea name="f1-about-yourself" placeholder="About yourself..." 
-                                    	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
-                                </div>
+                                
+                                
+                                
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-next">Next</button>
                                 </div>
@@ -92,6 +84,7 @@
                                     <button type="button" class="btn btn-next">Next</button>
                                 </div>
                             </fieldset>
+
 
                             <fieldset>
                                 <h4>Social media profiles:</h4>
@@ -119,4 +112,10 @@
                     
             </div>
         </div>
+@endsection
+
+@section('script')
+        <script src="/assets/bootzard/js/jquery.backstretch.min.js"></script>
+        <script src="/assets/bootzard/js/retina-1.1.0.min.js"></script>
+        <script src="/assets/bootzard/js/scripts.js"></script>
 @endsection
