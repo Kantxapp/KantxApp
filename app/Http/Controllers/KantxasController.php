@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Traits\Get_sports;
 use App\Kantxa;
 use App\Sensor;
 use DB;
 
 class KantxasController extends Controller
 {
+    use Get_sports;
     //
     /**
      * Create a new controller instance.
@@ -134,11 +136,10 @@ class KantxasController extends Controller
         return redirect()->route('kantxas.get');
      }
      public function getKantxa($id){
-
-                
+        $sports = $this->getKantxaSports($id);
         $kantxa = DB::table('kantxas')->where('id', $id)->first();
         $sensor = DB::table('sensors')->where('id', $kantxa->sensor_id)->first();
-        return view('kantxas.infokantxa', compact('kantxa','sensor'));
+        return view('kantxas.infokantxa', compact('kantxa','sensor','sports'));
      }
      public function findKantxa()
      {

@@ -159,10 +159,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/kantxa/info/{id}', [
     'uses' => 'KantxasController@getKantxa',
     'as' => 'kantxa.info'
-    ]); 
-
-
-
+    ]);
+    
     Route::group(['middleware' => 'admin'], function()
     {
         Route::get('/create/kantxa/{name}/{place_id}', [
@@ -185,7 +183,5 @@ Route::group(['middleware' => 'auth'], function(){
             'uses' => 'KantxasController@saveEditKantxa',
             'as' => 'kantxa.saveEdit'
         ]);
-    
     });
-
 });

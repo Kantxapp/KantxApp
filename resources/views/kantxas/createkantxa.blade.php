@@ -107,6 +107,7 @@
                                     <input id="sensor_id" type="text" class="form-control" name="sensor_id">
                                 </div>
                             </div>
+                            
 
                         <div class="col-xs-12 col-md-12"><button type="submit" class="btn btn-success col-xs-12 col-md-12">GUARDAR</button></div>
                         @if (count($errors) > 0)

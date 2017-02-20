@@ -84,7 +84,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                     <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
                         <li class="nav-item"><a class="nav-link link" href="{{ route('events') }}">Partidas y Eventos</a></li>
                         <li class="nav-item"><a class="nav-link link" href="{{ route('friends') }}">Amigos</a></li>
-                        <li class="nav-item"><a class="nav-link link" href="{{ route('kantxas') }}">Kantxas</a></li>
+                        <li class="nav-item"><a class="nav-link link" href="{{ route('kantxas.get') }}">Kantxas</a></li>
 
                         <li class="nav-item dropdown open">
                             <a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="https://mobirise.com/" aria-expanded="true">
