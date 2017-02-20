@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Traits\Get_sports;
 use DB;
 use Auth;
 
 class SportsController extends Controller
 {
+    use Get_sports;
     //
     /**
      * Create a new controller instance.
@@ -95,5 +97,10 @@ class SportsController extends Controller
             return 'ezabatua';
         }
         return 'hutsa';
+    }
+    
+    public function kantxaSports()
+    {
+        $sports = $this->getKantxaSports();
     }
 }

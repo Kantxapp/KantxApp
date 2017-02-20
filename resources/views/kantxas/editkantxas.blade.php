@@ -92,7 +92,15 @@
                                     <input id="sensor_id" type="text" class="form-control" name="sensor_id" value="{{$kantxa[0]->sensor_id}}">
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <h5>Deportes de esta Kantxa:</h5>
+                                @foreach($sports as $sport)
+                                    <div id="kantxaId_{{Auth::user()->id}}_sportId_{{$sport->id}}" class="col-md-3 col-xs-3 col-lg-3 sport">
+                                    <img src='{{$sport->img_path}}'><br>
+                                    {{$sport->name}}
+                                    </div>
+                                @endforeach
+                            </div>
                         <div class="col-xs-12 col-md-12"><button type="submit" class="btn btn-success col-xs-12 col-md-12">CAMBIAR</button></div>
                         @if (count($errors) > 0)
                         <div class="col-xs-12 col-md-12">

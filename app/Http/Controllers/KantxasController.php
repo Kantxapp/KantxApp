@@ -38,13 +38,14 @@ class KantxasController extends Controller
     }
     
      public function editKantxa($id){
-
+        $sports = $this->getAllSports();
+        $kantxaSports = $this->getKantxaSports($id);
          
          $kantxa = DB::table('kantxas')
                 ->where('id', '=', $id)
                 ->get();
         // return $kantxa;
-        return view('kantxas.editkantxas', compact('kantxa'));
+        return view('kantxas.editkantxas', compact('kantxa','sports','kantxaSports'));
      }
      
      public function saveEditKantxa(Request $r){

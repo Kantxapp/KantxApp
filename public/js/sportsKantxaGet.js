@@ -7,7 +7,7 @@
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
           });
-          $.ajax({ url: '/sports/user/get',
+          $.ajax({ url: '/sports/kantxa/get',
                    type: 'post',
                    success: function(output) {
   
