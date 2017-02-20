@@ -146,4 +146,59 @@ class KantxasController extends Controller
      {
         return view('kantxas.findkantxa');   
      }
+     
+     
+    public function kantxaSportsInsert(Request $r)
+    {
+
+
+        $ids = explode('_',$r->id);
+        $idKantxa = $ids[0];
+        $idKantxaValue = $ids[1];
+        $idSport = $ids[2];
+        $idSportValue = $ids[3];
+        
+
+        $kantxaSport = DB::table('plays')->where([
+            ['kantxa_id', '=', $idKantxaValue],
+            ['sport_id', '=', $idSportValue],
+        ])->first();
+        
+        if ($kantxaSport == ''){
+            $insertKantxaSport = DB::table('plays')->insert(
+                ['kantxa_id' => $idKantxaValue, 'sport_id' => $idSportValue]
+            );
+            return 'gehitua';
+        }else{
+            $deleteKantxaSport = DB::table('plays')->where([
+                        ['kantxa_id', '=', $idKantxaValue],
+                        ['sport_id', '=', $idSportValue],
+                    ])->delete();
+            return 'ezabatua';
+        }
+        return 'hutsa';
+    }
+    public function kantxaSportsGet()
+    {
+        $control = [];
+        $user_sport_id=DB::table('user_sports')
+                    ->where('user_id',Auth::user()->id)
+                    ->get();
+
+        for($i=0;$i<count($user_sport_id);$i++){
+            $control[$i]=$user_sport_id[$i]->sport_id;
+        };
+        
+        $sports = DB::table('sports')
+                    ->whereIn('id', $control)
+                    ->get();
+        $objUser = Auth::user();
+        
+        $itzuli = array(
+                "id" => $objUser->id, 
+                "sports" => $sports);
+                
+        return $itzuli;
+
+    }
 }

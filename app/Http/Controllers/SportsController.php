@@ -98,9 +98,5 @@ class SportsController extends Controller
         }
         return 'hutsa';
     }
-    
-    public function kantxaSports()
-    {
-        $sports = $this->getKantxaSports();
-    }
+
 }

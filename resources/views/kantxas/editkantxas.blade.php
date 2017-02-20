@@ -95,7 +95,7 @@
                             <div class="row">
                                 <h5>Deportes de esta Kantxa:</h5>
                                 @foreach($sports as $sport)
-                                    <div id="kantxaId_{{Auth::user()->id}}_sportId_{{$sport->id}}" class="col-md-3 col-xs-3 col-lg-3 sport">
+                                    <div id="kantxaId_{{$kantxa[0]->id}}_sportId_{{$sport->id}}" class="col-md-3 col-xs-3 col-lg-3 sport">
                                     <img src='{{$sport->img_path}}'><br>
                                     {{$sport->name}}
                                     </div>
@@ -128,4 +128,8 @@
 <section class="mbr-section mbr-section-nopadding" id="map1-0" >
     <div class="mbr-map"><iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4YZR4_SBmFpOKo09NnGG_BCDsR-jm6N4&amp;q=place_id:{{$kantxa[0]->place_id}}" allowfullscreen=""></iframe></div>
 </section>
+@endsection
+
+@section('script')
+  <script src="/js/sportsKantxa.js"></script>
 @endsection
