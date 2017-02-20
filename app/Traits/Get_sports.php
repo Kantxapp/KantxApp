@@ -51,4 +51,21 @@ trait Get_sports
 
         // select * from sports where id in (select sport_id from user_sports where user_id=1);
     }
+    
+    public function getKantxaSports($id)
+    {
+        $control = [];
+        $kantxa_sport_id=DB::table('plays')
+                    ->where('kantxa_id',$id)
+                    ->get();
+
+        for($i=0;$i<count($kantxa_sport_id);$i++){
+            $control[$i]=$kantxa_sport_id[$i]->sport_id;
+        };
+        
+        $sports = DB::table('sports')
+                    ->whereIn('id', $control)
+                    ->get();
+        return $sports;
+    }
 }

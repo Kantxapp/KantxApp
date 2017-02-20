@@ -27,7 +27,12 @@
             <div class="mbr-company col-xs-12 col-md-6 col-lg-6 col-md-6">
 
                 <div class="mbr-company card">
-                    <div><img src="/assets/images/Deportes/futbol7.png" class="card-img-top"><img src="/assets/images/Deportes/futbol11.png" class="card-img-top"></div>
+                    <div>
+                        <h4>En esta Kantxa se practican estos deportes:</h4>
+                        @foreach($sports as $sport)
+                            <img src="{{$sport->img_path}}">
+                        @endforeach
+                    </div>
 
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">

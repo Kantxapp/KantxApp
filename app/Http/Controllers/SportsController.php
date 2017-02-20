@@ -51,12 +51,6 @@ class SportsController extends Controller
                     ->get();
         $objUser = Auth::user();
         
-        /*
-        $array = array(
-                "foo" => "bar",
-                "bar" => "foo",
-        );
-        */
         $itzuli = array(
                 "id" => $objUser->id, 
                 "sports" => $sports);
