@@ -139,15 +139,14 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'GmapsController@index',
         'as' => 'events'
     ]);
-    Route::get('/create/event', [
-        'uses' => 'EventsController@index',
+    Route::post('/create/event', [
+        'uses' => 'EventsController@createEvent',
         'as' => 'event.create'
     ]);
     Route::get('/create/event/{kantxa_id}', [
         'uses' => 'EventsController@createEventValues',
         'as' => 'event.createkantxa'
     ]);
-    
     Route::get('/get/kantxas', [
     'uses' => 'KantxasController@getKantxas',
     'as' => 'kantxas.get'
