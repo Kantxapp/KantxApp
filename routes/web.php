@@ -171,7 +171,7 @@ Route::group(['middleware' => 'auth'], function(){
         'as' => 'sports.kantxainsert'
     ]);
     Route::post('/sports/kantxa/get', [
-        'uses' => 'SportsController@kantxaSportsGet',
+        'uses' => 'KantxasController@kantxaSportsGet',
         'as' => 'sports.kantxaGet'
     ]);
     Route::group(['middleware' => 'admin'], function()

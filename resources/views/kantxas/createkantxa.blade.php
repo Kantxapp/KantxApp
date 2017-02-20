@@ -107,7 +107,7 @@
                                     <input id="sensor_id" type="text" class="form-control" name="sensor_id">
                                 </div>
                             </div>
-                            
+
 
                         <div class="col-xs-12 col-md-12"><button type="submit" class="btn btn-success col-xs-12 col-md-12">GUARDAR</button></div>
                         @if (count($errors) > 0)
@@ -136,4 +136,8 @@
 <section class="mbr-section mbr-section-nopadding" id="map1-0" >
     <div class="mbr-map"><iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD4YZR4_SBmFpOKo09NnGG_BCDsR-jm6N4&amp;q=place_id:{{$place_id}}" allowfullscreen=""></iframe></div>
 </section>
+@endsection
+
+@section('script')
+      <script src="/js/sportsKantxa.js"></script>
 @endsection

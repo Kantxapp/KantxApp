@@ -178,24 +178,25 @@ class KantxasController extends Controller
         }
         return 'hutsa';
     }
-    public function kantxaSportsGet()
+    public function kantxaSportsGet(Request $r)
     {
+        $kantxaId = $r->id;
         $control = [];
-        $user_sport_id=DB::table('user_sports')
-                    ->where('user_id',Auth::user()->id)
+        $kantxa_sport_id=DB::table('plays')
+                    ->where('kantxa_id',$kantxaId)
                     ->get();
 
-        for($i=0;$i<count($user_sport_id);$i++){
-            $control[$i]=$user_sport_id[$i]->sport_id;
+        for($i=0;$i<count($kantxa_sport_id);$i++){
+            $control[$i]=$kantxa_sport_id[$i]->sport_id;
         };
-        
+
         $sports = DB::table('sports')
                     ->whereIn('id', $control)
                     ->get();
-        $objUser = Auth::user();
+
         
         $itzuli = array(
-                "id" => $objUser->id, 
+                "id" => $r->id, 
                 "sports" => $sports);
                 
         return $itzuli;

@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Sensor;
 use App\Kantxa;
 
+use App\Traits\Get_sports;
+
 class GoogleMapsController extends Controller
 {
+        use Get_sports;
     public function createKantxa($name,$place_id){
         $this->name = $name;
         $this->place_id = $place_id;
@@ -42,8 +45,14 @@ class GoogleMapsController extends Controller
         // $sensor_id = Sensor::orderBy('id', 'desc')->first()->id;
 
 
-        
-        return view('kantxas.createkantxa', compact('place_id', 'name', 'streetNumber', 'route', 'locality', 'province', 'formatedAddress', 'lat', 'lng'));
+        $lastKantxa = Kantxa::all()->last();
+        if ($lastKantxa == NULL ){
+            $lastKantxa = 1;
+        }else{
+            $lastKantxa = $lastKantxa->id + 1;
+        }
+        $sports = $this->getAllSports();
+        return view('kantxas.createkantxa', compact('place_id', 'name', 'streetNumber', 'route', 'locality', 'province', 'formatedAddress', 'lat', 'lng', 'lastKantxa', 'sports'));
         // return $streetNumber . $route . $locality . $province . $formatedAddress . $placeId . $name ;
 
     }

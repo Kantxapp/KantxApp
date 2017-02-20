@@ -132,4 +132,5 @@
 
 @section('script')
   <script src="/js/sportsKantxa.js"></script>
+    <script src="/js/sportsKantxaGet.js"></script>
 @endsection
