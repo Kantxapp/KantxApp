@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Traits\Get_sports;
+use Illuminate\Support\Facades\Input;
 use DB;
 class EventsController extends Controller
 {
     use Get_sports;
     //
-    public function index()
+    public function createEvent(Request $r)
     {
-        return view('events.createEvent');
+        $getSelectValue = $r->get('sport_id');
+        return $getSelectValue;
     }
     
     public function createEventValues($kantxa_id)
@@ -24,7 +26,7 @@ class EventsController extends Controller
                 ->where('id', '=', $kantxa->sensor_id)
                 ->first();
         $sports = $this->getKantxaSports($kantxa_id);
-        return $sports;
+        return view('events.createEvent',compact('kantxa','sensor','sports'));
         // return view('kantxas.editkantxas', compact('kantxa'));
     }
 }

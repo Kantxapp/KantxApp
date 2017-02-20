@@ -19,9 +19,9 @@
                 
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box" style="margin-top: 20px;">
-                    	<form role="form" action="" method="post" class="f1">
-
-                    		<h3>CREAR EVENTO</h3>
+                    	<form role="form" action="{{ url('/create/event') }}" method="post" class="f1">
+                            {{csrf_field()}}
+                    		<h3>CREANDO EVENTO EN {{$kantxa->name}}</h3>
                     		<p>Rellena los campos y activate</p>
                     		<div class="f1-steps">
                     			<div class="f1-progress">
@@ -33,11 +33,11 @@
                     			</div>
                     			<div class="f1-step">
                     				<div class="f1-step-icon"><i class="fa fa-key"></i></div>
-                    				<p>account</p>
+                    				<p>detalles</p>
                     			</div>
                     		    <div class="f1-step">
                     				<div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
-                    				<p>social</p>
+                    				<p>invita a tus amigos</p>
                     			</div>
 
 
@@ -52,57 +52,48 @@
                                 
                                 <div class="form-group">
                     	            <label class="sr-only" for="f1-event-sport">Seleccione el Deporte</label>
-                                        <select class="form-control" id="f1-event-sport">
-
+                                        <select class="form-control" id="f1-event-sport" name="sport_id">
+                                            @foreach($sports as $sport)
+                                                <option value="{{$sport->id}}" name="sport_id">{{$sport->name}}</option>
+                                            @endforeach
                                         </select>
                                 </div>
                                 
                                 
                                 
                                 <div class="f1-buttons">
-                                    <button type="button" class="btn btn-next">Next</button>
+                                    <button type="button" class="btn btn-next">Siguiente</button>
                                 </div>
                             </fieldset>
 
                             <fieldset>
-                                <h4>Set up your account:</h4>
+                                <h4>Fecha:</h4>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-email">Email</label>
-                                    <input type="text" name="f1-email" placeholder="Email..." class="f1-email form-control" id="f1-email">
+                                    <label class="sr-only" for="fecha">Fecha</label>
+                                    <input type="date" name="fecha">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <h4>Numero de jugadores:</h4>
+                                    <input type="number" min="2" max="18" step="1" value="2" name="max_jugadores">
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-password">Password</label>
-                                    <input type="password" name="f1-password" placeholder="Password..." class="f1-password form-control" id="f1-password">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-repeat-password">Repeat password</label>
-                                    <input type="password" name="f1-repeat-password" placeholder="Repeat password..." 
-                                                        class="f1-repeat-password form-control" id="f1-repeat-password">
+                                    <h4>Comentarios sobre el evento (normas etc...):</h4>
+                                    <input type="text" name="rules">
                                 </div>
                                 <div class="f1-buttons">
-                                    <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="button" class="btn btn-next">Next</button>
+                                    <button type="button" class="btn btn-previous">Anterior</button>
+                                    <button type="button" class="btn btn-next">Siguente</button>
                                 </div>
                             </fieldset>
 
 
                             <fieldset>
-                                <h4>Social media profiles:</h4>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-facebook">Facebook</label>
-                                    <input type="text" name="f1-facebook" placeholder="Facebook..." class="f1-facebook form-control" id="f1-facebook">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-twitter">Twitter</label>
-                                    <input type="text" name="f1-twitter" placeholder="Twitter..." class="f1-twitter form-control" id="f1-twitter">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-google-plus">Google plus</label>
-                                    <input type="text" name="f1-google-plus" placeholder="Google plus..." class="f1-google-plus form-control" id="f1-google-plus">
-                                </div>
+                                <h4>Resumen:</h4>
+                                
                                 <div class="f1-buttons">
-                                    <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                    <button type="button" class="btn btn-previous">Anterior</button>
+                                    <button type="submit" class="btn btn-submit">¡Crear evento!</button>
                                 </div>
                             </fieldset>
                     	

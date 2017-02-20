@@ -4,13 +4,13 @@
 
 
 <section class="mbr-section article mbr-parallax-background" id="msg-box8-3" style="background-image: url('{{$kantxa->KantxaPic}}'); padding-top: 220px; padding-bottom: 120px;">
-
     <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(34, 34, 34);">
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-xs-center">
                 <h3 class="mbr-section-title display-2 text-white">{{$kantxa->name}}</h3>
+                <button class="btn btn-success"><a href="/create/event/{{$kantxa->id}}">Crear evento en esta Kantxa</a></button>
                 <div class="lead"></div>
                 
             </div>
