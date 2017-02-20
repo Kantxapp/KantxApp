@@ -126,18 +126,11 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'SportsController@index',
         'as' => 'sports'
     ]);
-    Route::post('/sports/user/insert', [
-        'uses' => 'SportsController@userInsert',
-        'as' => 'sports.userinsert'
-    ]);
     Route::get('friends', [
         'uses' => 'FriendshipsController@getUserFriends',
         'as' => 'friends'
     ]);
-    Route::post('/sports/user/get', [
-        'uses' => 'SportsController@userSports',
-        'as' => 'sports.userGet'
-    ]);
+    
     Route::get('/kantxas', [
         'uses' => 'KantxasController@index',
         'as' => 'kantxas'
@@ -186,6 +179,18 @@ Route::group(['middleware' => 'auth'], function(){
         Route::patch('/update/kantxa/', [
             'uses' => 'KantxasController@saveEditKantxa',
             'as' => 'kantxa.saveEdit'
+        ]);
+        Route::post('/sports/user/insert', [
+            'uses' => 'SportsController@userInsert',
+            'as' => 'sports.userinsert'
+        ]);
+        Route::post('/sports/user/get', [
+            'uses' => 'SportsController@userSports',
+            'as' => 'sports.userGet'
+        ]);
+        Route::post('/sports/kantxa/get', [
+            'uses' => 'SportsController@kantxaSports',
+            'as' => 'sports.kantxaGet'
         ]);
     });
 });
