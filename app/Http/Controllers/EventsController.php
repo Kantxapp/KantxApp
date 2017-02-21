@@ -37,4 +37,51 @@ class EventsController extends Controller
         return view('events.createEvent',compact('kantxa','sensor','sports'));
         // return view('kantxas.editkantxas', compact('kantxa'));
     }
+    
+    public function getEvent($id)
+    {
+        $event = DB::table('events')
+                    ->where('id',$id)
+                    ->first();
+        $sportPic=$this->getSportPic($event->sport_id);
+        
+        $kantxaName=DB::table('kantxas')
+                    ->select('name')
+                    ->where('id',$event->kantxa_id)
+                    ->first();
+        
+        $partakes = DB::table('partakes')
+                    ->where('event_id',$id)
+                    ->get();
+                    
+        $creator = DB::table('users')
+                    ->where('id', $event->created_by)
+                    ->first();
+        
+        $control = [];
+        
+        $partakeControl=DB::table('partakes')
+                    ->where('event_id',$id)
+                    ->get();
+
+        for($i=0;$i<count($partakeControl);$i++){
+            $control[$i]=$partakeControl[$i]->user_id;
+        };
+        
+        $partakes = DB::table('users')
+                        ->whereIn('id', $control)
+                        ->get();
+                        
+        return view('events.event',compact('event','sportPic','partakes','kantxaName','creator','partakes'));
+    }
+    
+    public function participate($id)
+    {
+        $array=[
+            'user_id'=>Auth::user()->id,
+            'event_id'=> $id
+        ];
+        DB::table('partakes')->insert($array);
+        return redirect('/event/'.$id)->with('status', '¡Te has unido al evento!');
+    }
 }

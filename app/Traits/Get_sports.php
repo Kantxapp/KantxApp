@@ -68,4 +68,14 @@ trait Get_sports
                     ->get();
         return $sports;
     }
+    
+    public function getSportPic($id)
+    {
+        $sportPic=DB::table('sports')
+            ->select('img_path','name')
+            ->where('id',$id)
+            ->get();
+        
+        return $sportPic;
+    }
 }
