@@ -25,10 +25,10 @@
                     		<p>Rellena los campos y activate</p>
                     		<div class="f1-steps">
                     			<div class="f1-progress">
-                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="4" style="width: 16.66%;"></div>
+                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
                     			</div>
                     			<div class="f1-step active">
-                    				<div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                    				<div class="f1-step-icon"><i class="fa fa-futbol-o "></i></div>
                     				<p>Nombre y deporte</p>
                     			</div>
                     			<div class="f1-step">
@@ -36,7 +36,7 @@
                     				<p>detalles</p>
                     			</div>
                     		    <div class="f1-step">
-                    				<div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
+                    				<div class="f1-step-icon"><i class="fa fa-floppy-o"></i></div>
                     				<p>invita a tus amigos</p>
                     			</div>
 

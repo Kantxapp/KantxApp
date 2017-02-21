@@ -1,28 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="margin-top: 105px;">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-xs-center">
+
+<section class="mbr-cards mbr-section mbr-section-nopadding" id="features7-2" style="margin-top: 50px;">
+
+    
+
+    <div class="mbr-cards-row row">
         @foreach($my_friends as $friend)
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            @if ($friend->avatar == null)
-                <img src="{{ Avatar::create($friend->name)->toBase64() }}" style="width:90px; height:85px; float:left; border-radius:50%; margin-right:25px;" />
-            @else
-                <img src="{{ $friend->avatar}}" style="width:90px; height:85px; float:left; border-radius:50%; margin-right:25px;"/>
-            @endif
-            <br/><br/><br/><br/>
-            <div class="caption">
-                <h3>{{$friend->name}}</h3>
-                <p><a href="{{ route('profile',['slug' => $friend->slug]) }}" class="btn btn-primary" role="button">Ver perfil</a></p>
+        <div class="mbr-cards-col col-xs-12 col-lg-3 col-md-3" style="padding-top: 80px; padding-bottom: 80px;">
+            <div class="container">
+                <div class="card cart-block">
+                    <div class="card-img iconbox">
+                        @if ($friend->avatar == null)
+                            <img src="{{ Avatar::create($friend->name)->toBase64() }}"/>
+                        @else
+                            <img src="{{ $friend->avatar}}" style="border-radius:50%;"/>
+                        @endif
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">{{$friend->name}}</h4>
+                        
+                        <p class="card-text"><a href="{{ route('profile',['slug' => $friend->slug]) }}" class="btn greenery" style="color: white;" role="button">Ver perfil</a></p>
+                        
+                    </div>
+                </div>
             </div>
         </div>
-</div>
-@endforeach
-        </div>
-
-</div>
-</div>
-
+        @endforeach
+    </div>
+</section>
 @endsection
