@@ -12,6 +12,7 @@ class EventsController extends Controller
     //
     public function createEvent(Request $r)
     {
+
         $getSelectValue = $r->get('sport_id');
         return $getSelectValue;
     }
