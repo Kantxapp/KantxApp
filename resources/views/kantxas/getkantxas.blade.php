@@ -34,6 +34,21 @@
                         <span class="list-group-text"><span id="{{$sensor->id}}_radiacion">{{$sensor->radiacion}}</span></span>
                         <span class="list-group-icon"><i class="fa fa-tint" aria-hidden="true"></i></span>
                         <span class="list-group-text"><span id="{{$sensor->id}}_humedad">{{$sensor->humedad}}</span></span>
+                        <span class="list-group-icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="list-group-text"><span id="{{$sensor->id}}_ocupado">
+                            @if($sensor->ocupado)
+                            Ocupado
+                            @else
+                            Libre
+                            @endif
+                        </span></span>
+                        <span class="list-group-icon"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                        <span class="list-group-text"><span id="{{$sensor->id}}_viento">{{$sensor->viento}}</span></span>
+                        <span class="list-group-icon"><i class="fa fa-thermometer-half" aria-hidden="true"></i></span>
+                        <span class="list-group-text"><span id="{{$sensor->id}}_temperatura">{{$sensor->temperatura}}</span></span>
+                        <span class="list-group-icon"><i class="fa fa-shower" aria-hidden="true"></i></span>
+                        <span class="list-group-text"><span id="{{$sensor->id}}_llover">{{$sensor->llover}}</span></span>
+                        
                     </h5>
                     @endif
                     @endforeach

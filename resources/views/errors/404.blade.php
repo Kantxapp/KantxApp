@@ -6,9 +6,15 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <style>
-            html, body {
-                height: 100%;
-            }
+
+body {
+    background-image:url("/assets/images/404.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+html {
+    height: 100%
+}
 
             body {
                 margin: 0;
@@ -40,7 +46,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <img src="/assets/images/404.png">
+                <!--<img src="/assets/images/404.png" id="bg">-->
                 <div class="title">Hulk no encontrar!</div>
             </div>
         </div>

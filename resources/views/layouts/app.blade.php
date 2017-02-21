@@ -55,13 +55,34 @@
             var sensor_data=JSON.parse(data);
             $('#'+ sensor_data['idSensor']+'_radiacion').removeClass('magictime twisterInUp');
             $('#'+ sensor_data['idSensor']+'_humedad').removeClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_ocupado').removeClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_llover').removeClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_viento').removeClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_temperatura').removeClass('magictime twisterInUp');
+            
             
             $('#'+ sensor_data['idSensor']+'_radiacion').html(sensor_data["radiacion"]);
             $('#'+ sensor_data['idSensor']+'_humedad').html(sensor_data["humedad"]);
             
+            if (sensor_data["ocupado"] == 1){
+                $('#'+ sensor_data['idSensor']+'_ocupado').html(' ocupada');
+            }else{
+                $('#'+ sensor_data['idSensor']+'_ocupado').html(' libre');
+            }
+            
+            
+            
+            $('#'+ sensor_data['idSensor']+'_llover').html(sensor_data["llover"]);
+            $('#'+ sensor_data['idSensor']+'_viento').html(sensor_data["viento"]);
+            $('#'+ sensor_data['idSensor']+'_temperatura').html(sensor_data["temperatura"]);
+            
 
             $('#'+ sensor_data['idSensor']+'_radiacion').addClass('magictime twisterInUp');
             $('#'+ sensor_data['idSensor']+'_humedad').addClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_ocupado').addClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_llover').addClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_viento').addClass('magictime twisterInUp');
+            $('#'+ sensor_data['idSensor']+'_temperatura').addClass('magictime twisterInUp');
 
         });
   </script>
