@@ -139,6 +139,14 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'GmapsController@index',
         'as' => 'events'
     ]);
+    Route::get('/event/{id}', [
+        'uses' =>'EventsController@getEvent',
+        'as' => 'event.get'
+    ]);
+    Route::get('/event/participate/{id}', [
+        'uses' => 'EventsController@participate',
+        'as' =>'participate'
+    ]);
     Route::post('/create/event', [
         'uses' => 'EventsController@createEvent',
         'as' => 'event.create'

@@ -69,7 +69,7 @@
                             <div class="caption">
                                 <h3>{{$event->name}}</h3>
                                 <p>{{$event->rules}}</p>
-                                <p><a href="#" class="btn btn-success" role="button">Ver evento</a></p>
+                                <p><a href="{{ route('event.get',$event->id) }}" class="btn btn-success" role="button">Ver evento</a></p>
                             </div>
                         </div>
                     </div>
