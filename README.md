@@ -189,7 +189,7 @@ Licencia
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Iosu Recalde, Rubén Álvarez, Gorka Perez and Sergio Valera.
+Copyright (c) 2016 Iker Izaguirre, Aitor Redondo, Hafsa Balga and Rudy Sejas.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
