@@ -73,7 +73,11 @@
                                     <label class="sr-only" for="fecha">Fecha</label>
                                     <input type="datetime-local" name="start_at">
                                 </div>
-                                
+                                <h4>Hora:</h4>
+                                <div class="form-group">
+                                    <label class="sr-only" for="hora">Hora</label>
+                                    <input type="time" name="time">
+                                </div>
                                 <div class="form-group">
                                     <h4>Numero de jugadores:</h4>
                                     <input type="number" min="2" max="18" step="1" value="2" name="max_users">
