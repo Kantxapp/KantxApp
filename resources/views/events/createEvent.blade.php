@@ -46,8 +46,9 @@
                     		<fieldset>
                     		    <h4>Paso 1: Nombre y deporte</h4>
                     		<div class="form-group">
+                    		        <input type="hidden" name="kantxa_id" value="{{$kantxa->id}}">
                     	            <label class="sr-only" for="f1-event-name">Nombre del Evento</label>
-                                    <input type="text" id="f1-event-name" name="f1-event-name" placeholder="Nombre del Evento..." class="f1-first-name form-control" id="f1-first-name">
+                                    <input type="text" id="f1-event-name" name="name" placeholder="Nombre del Evento..." class="f1-first-name form-control" id="f1-first-name">
                                 </div>
                                 
                                 <div class="form-group">
@@ -70,7 +71,7 @@
                                 <h4>Fecha:</h4>
                                 <div class="form-group">
                                     <label class="sr-only" for="fecha">Fecha</label>
-                                    <input type="date" name="fecha">
+                                    <input type="datetime-local" name="start_at">
                                 </div>
                                 <h4>Hora:</h4>
                                 <div class="form-group">
@@ -79,7 +80,7 @@
                                 </div>
                                 <div class="form-group">
                                     <h4>Numero de jugadores:</h4>
-                                    <input type="number" min="2" max="18" step="1" value="2" name="max_jugadores">
+                                    <input type="number" min="2" max="18" step="1" value="2" name="max_users">
                                 </div>
                                 <div class="form-group">
                                     <h4>Comentarios sobre el evento (normas etc...):</h4>

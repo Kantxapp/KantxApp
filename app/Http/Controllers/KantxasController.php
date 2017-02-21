@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Traits\Get_sports;
+use App\Traits\Get_events;
 use App\Kantxa;
 use App\Sensor;
 use DB;
@@ -11,6 +12,7 @@ use DB;
 class KantxasController extends Controller
 {
     use Get_sports;
+    use Get_events;
     //
     /**
      * Create a new controller instance.
@@ -140,7 +142,8 @@ class KantxasController extends Controller
         $sports = $this->getKantxaSports($id);
         $kantxa = DB::table('kantxas')->where('id', $id)->first();
         $sensor = DB::table('sensors')->where('id', $kantxa->sensor_id)->first();
-        return view('kantxas.infokantxa', compact('kantxa','sensor','sports'));
+        $events = $this->getKantxaEvents($id);
+        return view('kantxas.infokantxa', compact('kantxa','sensor','sports','events'));
      }
      public function findKantxa()
      {

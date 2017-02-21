@@ -11,6 +11,12 @@
             <div class="col-md-8 col-md-offset-2 text-xs-center">
                 <h3 class="mbr-section-title display-2 text-white">{{$kantxa->name}}</h3>
                 <button class="btn btn-success"><a href="/create/event/{{$kantxa->id}}">Crear evento en esta Kantxa</a></button>
+                @if (session('status'))
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <div class="lead"></div>
                 
             </div>
@@ -54,6 +60,21 @@
                         </li>
                         @endif
                     </ul>
+                    <h3>Eventos en esta kantxa:</h3>
+                    @foreach($events as $event)
+                        
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="..." alt="...">
+                            <div class="caption">
+                                <h3>{{$event->name}}</h3>
+                                <p>{{$event->rules}}</p>
+                                <p><a href="#" class="btn btn-success" role="button">Ver evento</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    @endforeach
                 </div>
                 </div>
 
