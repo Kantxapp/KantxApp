@@ -213,7 +213,7 @@ Route::group(['middleware' => 'auth'], function(){
     //API
     Route::get('/sensors', [
         'uses' => 'ApiController@getSensors',
-        'as' => 'ssensors.get'
+        'as' => 'sensors.get'
     ]);
     Route::get('/sensors/{sensor_id}', [
         'uses' => 'ApiController@getSensor',
@@ -238,4 +238,17 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/sensors/{sensor_id}/viento', [
         'uses' => 'ApiController@getSensorViento',
         'as' => 'sensor.getviento'
+    ]);
+
+    Route::get('/kantxas', [
+        'uses' => 'ApiController@getKantxas',
+        'as' => 'kantxas.get'
+    ]);
+    Route::get('/kantxas/{id}', [
+        'uses' => 'ApiController@getKantxa',
+        'as' => 'kantxa.get'
+    ]);
+    Route::get('/kantxa/{name}', [
+        'uses' => 'ApiController@getKantxaName',
+        'as' => 'kantxa.getname'
     ]);

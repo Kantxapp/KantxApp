@@ -171,7 +171,20 @@ Referencias
 
 Uso de la API
 ----------------
-
++--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
+| Domain | Method   | URI                             | Name                  | Description                                                  | Middleware   |
++--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
+|        | GET|HEAD | kantxa/{name}                   | kantxa.getname        | Devuelve la kantxa con el nombre que pongamos            | web          |
+|        | GET|HEAD | kantxas                         | kantxas.get           | Devuelve todas las kantxas                               | web          |
+|        | GET|HEAD | kantxas/{id}                    | kantxa.get            | Devuelve la kantxa con el id que pongamos                | web          |
+|        | GET|HEAD | sensors                         | sensors.get           | Devuelve todos los sensores                              | web          |
+|        | GET|HEAD | sensors/{sensor_id}             | sensor.get            | Devuelve el sensor con el id que pongamos                | web          |
+|        | GET|HEAD | sensors/{sensor_id}/humedad     | sensor.gethumedad     | Devuelve la humedad del sensor cuyo id le demos          | web          |
+|        | GET|HEAD | sensors/{sensor_id}/ocupado     | sensor.getocupado     | Devuelve si el recinto cuyo id le damos esta ocupado     | web          |
+|        | GET|HEAD | sensors/{sensor_id}/radiacion   | sensor.getradiacion   | Devuelve la radiacion del sensor cuyo id le demos        | web          |
+|        | GET|HEAD | sensors/{sensor_id}/temperatura | sensor.gettemperatura | Devuelve la temperatura del sensor cuyo id le demos      | web          |
+|        | GET|HEAD | sensors/{sensor_id}/viento      | sensor.getviento      | Devuelve la valor del viento del sensor cuyo id le demos | web          |
++--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
 
 Licencia
 -------
