@@ -197,4 +197,37 @@ Route::group(['middleware' => 'auth'], function(){
         ]);
 
     });
+    
+
+    
 });
+
+    //API
+    Route::get('/sensors', [
+        'uses' => 'ApiController@getSensors',
+        'as' => 'ssensors.get'
+    ]);
+    Route::get('/sensors/{sensor_id}', [
+        'uses' => 'ApiController@getSensor',
+        'as' => 'sensor.get'
+    ]);
+    Route::get('/sensors/{sensor_id}/radiacion', [
+        'uses' => 'ApiController@getSensorRadiacion',
+        'as' => 'sensor.getradiacion'
+    ]);
+    Route::get('/sensors/{sensor_id}/humedad', [
+        'uses' => 'ApiController@getSensorHumedad',
+        'as' => 'sensor.gethumedad'
+    ]);
+    Route::get('/sensors/{sensor_id}/temperatura', [
+        'uses' => 'ApiController@getSensorTemperatura',
+        'as' => 'sensor.gettemperatura'
+    ]);
+    Route::get('/sensors/{sensor_id}/ocupado', [
+        'uses' => 'ApiController@getSensorOcupado',
+        'as' => 'sensor.getocupado'
+    ]);
+    Route::get('/sensors/{sensor_id}/viento', [
+        'uses' => 'ApiController@getSensorViento',
+        'as' => 'sensor.getviento'
+    ]);
