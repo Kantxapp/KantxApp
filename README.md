@@ -99,64 +99,64 @@ package.json | composer.json
 
 ##Estructura del proyecto routes
 
- -------- ---------- --------------------------------- --------------------- ------------------------------------------------------------------------ ------------------------------------------------------ 
+|--------|----------|---------------------------------|---------------------|------------------------------------------------------------------------|------------------------------------------------------|
 | Domain | Method   | URI                             | Name                | Action                                                                 | Middleware                                           |
- -------- ---------- --------------------------------- --------------------- ------------------------------------------------------------------------ ------------------------------------------------------ 
-|        | GET|HEAD | /                               |                     | Closure                                                                | web,localeSessionRedirect,localizationRedirect       |
-|        | GET|HEAD | accept_friend/{id}              | accept_friend       | App\Http\Controllers\FriendshipsController@accept_friend               | web,auth                                             |
-|        | GET|HEAD | add_friend/{id}                 | add_friend          | App\Http\Controllers\FriendshipsController@add_friend                  | web,auth                                             |
-|        | GET|HEAD | api/user                        |                     | Closure                                                                | api,auth:api                                         |
-|        | GET|HEAD | bridge                          |                     | Closure                                                                | web                                                  |
+|--------|----------|---------------------------------|---------------------|------------------------------------------------------------------------|------------------------------------------------------|
+|        | GET      | /                               |                     | Closure                                                                | web,localeSessionRedirect,localizationRedirect       |
+|        | GET      | accept_friend/{id}              | accept_friend       | App\Http\Controllers\FriendshipsController@accept_friend               | web,auth                                             |
+|        | GET      | add_friend/{id}                 | add_friend          | App\Http\Controllers\FriendshipsController@add_friend                  | web,auth                                             |
+|        | GET      | api/user                        |                     | Closure                                                                | api,auth:api                                         |
+|        | GET      | bridge                          |                     | Closure                                                                | web                                                  |
 |        | POST     | broadcasting/auth               |                     | Illuminate\Broadcasting\BroadcastController@authenticate               | web                                                  |
-|        | GET|HEAD | callback/{provider}             |                     | App\Http\Controllers\SocialAuthController@callback                     | web                                                  |
-|        | GET|HEAD | check_relationship_status/{id}  | check               | App\Http\Controllers\FriendshipsController@check                       | web,auth                                             |
+|        | GET      | callback/{provider}             |                     | App\Http\Controllers\SocialAuthController@callback                     | web                                                  |
+|        | GET      | check_relationship_status/{id}  | check               | App\Http\Controllers\FriendshipsController@check                       | web,auth                                             |
 |        | POST     | contacto                        |                     | App\Http\Controllers\ContactController@sendContact                     | web                                                  |
 |        | POST     | create/event                    | event.create        | App\Http\Controllers\EventsController@createEvent                      | web,auth                                             |
-|        | GET|HEAD | create/event/{kantxa_id}        | event.createkantxa  | App\Http\Controllers\EventsController@createEventValues                | web,auth                                             |
-|        | GET|HEAD | create/kantxa/{name}/{place_id} | kantxa.create       | App\Http\Controllers\GoogleMapsController@createKantxa                 | web,auth,admin                                       |
+|        | GET      | create/event/{kantxa_id}        | event.createkantxa  | App\Http\Controllers\EventsController@createEventValues                | web,auth                                             |
+|        | GET      | create/kantxa/{name}/{place_id} | kantxa.create       | App\Http\Controllers\GoogleMapsController@createKantxa                 | web,auth,admin                                       |
 |        | POST     | create/post                     |                     | App\Http\Controllers\PostsController@store                             | web,auth                                             |
-|        | GET|HEAD | edit/kantxa/{id}                | kantxa.edit         | App\Http\Controllers\KantxasController@editKantxa                      | web,auth,admin                                       |
-|        | GET|HEAD | events                          | events              | App\Http\Controllers\GmapsController@index                             | web,auth                                             |
-|        | GET|HEAD | feed                            | feed                | App\Http\Controllers\FeedsController@feed                              | web,auth                                             |
-|        | GET|HEAD | find/kantxa                     | kantxa.find         | App\Http\Controllers\KantxasController@findKantxa                      | web,auth,admin                                       |
-|        | GET|HEAD | friends                         | friends             | App\Http\Controllers\FriendshipsController@getUserFriends              | web,auth                                             |
-|        | GET|HEAD | get/kantxas                     | kantxas.get         | App\Http\Controllers\KantxasController@getKantxas                      | web,auth                                             |
-|        | GET|HEAD | get_auth_user_data              |                     | Closure                                                                | web,auth                                             |
-|        | GET|HEAD | get_unread                      |                     | Closure                                                                | web,auth                                             |
-|        | GET|HEAD | home                            |                     | App\Http\Controllers\HomeController@index                              | web,localeSessionRedirect,localizationRedirect,auth  |
-|        | GET|HEAD | kantxa/info/{id}                | kantxa.info         | App\Http\Controllers\KantxasController@getKantxa                       | web,auth                                             |
-|        | GET|HEAD | kantxas                         | kantxas             | App\Http\Controllers\KantxasController@index                           | web,auth                                             |
-|        | GET|HEAD | like/{id}                       |                     | App\Http\Controllers\LikesController@like                              | web,auth                                             |
-|        | GET|HEAD | localidades/{filter}            | city                | App\Http\Controllers\LocationController@cityXML                        | web,auth                                             |
+|        | GET      | edit/kantxa/{id}                | kantxa.edit         | App\Http\Controllers\KantxasController@editKantxa                      | web,auth,admin                                       |
+|        | GET      | events                          | events              | App\Http\Controllers\GmapsController@index                             | web,auth                                             |
+|        | GET      | feed                            | feed                | App\Http\Controllers\FeedsController@feed                              | web,auth                                             |
+|        | GET      | find/kantxa                     | kantxa.find         | App\Http\Controllers\KantxasController@findKantxa                      | web,auth,admin                                       |
+|        | GET      | friends                         | friends             | App\Http\Controllers\FriendshipsController@getUserFriends              | web,auth                                             |
+|        | GET      | get/kantxas                     | kantxas.get         | App\Http\Controllers\KantxasController@getKantxas                      | web,auth                                             |
+|        | GET      | get_auth_user_data              |                     | Closure                                                                | web,auth                                             |
+|        | GET      | get_unread                      |                     | Closure                                                                | web,auth                                             |
+|        | GET      | home                            |                     | App\Http\Controllers\HomeController@index                              | web,localeSessionRedirect,localizationRedirect,auth  |
+|        | GET      | kantxa/info/{id}                | kantxa.info         | App\Http\Controllers\KantxasController@getKantxa                       | web,auth                                             |
+|        | GET      | kantxas                         | kantxas             | App\Http\Controllers\KantxasController@index                           | web,auth                                             |
+|        | GET      | like/{id}                       |                     | App\Http\Controllers\LikesController@like                              | web,auth                                             |
+|        | GET      | localidades/{filter}            | city                | App\Http\Controllers\LocationController@cityXML                        | web,auth                                             |
 |        | POST     | login                           |                     | App\Http\Controllers\Auth\LoginController@login                        | web,guest                                            |
-|        | GET|HEAD | login                           | login               | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,localeSessionRedirect,localizationRedirect,guest |
+|        | GET      | login                           | login               | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,localeSessionRedirect,localizationRedirect,guest |
 |        | POST     | logout                          | logout              | App\Http\Controllers\Auth\LoginController@logout                       | web                                                  |
-|        | GET|HEAD | notifications                   | notifications       | App\Http\Controllers\HomeController@notifications                      | web,auth                                             |
+|        | GET      | notifications                   | notifications       | App\Http\Controllers\HomeController@notifications                      | web,auth                                             |
 |        | POST     | password/email                  |                     | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest                                            |
-|        | GET|HEAD | password/reset                  |                     | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,localeSessionRedirect,localizationRedirect,guest |
+|        | GET      | password/reset                  |                     | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,localeSessionRedirect,localizationRedirect,guest |
 |        | POST     | password/reset                  |                     | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest                                            |
-|        | GET|HEAD | password/reset/{token}          |                     | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,localeSessionRedirect,localizationRedirect,guest |
-|        | GET|HEAD | profile/edit/profile            | profile.edit        | App\Http\Controllers\ProfilesController@edit                           | web,auth                                             |
+|        | GET      | password/reset/{token}          |                     | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,localeSessionRedirect,localizationRedirect,guest |
+|        | GET      | profile/edit/profile            | profile.edit        | App\Http\Controllers\ProfilesController@edit                           | web,auth                                             |
 |        | PATCH    | profile/update/profile          | profile.update      | App\Http\Controllers\ProfilesController@update                         | web,auth                                             |
-|        | GET|HEAD | profile/{slug}                  | profile             | App\Http\Controllers\ProfilesController@index                          | web,auth                                             |
-|        | GET|HEAD | redirect/{provider}             |                     | App\Http\Controllers\SocialAuthController@redirect                     | web                                                  |
+|        | GET      | profile/{slug}                  | profile             | App\Http\Controllers\ProfilesController@index                          | web,auth                                             |
+|        | GET      | redirect/{provider}             |                     | App\Http\Controllers\SocialAuthController@redirect                     | web                                                  |
 |        | POST     | register                        |                     | App\Http\Controllers\Auth\RegisterController@register                  | web,guest                                            |
-|        | GET|HEAD | register                        | register            | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,localeSessionRedirect,localizationRedirect,guest |
+|        | GET      | register                        | register            | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,localeSessionRedirect,localizationRedirect,guest |
 |        | POST     | save/kantxa                     | kantxa.save         | App\Http\Controllers\GoogleMapsController@saveKantxa                   | web,auth,admin                                       |
-|        | GET|HEAD | settings/account/edit           | account.edit        | App\Http\Controllers\AccountsController@edit                           | web,auth                                             |
-|        | GET|HEAD | settings/account/show           | account.show        | App\Http\Controllers\AccountsController@show                           | web,auth                                             |
+|        | GET      | settings/account/edit           | account.edit        | App\Http\Controllers\AccountsController@edit                           | web,auth                                             |
+|        | GET      | settings/account/show           | account.show        | App\Http\Controllers\AccountsController@show                           | web,auth                                             |
 |        | PATCH    | settings/account/update         | account.update      | App\Http\Controllers\AccountsController@update                         | web,auth                                             |
-|        | GET|HEAD | sports                          | sports              | App\Http\Controllers\SportsController@index                            | web,auth                                             |
+|        | GET      | sports                          | sports              | App\Http\Controllers\SportsController@index                            | web,auth                                             |
 |        | POST     | sports/kantxa/get               | sports.kantxaGet    | App\Http\Controllers\KantxasController@kantxaSportsGet                 | web,auth                                             |
 |        | POST     | sports/kantxa/insert            | sports.kantxainsert | App\Http\Controllers\KantxasController@kantxaSportsInsert              | web,auth                                             |
 |        | POST     | sports/user/get                 | sports.userGet      | App\Http\Controllers\SportsController@userSports                       | web,auth                                             |
 |        | POST     | sports/user/insert              | sports.userinsert   | App\Http\Controllers\SportsController@userInsert                       | web,auth                                             |
 |        | POST     | twilio/receive                  |                     | App\Http\Controllers\TwilioController@receiveMessage                   | web                                                  |
-|        | GET|HEAD | twilio/send/{message}           |                     | App\Http\Controllers\TwilioController@sendMessage                      | web                                                  |
-|        | GET|HEAD | unlike/{id}                     |                     | App\Http\Controllers\LikesController@unlike                            | web,auth                                             |
+|        | GET      | twilio/send/{message}           |                     | App\Http\Controllers\TwilioController@sendMessage                      | web                                                  |
+|        | GET      | unlike/{id}                     |                     | App\Http\Controllers\LikesController@unlike                            | web,auth                                             |
 |        | PATCH    | update/kantxa                   | kantxa.saveEdit     | App\Http\Controllers\KantxasController@saveEditKantxa                  | web,auth,admin                                       |
-|        | GET|HEAD | user/activation/{token}         | user.activate       | App\Http\Controllers\Auth\LoginController@activateUser                 | web,guest                                            |
- -------- ---------- --------------------------------- --------------------- ------------------------------------------------------------------------ ------------------------------------------------------ 
+|        | GET      | user/activation/{token}         | user.activate       | App\Http\Controllers\Auth\LoginController@activateUser                 | web,guest                                            |
+|--------|----------|---------------------------------|---------------------|------------------------------------------------------------------------|------------------------------------------------------|
 
 
 Referencias
