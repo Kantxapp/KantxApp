@@ -8,6 +8,7 @@ class Event extends Model
 {
 
     //
+
     protected $fillable = [
         'sport_id', 'kantxa_id','max_users', 'start_at', 'finish_at', 'rules'
     ];

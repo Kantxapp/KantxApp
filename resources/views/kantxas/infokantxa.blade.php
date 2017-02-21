@@ -43,7 +43,7 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <span class="list-group-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                            <span class="list-group-text">0 Eventos programados</span>
+                            <span class="list-group-text">{{$num_events}} Eventos programados</span>
                         </li>
                         <li class="list-group-item">
                             <span class="list-group-icon"><span class="etl-icon icon-map-pin mbr-iconfont-company-contacts3"></span></span>

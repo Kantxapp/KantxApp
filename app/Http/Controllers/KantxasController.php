@@ -142,9 +142,18 @@ class KantxasController extends Controller
         $sports = $this->getKantxaSports($id);
         $kantxa = DB::table('kantxas')->where('id', $id)->first();
         $sensor = DB::table('sensors')->where('id', $kantxa->sensor_id)->first();
+        $num_events = DB::table('events')
+                        ->where('kantxa_id',$id)
+                        ->count();
         $events = $this->getKantxaEvents($id);
         
-        return view('kantxas.infokantxa', compact('kantxa','sensor','sports','events'));
+        // for($i=0;$i<count($events);$i++)
+        // {
+        //     $event_sport_id=$this->getSportPic($events[$i]->sport_id);
+        //     array_push($events,$event_sport_id);
+        // }
+        
+        return view('kantxas.infokantxa', compact('kantxa','sensor','sports','events','num_events'));
      }
      public function findKantxa()
      {
