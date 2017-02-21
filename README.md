@@ -99,7 +99,7 @@ package.json | composer.json
 
 ##Estructura del proyecto routes
 
-|--------|----------|---------------------------------|---------------------|------------------------------------------------------------------------|------------------------------------------------------|
+
 | Domain | Method   | URI                             | Name                | Action                                                                 | Middleware                                           |
 |--------|----------|---------------------------------|---------------------|------------------------------------------------------------------------|------------------------------------------------------|
 |        | GET      | /                               |                     | Closure                                                                | web,localeSessionRedirect,localizationRedirect       |
@@ -156,7 +156,7 @@ package.json | composer.json
 |        | GET      | unlike/{id}                     |                     | App\Http\Controllers\LikesController@unlike                            | web,auth                                             |
 |        | PATCH    | update/kantxa                   | kantxa.saveEdit     | App\Http\Controllers\KantxasController@saveEditKantxa                  | web,auth,admin                                       |
 |        | GET      | user/activation/{token}         | user.activate       | App\Http\Controllers\Auth\LoginController@activateUser                 | web,guest                                            |
-|--------|----------|---------------------------------|---------------------|------------------------------------------------------------------------|------------------------------------------------------|
+
 
 
 Referencias
