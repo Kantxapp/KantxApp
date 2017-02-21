@@ -17,10 +17,12 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->integer('sport_id')->unsigned();
             $table->integer('kantxa_id')->unsigned();
+            $table->string('name');
             $table->integer('max_users');
             $table->dateTime('start_at');
             // $table->dateTime('finish_at');
             $table->string('rules');
+            $table->integer('created_by');
             $table->timestamps();
             
             $table->foreign('sport_id')

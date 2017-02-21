@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Traits\Get_sports;
-use Illuminate\Support\Facades\Input;
+use Auth;
 use DB;
 class EventsController extends Controller
 {
@@ -12,8 +12,18 @@ class EventsController extends Controller
     //
     public function createEvent(Request $r)
     {
-        $getSelectValue = $r->get('sport_id');
-        return $getSelectValue;
+        $array = [
+            "sport_id" => $r->sport_id,
+            'kantxa_id' => $r->kantxa_id,
+            'name' => $r->name,
+            'max_users' => $r->max_users,
+            'start_at' => $r->start_at,
+            'rules' => $r->rules,
+            'created_by'=>Auth::user()->id,
+        ];
+        DB::table('events')->insert($array);
+        
+        return redirect('/kantxa/info/'.$array['kantxa_id'])->with('status', '¡Evento creado!');
     }
     
     public function createEventValues($kantxa_id)
