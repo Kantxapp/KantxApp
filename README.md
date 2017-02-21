@@ -1,36 +1,36 @@
-# Sense-Rover
+#KantxApp
 
-##Proyecto de fin de curso 2014-2016 del ciclo formativo de desarrollo de aplicaciones web
+##Proyecto de fin de curso 2015-2017 del ciclo formativo de Desarrollo de Aplicaciones Web
 
 
-Proyecto multidisciplinar entre estudiantes de electrónica y desarrollo de aplicaciones web.
-La finalidad del proyecto es ayudar al agricultor mediante nuestra aplicación web para gestionar y generar diferentes funcionalidades, que le puedan servir de ayuda a través de los datos recibidos de un dron. Por ejemplo, alertas y estadísticas.
+Proyecto multidisciplinar entre estudiantes de electrónica (LaSalle Berrozpe) y desarrollo de aplicaciones web (Zubiri-Manteo).
+Este proyecto surgió por el problema de sedentarismo que hay en la sociedad actual, ya que hoy en dia mucha gente prefiere quedarse en casa jugando a videojuegos o simplemente viendo películas, por lo cual la idea surgió para intentar incentivar, motivar o facilitar la práctica deportiva a la sociedad y de esta manera poder vivir en un entorno más saludable mejorando así nuestra calidad de vida.
+
+Ya que el deporte se practica habitualmente en espacios públicos nuestra idea es incentivar a la gente dando información sobre el estado de los mismos, de esta manera pueden saber si esta libre o ocupado en tiempo real además de otros parámetros físicos así como  la temperatura, humedad, lluvia, velocidad del viento y radiación solar esta información se transmite a través de un dispositivo GSM el cual envía los datos en forma de SMS a una red social.
 
 Demostración:
-http://senserover.zubirimanteoweb.com/
+http://kantxapp.herokuapp.com/es
 
 Usuario de demostración:
-Email: dw32igsr1@gmail.com
-Contraseña: 12345678
-
+Email: iker@iker.com | aitor@aitor.com | hafsa@hafsa.com | rudy@rudy.com
+Contraseña: 123456
 
 Características
 --------
 
 - **Local Authentication** usando email y contraseña
-- **OAuth 2.0 Authentication** Google
-- Estructura del proyecto MVC
-- Node.js + Express
+- **Social Authentication** usando Facebook y Twitter (socialite Laravel)
+- Framework PHP MVC Laravel
+
 - Mongoose (MongoLab)
 - Bootstrap 3 + Webflow.io
-- Formulario de contacto (mailgun)
-- Sokect.io
-- MQTT
+- Formulario de contacto y Registro (mailgun) en desarrollo mailtrap.io
+- Real Time Pusher service
+- SMS to Http by Twilio
 - **Account Management**
  - Detalles de perfil
  - Cambio de contraseña
  - Recuperación de contraseña
-
 
 Instalación
 ---------------
@@ -39,43 +39,38 @@ La manera más sencilla de empezar es clonando el repositorio
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/DW32-IGSR/senserover miproyecto
+git clone https://github.com/Kantxapp/KantxApp.git miproyecto
 
 # Entrar en el directorio creado
 cd miproyecto
 
-# Instalar dependencias con NPM
+# Instalar dependencias con NPM y composer
 npm install
+composer install
 
 # Renombrar fichero ".env example" a ".env"
 mv .env\ example .env
+el .env actual utiliza las credenciales de desarrollo de c9 con nuestras api keys.
 
-node app.js
+ejecutar servidor php ---> php artisan serve
 ```
 
-Obtención de API Keys
-------------------
+# Laravel PHP Framework
 
-Para utilizar cualquiera de las API incluidas o métodos de autenticación OAuth, tendrá que obtener credenciales apropiadas:  ID Cliente, Clave cliente secreta, API Key, o
-Usuario & Contraseña. Usted tendrá que ir a través de cada proveedor para generar nuevas credenciales.
+<img src="http://programacion.net/files/article/20151219031213_laravel.png" width="200">
+[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
+[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1000px-Google_2015_logo.svg.png" width="200">
-- Visitar [Google Cloud Console](https://cloud.google.com/console/project)
-- Haga click en el botón **Crear Proyecto**
-- Introducir *Nombre de Proyecto* a continuación, haga clic en el botón **Crear**
-- A continuación, haga click en *Autenticación APIs* en la barra lateral y seleccione la pestaña *API*
-- Haga click en *API de Google+* luego en *APIs Social*, haga click en **Habilitar API**
-- A continuación, en *Autenticación APIs* en la barra lateral haga click en la pestaña *Credenciales*
-- Haga click en el botón **Crear nuevo cliente ID**
-- Seleccionar *Aplicación Web* y haga click en **la pantalla para Configurar Consentimiento**
-Rellene los campos necesarios y a continuación, haga clic en **Guardar**
-- En el ID de cliente Crear diálogo modal:
- - **Tipo de aplicación**: Aplicación Web
- - **Autorizado Javascript orígenes**: http: // localhost: 3000
- - **Autorizado redirigir URI**: http://localhost:3000/auth/google/callback
-- Haga click en el botón **Crear ID de cliente*
-- Copiar y pegar el *ID de cliente* y *Clave cliente secreta* en `.env`
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+
+## Official Documentation
+
+Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
 <hr>
 
@@ -86,134 +81,110 @@ Rellene los campos necesarios y a continuación, haga clic en **Guardar**
 
 <hr>
 
-<img src="https://mongolab.com/company/brand/resources/MongoLab-Logo-Square-OnWhite-RGB.png" width="200">
-- Ir https://mongolab.com/
-- Registrarse y accerder a *Account*
-- Seleccionar de *Account Users* la cuenta de usuario
-- Copiar y pegar la *API Key* al fichero `.env`, y habilitar el acceso a la API *Data API Access*
+<img src="https://media.licdn.com/media/AAEAAQAAAAAAAAMiAAAAJDBiMDZlMTY4LTlhOGUtNGRjNC1iNWQ1LTg1NGY2MzU2ZmM4OQ.png" width="200">
+- Ir a https://pusher.com/
+- Registrarse y entrar al *nombre de dominio*
+- copiar las keys al .env
 
 
-Estructura del proyecto
------------------
+<hr>
 
-| Nombre                                        | Descripción                                                        |
-| --------------------------------------------- | ------------------------------------------------------------------ |
-| **config**/passport.js                        | Passport Local y OAuth estrategias.                                |
-| **controllers**/Administracion.js             | Controller para administración                                     |
-| **controllers**/Alertas.js                    | Controller el form de alertas                                      |
-| **controllers**/Comprar.js                    | Controller el form de compra/renovación                            |
-| **controllers**/DatosAPI.js                   | Controller para las API de datos que envían los drones.            |
-| **controllers**/DronesAPI.js                  | Controller para las API de drones.                                 |
-| **controllers**/Email.js                      | Controller para enviar correos.                                    |
-| **controllers**/error404.js                   | Controller que salta cuando no se envían datos APIs correctamente. |
-| **controllers**/Estructura_Email.js           | Controller para Mailgun.                                           |
-| **controllers**/Home.js                       | Controller para sessiones de usuario.                              |
-| **controllers**/LoginRegistro.js              | Controller para login y registro.                                  |
-| **controllers**/Perfil.js                     | Controller para el perfil de usuario.                              |
-| **controllers**/Productos.js                  | Controller para productos.                                         |
-| **controllers**/Pronosticos.js                | Controller para pronósticos.                                       |
-| **controllers**/RangoFecha.js                 | Controller para el form de rango de fechas.                        |
-| **controllers**/Tienda.js                     | Controller para la tienda.                                         |
-| **controllers**/UploadImage.js                | Controller para poder subir avatares.                              |
-| **controllers**/validadarAPI.js               | Controller para validar en el servidor las APIs.                   |
-| **models**/Alertas.js                         | Schema Mongoose y model de Alertas.                                |
-| **models**/Dato.js                            | Schema Mongoose y model de Datos.                                  |
-| **models**/Drones.js                          | Schema Mongoose y model de Drones.                                 |
-| **models**/HistorialPedidos.js                | Schema Mongoose y model de HistorialPedidos.                       |
-| **models**/Productos.js                       | Schema Mongoose y model de Productos.                              |
-| **models**/Usuario.js                         | Schema Mongoose y model de Usuario                                 |
-| **public**/                                   | (fonts, css, js, img).                                             |
-| **public**/**avatar**/                        | El lugar donde se guardan los avatares.                            |
-| **public**/**bootstrap**/                     | Todo lo relacinado con bootstrap.                                  |
-| **public**/**css**/                           | Ubicación de los css.                                              |
-| **public**/**dist**/                          | Un theme de boostrap.                                              |
-| **public**/**icons**/                         | Iconos que utilizamos.                                             |
-| **public**/**images**/                        | Imágenes que utilizamos.                                           |
-| **public**/**js**/browserMqtt.js              | Librería Mqtt.                                                     |
-| **public**/**js**/comprar.js                  | Todo lo relacionado con la página de compra.                       |
-| **public**/**js**/cookie.js                   | Script para las cookies.                                           |
-| **public**/**js**/migrafica2.js               | Script para mostrar gráficas.                                      |
-| **public**/**js**/modernizr.js                | Librería Webflow.                                                  |
-| **public**/**js**/myscriptMongo.js            | Script que controla toda la página de administración.              |
-| **public**/**js**/pace.min.js                 | Librería pace, barra de progreso de carga de la página.            |
-| **public**/**js**/scriptMqtt.js               | Script para el protocolo MQTT.                                     |
-| **public**/**js**/scriptsMapa.js              | Script para las rutas del dron.                                    |
-| **public**/**js**/subscripcion.js             | Script para el modal de subscripción.                              |
-| **public**/**js**/validar_administracion.js   | Validaciones de formularios de la página administración.           |
-| **public**/**js**/validar_compra.js           | Validaciones de formularios de la página compra.                   |
-| **public**/**js**/validar_index.js            | Validaciones de formularios de la página index.                    |
-| **public**/**js**/validar_perfil.js           | Validaciones de formularios de la página perfil.                   |
-| **public**/**js**/validar_recoverPass.js      | Validación de formularios del modal de recuperación de contraseña. |
-| **public**/**js**/webflow.js                  | Librería Webflow.                                                  |
-| **public**/**libs**/                          | Librerias JQuery.                                                  |
-| **views**/**layouts**/main.handlebars         | Base de la plantilla.                                              |
-| **views/partials**/modal.handlebars           | Plantilla del modal de login/registro.                             |
-| **views/partials**/404.handlebars             | Página de error.                                                   |
-| **views/partials**/admin.handlebars           | Página de administración de la base de datos.                      |
-| **views/partials**/administracion.handlebars  | Página de administración del dron.                                 |
-| **views/partials**/comprar.handlebars         | Página de la tienda.                                               |
-| **views/partials**/index.handlebars           | Página principal de la Web.                                        |
-| **views/partials**/perfil.handlebars          | Página de perfil de usuario.                                       |
-| **views/partials**/recoverPassword.handlebars | Página para mostrar modal de recuperación de contraseña.           |
-| .env. example                                 | Tus API keys, tokens, contraseñas y database URI.                  |
-| app.js                                        | Archivo principal de la aplicación.                                |
-
-
+<img src="https://media.licdn.com/media/AAEAAQAAAAAAAAMiAAAAJDBiMDZlMTY4LTlhOGUtNGRjNC1iNWQ1LTg1NGY2MzU2ZmM4OQ.png" width="200">
+- Ir a https://www.twilio.com/
+- Registrarse comprar un numero de sms (free) y configurar el output, nuestro caso twilio/receive con los parametros en el Body de los sensores
+- copiar las keys al .env
 
 Listado de paquetes
 ----------------
 
-| Paquete                         | Descripción                                                           |
-| ------------------------------- | --------------------------------------------------------------------- |
-| bcrypt-nodejs                   | Módulo para hash y contraseñas de usuarios.                           |
-| body-parser                     | Express 4 middleware.                                                 |
-| dotenv                          | Módulo para cargar variables de entorno del archivo .env              |
-| express                         | Node.js web framework.                                                |
-| express-session                 | Express 4 middleware.                                                 |
-| express-flash                   | Módulo para mostrar mensajes flash.                                   |
-| express-validator               | Módulo para validar formularios.                                      |
-| express-handlebars              | Plantilla de express.                                                 |
-| handlebars                      | Plantilla para construir con eficacia.                                |
-| http                            | Módulo request.                                                       |
-| lodash                          | Módulo para utilidades de JavaScript.                                 |
-| mailgun-js                      | Módulo para el uso de la API de Mailgun.                              |
-| moment                          | Módulo para analizar, validar, manipular y dar formato a las fechas.  |
-| mongoose                        | MongoDB ODM.                                                          |
-| mqtt                            | Módulo para el protocolo MQTT.                                        |
-| multer                          | Middleware para el manejo de imágenes.                                |
-| passport                        | Módulo para la autenticación.                                         |
-| passport-google-oauth           | Iniciar sesión con Google.                                            |
-| passport-local                  | Iniciar sesión mediante usuario y contraseña.                         |
-| request                         | Librería HTTP request.                                                |
-| socket.io                       | Realtime framework server.                                            |
-| util                            | Node.JS util module.                                                  |
-| validator                       | String validation and sanitization.                                   |
+package.json | composer.json
 
+##Estructura del proyecto routes
 
-Uso de la API
-----------------
-| Método    | Ruta (http://senserover.zubirimanteoweb.com)                                                                              | Ejemplo                                                                                                   |
-| --------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| GET       | /productos                                                                                                                | /productos                                                                                                |
-| GET       | /productos/:id_producto                                                                                                   | /productos/5693728d3890294f10406189                                                                       |
-| GET       | /drones/:id_dron                                                                                                          | /drones/56af4d51764ae2a8c2618218                                                                          |
-| GET       | /drones/usuario/:id_usuario                                                                                               | /drones/usuario/56af4cdb764ae2a8c2618217                                                                  |
-| GET       | /datos/:id_dron                                                                                                           | /datos/56af4d51764ae2a8c2618218                                                                           |
-| GET       | /datos/:id_dron/temperatura                                                                                               | /datos/56af4d51764ae2a8c2618218/temperatura                                                               |
-| GET       | /datos/:id_dron/humedad                                                                                                   | /datos/56af4d51764ae2a8c2618218/humedad                                                                   |
-| GET       | /datos/:id_dron/co2                                                                                                       | /datos/56af4d51764ae2a8c2618218/co2                                                                       |
-| GET       | /datos/:id_dron/radiacion                                                                                                 | /datos/56af4d51764ae2a8c2618218/radiacion                                                                 |
-| GET       | /datos/:id_dron/luminosidad                                                                                               | /datos/56af4d51764ae2a8c2618218/luminosidad                                                               |
-| GET       | /api/datos/:id_dron/t/:temperatura/h/:humedad/co2/:co2/r/:radiacion/l/:luminosidad/b/:bateria/lat/:latitud/long/:longitud | /api/datos/56939648e4b0166e3b6a60f6/t/6/h/66/co2/-300/r/44.0/l/5600/b/10.22/lat/43.32206/long/-1.978376   |
++--------+----------+---------------------------------+---------------------+------------------------------------------------------------------------+------------------------------------------------------+
+| Domain | Method   | URI                             | Name                | Action                                                                 | Middleware                                           |
++--------+----------+---------------------------------+---------------------+------------------------------------------------------------------------+------------------------------------------------------+
+|        | GET|HEAD | /                               |                     | Closure                                                                | web,localeSessionRedirect,localizationRedirect       |
+|        | GET|HEAD | accept_friend/{id}              | accept_friend       | App\Http\Controllers\FriendshipsController@accept_friend               | web,auth                                             |
+|        | GET|HEAD | add_friend/{id}                 | add_friend          | App\Http\Controllers\FriendshipsController@add_friend                  | web,auth                                             |
+|        | GET|HEAD | api/user                        |                     | Closure                                                                | api,auth:api                                         |
+|        | GET|HEAD | bridge                          |                     | Closure                                                                | web                                                  |
+|        | POST     | broadcasting/auth               |                     | Illuminate\Broadcasting\BroadcastController@authenticate               | web                                                  |
+|        | GET|HEAD | callback/{provider}             |                     | App\Http\Controllers\SocialAuthController@callback                     | web                                                  |
+|        | GET|HEAD | check_relationship_status/{id}  | check               | App\Http\Controllers\FriendshipsController@check                       | web,auth                                             |
+|        | POST     | contacto                        |                     | App\Http\Controllers\ContactController@sendContact                     | web                                                  |
+|        | POST     | create/event                    | event.create        | App\Http\Controllers\EventsController@createEvent                      | web,auth                                             |
+|        | GET|HEAD | create/event/{kantxa_id}        | event.createkantxa  | App\Http\Controllers\EventsController@createEventValues                | web,auth                                             |
+|        | GET|HEAD | create/kantxa/{name}/{place_id} | kantxa.create       | App\Http\Controllers\GoogleMapsController@createKantxa                 | web,auth,admin                                       |
+|        | POST     | create/post                     |                     | App\Http\Controllers\PostsController@store                             | web,auth                                             |
+|        | GET|HEAD | edit/kantxa/{id}                | kantxa.edit         | App\Http\Controllers\KantxasController@editKantxa                      | web,auth,admin                                       |
+|        | GET|HEAD | events                          | events              | App\Http\Controllers\GmapsController@index                             | web,auth                                             |
+|        | GET|HEAD | feed                            | feed                | App\Http\Controllers\FeedsController@feed                              | web,auth                                             |
+|        | GET|HEAD | find/kantxa                     | kantxa.find         | App\Http\Controllers\KantxasController@findKantxa                      | web,auth,admin                                       |
+|        | GET|HEAD | friends                         | friends             | App\Http\Controllers\FriendshipsController@getUserFriends              | web,auth                                             |
+|        | GET|HEAD | get/kantxas                     | kantxas.get         | App\Http\Controllers\KantxasController@getKantxas                      | web,auth                                             |
+|        | GET|HEAD | get_auth_user_data              |                     | Closure                                                                | web,auth                                             |
+|        | GET|HEAD | get_unread                      |                     | Closure                                                                | web,auth                                             |
+|        | GET|HEAD | home                            |                     | App\Http\Controllers\HomeController@index                              | web,localeSessionRedirect,localizationRedirect,auth  |
+|        | GET|HEAD | kantxa/info/{id}                | kantxa.info         | App\Http\Controllers\KantxasController@getKantxa                       | web,auth                                             |
+|        | GET|HEAD | kantxas                         | kantxas             | App\Http\Controllers\KantxasController@index                           | web,auth                                             |
+|        | GET|HEAD | like/{id}                       |                     | App\Http\Controllers\LikesController@like                              | web,auth                                             |
+|        | GET|HEAD | localidades/{filter}            | city                | App\Http\Controllers\LocationController@cityXML                        | web,auth                                             |
+|        | POST     | login                           |                     | App\Http\Controllers\Auth\LoginController@login                        | web,guest                                            |
+|        | GET|HEAD | login                           | login               | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,localeSessionRedirect,localizationRedirect,guest |
+|        | POST     | logout                          | logout              | App\Http\Controllers\Auth\LoginController@logout                       | web                                                  |
+|        | GET|HEAD | notifications                   | notifications       | App\Http\Controllers\HomeController@notifications                      | web,auth                                             |
+|        | POST     | password/email                  |                     | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest                                            |
+|        | GET|HEAD | password/reset                  |                     | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,localeSessionRedirect,localizationRedirect,guest |
+|        | POST     | password/reset                  |                     | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest                                            |
+|        | GET|HEAD | password/reset/{token}          |                     | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,localeSessionRedirect,localizationRedirect,guest |
+|        | GET|HEAD | profile/edit/profile            | profile.edit        | App\Http\Controllers\ProfilesController@edit                           | web,auth                                             |
+|        | PATCH    | profile/update/profile          | profile.update      | App\Http\Controllers\ProfilesController@update                         | web,auth                                             |
+|        | GET|HEAD | profile/{slug}                  | profile             | App\Http\Controllers\ProfilesController@index                          | web,auth                                             |
+|        | GET|HEAD | redirect/{provider}             |                     | App\Http\Controllers\SocialAuthController@redirect                     | web                                                  |
+|        | POST     | register                        |                     | App\Http\Controllers\Auth\RegisterController@register                  | web,guest                                            |
+|        | GET|HEAD | register                        | register            | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,localeSessionRedirect,localizationRedirect,guest |
+|        | POST     | save/kantxa                     | kantxa.save         | App\Http\Controllers\GoogleMapsController@saveKantxa                   | web,auth,admin                                       |
+|        | GET|HEAD | settings/account/edit           | account.edit        | App\Http\Controllers\AccountsController@edit                           | web,auth                                             |
+|        | GET|HEAD | settings/account/show           | account.show        | App\Http\Controllers\AccountsController@show                           | web,auth                                             |
+|        | PATCH    | settings/account/update         | account.update      | App\Http\Controllers\AccountsController@update                         | web,auth                                             |
+|        | GET|HEAD | sports                          | sports              | App\Http\Controllers\SportsController@index                            | web,auth                                             |
+|        | POST     | sports/kantxa/get               | sports.kantxaGet    | App\Http\Controllers\KantxasController@kantxaSportsGet                 | web,auth                                             |
+|        | POST     | sports/kantxa/insert            | sports.kantxainsert | App\Http\Controllers\KantxasController@kantxaSportsInsert              | web,auth                                             |
+|        | POST     | sports/user/get                 | sports.userGet      | App\Http\Controllers\SportsController@userSports                       | web,auth                                             |
+|        | POST     | sports/user/insert              | sports.userinsert   | App\Http\Controllers\SportsController@userInsert                       | web,auth                                             |
+|        | POST     | twilio/receive                  |                     | App\Http\Controllers\TwilioController@receiveMessage                   | web                                                  |
+|        | GET|HEAD | twilio/send/{message}           |                     | App\Http\Controllers\TwilioController@sendMessage                      | web                                                  |
+|        | GET|HEAD | unlike/{id}                     |                     | App\Http\Controllers\LikesController@unlike                            | web,auth                                             |
+|        | PATCH    | update/kantxa                   | kantxa.saveEdit     | App\Http\Controllers\KantxasController@saveEditKantxa                  | web,auth,admin                                       |
+|        | GET|HEAD | user/activation/{token}         | user.activate       | App\Http\Controllers\Auth\LoginController@activateUser                 | web,guest                                            |
++--------+----------+---------------------------------+---------------------+------------------------------------------------------------------------+------------------------------------------------------+
 
 
 Referencias
 ----------------
-- https://github.com/sahat/hackathon-starter
-- https://github.com/carlosazaustre/node-api-rest-example/tree/feature-express4
-- https://github.com/ctavan/express-validator
-- https://github.com/expressjs/multer
- 
+- Algolia: https://www.algolia.com/
+- Pusher: https://pusher.com/
+- Twilio: https://www.twilio.com/
+- Vue.js: https://vuejs.org/
+
+
+Uso de la API
+----------------
++--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
+| Domain | Method   | URI                             | Name                  | Description                                                  | Middleware   |
++--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
+|        | GET|HEAD | kantxa/{name}                   | kantxa.getname        | Devuelve la kantxa con el nombre que pongamos            | web          |
+|        | GET|HEAD | kantxas                         | kantxas.get           | Devuelve todas las kantxas                               | web          |
+|        | GET|HEAD | kantxas/{id}                    | kantxa.get            | Devuelve la kantxa con el id que pongamos                | web          |
+|        | GET|HEAD | sensors                         | sensors.get           | Devuelve todos los sensores                              | web          |
+|        | GET|HEAD | sensors/{sensor_id}             | sensor.get            | Devuelve el sensor con el id que pongamos                | web          |
+|        | GET|HEAD | sensors/{sensor_id}/humedad     | sensor.gethumedad     | Devuelve la humedad del sensor cuyo id le demos          | web          |
+|        | GET|HEAD | sensors/{sensor_id}/ocupado     | sensor.getocupado     | Devuelve si el recinto cuyo id le damos esta ocupado     | web          |
+|        | GET|HEAD | sensors/{sensor_id}/radiacion   | sensor.getradiacion   | Devuelve la radiacion del sensor cuyo id le demos        | web          |
+|        | GET|HEAD | sensors/{sensor_id}/temperatura | sensor.gettemperatura | Devuelve la temperatura del sensor cuyo id le demos      | web          |
+|        | GET|HEAD | sensors/{sensor_id}/viento      | sensor.getviento      | Devuelve la valor del viento del sensor cuyo id le demos | web          |
++--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
 
 Licencia
 -------
