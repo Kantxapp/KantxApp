@@ -101,9 +101,9 @@ package.json | composer.json
 
 ##Estructura del proyecto routes
 
-+--------+----------+---------------------------------+---------------------+------------------------------------------------------------------------+------------------------------------------------------+
+ -------- ---------- --------------------------------- --------------------- ------------------------------------------------------------------------ ------------------------------------------------------ 
 | Domain | Method   | URI                             | Name                | Action                                                                 | Middleware                                           |
-+--------+----------+---------------------------------+---------------------+------------------------------------------------------------------------+------------------------------------------------------+
+ -------- ---------- --------------------------------- --------------------- ------------------------------------------------------------------------ ------------------------------------------------------ 
 |        | GET|HEAD | /                               |                     | Closure                                                                | web,localeSessionRedirect,localizationRedirect       |
 |        | GET|HEAD | accept_friend/{id}              | accept_friend       | App\Http\Controllers\FriendshipsController@accept_friend               | web,auth                                             |
 |        | GET|HEAD | add_friend/{id}                 | add_friend          | App\Http\Controllers\FriendshipsController@add_friend                  | web,auth                                             |
@@ -158,7 +158,7 @@ package.json | composer.json
 |        | GET|HEAD | unlike/{id}                     |                     | App\Http\Controllers\LikesController@unlike                            | web,auth                                             |
 |        | PATCH    | update/kantxa                   | kantxa.saveEdit     | App\Http\Controllers\KantxasController@saveEditKantxa                  | web,auth,admin                                       |
 |        | GET|HEAD | user/activation/{token}         | user.activate       | App\Http\Controllers\Auth\LoginController@activateUser                 | web,guest                                            |
-+--------+----------+---------------------------------+---------------------+------------------------------------------------------------------------+------------------------------------------------------+
+ -------- ---------- --------------------------------- --------------------- ------------------------------------------------------------------------ ------------------------------------------------------ 
 
 
 Referencias
@@ -171,9 +171,9 @@ Referencias
 
 Uso de la API
 ----------------
-+--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
-| Domain | Method   | URI                             | Name                  | Description                                                  | Middleware   |
-+--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
+ -------- ---------- --------------------------------- ----------------------- ---------------------------------------------------------- -------------- 
+| Domain | Method   | URI                             | Name                  | Description                                              | Middleware   |
+ -------- ---------- --------------------------------- ----------------------- ---------------------------------------------------------- -------------- 
 |        | GET|HEAD | kantxa/{name}                   | kantxa.getname        | Devuelve la kantxa con el nombre que pongamos            | web          |
 |        | GET|HEAD | kantxas                         | kantxas.get           | Devuelve todas las kantxas                               | web          |
 |        | GET|HEAD | kantxas/{id}                    | kantxa.get            | Devuelve la kantxa con el id que pongamos                | web          |
@@ -184,7 +184,7 @@ Uso de la API
 |        | GET|HEAD | sensors/{sensor_id}/radiacion   | sensor.getradiacion   | Devuelve la radiacion del sensor cuyo id le demos        | web          |
 |        | GET|HEAD | sensors/{sensor_id}/temperatura | sensor.gettemperatura | Devuelve la temperatura del sensor cuyo id le demos      | web          |
 |        | GET|HEAD | sensors/{sensor_id}/viento      | sensor.getviento      | Devuelve la valor del viento del sensor cuyo id le demos | web          |
-+--------+----------+---------------------------------+-----------------------+----------------------------------------------------------+--------------+
+ -------- ---------- --------------------------------- ----------------------- ---------------------------------------------------------- -------------- 
 
 Licencia
 -------
