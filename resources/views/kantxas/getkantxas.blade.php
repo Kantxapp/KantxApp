@@ -3,7 +3,13 @@
 
 @section('content')
 <section class="mbr-cards mbr-section mbr-section-nopadding" id="features3-0" style="background-color: rgb(250, 175, 64); padding-top: 100px;">
-
+     @if (session('status'))
+        <div class="alert alert-success text-xs-center alert-dismissible fade in" role="alert">
+            
+            <button type="button" class="close " data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{ session('status') }}
+        </div>
+    @endif
     
 
     <div class="mbr-cards-row row">
@@ -13,7 +19,12 @@
     </div>
     </div>
     <div class="mbr-cards-row row">
-
+@else
+    <div class="row">
+    <div class="card-btn col-lg-12"><a href="{{ route('kantxa.request')}}"  class="btn btn-info">SOLICITAR CREAR KANTXA</a></div>
+    </div>
+    </div>
+    <div class="mbr-cards-row row">
 @endif
 @foreach ($kantxas as $kantxa)
     
@@ -47,7 +58,12 @@
                         <span class="list-group-icon"><i class="fa fa-thermometer-half" aria-hidden="true"></i></span>
                         <span class="list-group-text"><span id="{{$sensor->id}}_temperatura">{{$sensor->temperatura}}</span></span>
                         <span class="list-group-icon"><i class="fa fa-shower" aria-hidden="true"></i></span>
-                        <span class="list-group-text"><span id="{{$sensor->id}}_llover">{{$sensor->llover}}</span></span>
+                        <span class="list-group-text"><span id="{{$sensor->id}}_llover">
+                            @if($sensor->llover)
+                            Llueve
+                            @else
+                            No llueve
+                            @endif</span></span>
                         
                     </h5>
                     @endif

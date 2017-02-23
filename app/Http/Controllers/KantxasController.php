@@ -9,6 +9,12 @@ use App\Kantxa;
 use App\Sensor;
 use DB;
 
+use Illuminate\Mail\Mailer;
+use Carbon\Carbon;
+use Mail;
+use App\Mail\KantxaRequest;
+use Auth;
+
 class KantxasController extends Controller
 {
     use Get_sports;
@@ -213,6 +219,24 @@ class KantxasController extends Controller
                 "sports" => $sports);
                 
         return $itzuli;
+
+    }
+    public function requestKantxa()
+    {
+        return view('kantxas.requestkantxa'); 
+    }
+    public function requestKantxaSend(Request $request)
+    {
+        $formname = $request->name;
+        $formadress = $request->address;
+        $formsports = $request->sports;
+        $formtime = (array)  Carbon::now();
+        $formtime = $formtime['date'] ;
+        $formemail = Auth::user()->email;
+        Mail::to('kantxapp@gmail.com')->send(new KantxaRequest($formname,$formadress,$formsports,$formtime,$formemail));
+        // Mail::to('kantxapp@gmail.com')->send(new KantxaRequest ($formname, $formaddress, $formsports, $formtime));
+        
+        return redirect('/get/kantxas')->with('status', 'Gracias por contactar con nosotros!');
 
     }
 }

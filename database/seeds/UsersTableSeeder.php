@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
         $user = DB::table('users')->insert([
             'name' => 'Iker',
             'email' => 'iker@iker.com',
+            'avatar' => '/storage/avatars/iker.png',
             'password' => bcrypt('123456'),
             'slug' => 'iker',
             'activated' => true,
@@ -32,6 +33,7 @@ class UsersTableSeeder extends Seeder
         $user = DB::table('users')->insert([
             'name' => 'Aitor',
             'email' => 'aitor@aitor.com',
+            'avatar' => '/storage/avatars/aitor.png',
             'password' => bcrypt('123456'),
             'slug' => 'aitor',
             'activated' => true,
@@ -49,6 +51,7 @@ class UsersTableSeeder extends Seeder
         $user = DB::table('users')->insert([
             'name' => 'Hafsa',
             'email' => 'hafsa@hafsa.com',
+            'avatar' => '/storage/avatars/hafsa.png',
             'password' => bcrypt('123456'),
             'slug' => 'hafsa',
             'activated' => true,
@@ -65,6 +68,7 @@ class UsersTableSeeder extends Seeder
         $user = DB::table('users')->insert([
             'name' => 'Rudy',
             'email' => 'rudy@rudy.com',
+            'avatar' => '/storage/avatars/rudy.png',
             'password' => bcrypt('123456'),
             'slug' => 'rudy',
             'activated' => true,

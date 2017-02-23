@@ -159,6 +159,14 @@ Route::group(['middleware' => 'auth'], function(){
     'uses' => 'KantxasController@getKantxas',
     'as' => 'kantxas.get'
     ]);
+    Route::get('/request/kantxa', [
+    'uses' => 'KantxasController@requestKantxa',
+    'as' => 'kantxa.request'
+    ]);
+    Route::post('/request/kantxa/send', [
+    'uses' => 'KantxasController@requestKantxaSend',
+    'as' => 'kantxa.requestsend'
+    ]);
     
     Route::get('/kantxa/info/{id}', [
     'uses' => 'KantxasController@getKantxa',

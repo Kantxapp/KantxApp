@@ -69,10 +69,14 @@
             }else{
                 $('#'+ sensor_data['idSensor']+'_ocupado').html(' libre');
             }
+            if (sensor_data["llover"] == 1){
+                $('#'+ sensor_data['idSensor']+'_llover').html('Llueve');
+            }else{
+                $('#'+ sensor_data['idSensor']+'_llover').html('No llueve');
+            }
             
             
-            
-            $('#'+ sensor_data['idSensor']+'_llover').html(sensor_data["llover"]);
+
             $('#'+ sensor_data['idSensor']+'_viento').html(sensor_data["viento"]);
             $('#'+ sensor_data['idSensor']+'_temperatura').html(sensor_data["temperatura"]);
             
@@ -85,6 +89,28 @@
             $('#'+ sensor_data['idSensor']+'_temperatura').addClass('magictime twisterInUp');
 
         });
+        
+  $(function() {
+
+//       $("#resume").click(function() {    
+//         var eventName = $('.event_name').val();
+//         var eventSport = $('.event_sport option:selected' ).text();
+        
+//         $('#event_name').html(eventName);
+//         $('#event_sport').html(eventSport);
+//         console.log(eventName);
+//         console.log(eventSport);
+
+//       });
+      $("#formkantxa").click(function() {    
+        
+        $("#formkantxasend").submit();
+
+      });
+  
+      
+      
+  });
   </script>
   @yield('head')
 </head>

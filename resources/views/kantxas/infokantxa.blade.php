@@ -60,23 +60,35 @@
                         </li>
                         <li class="list-group-item">
                             <span class="list-group-icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span>
-                            <span class="list-group-text">La Radiación Solar es de <span id="{{$sensor->id}}_radiacion">{{$sensor->radiacion}}</span> </span>
+                            <span class="list-group-text">La Radiación Solar es de<span id="{{$sensor->id}}_radiacion">
+                                @if($sensor->radiacion <= 2) 
+                                    <span style="color: green;">{{$sensor->radiacion}}</span>
+                                @elseif($sensor->radiacion > 2 && $sensor->radiacion <= 5)
+                                    <span style="color: yellow;">{{$sensor->radiacion}}</span>
+                                @elseif($sensor->radiacion > 5 && $sensor->radiacion <= 7)
+                                    <span style="color: orange;">{{$sensor->radiacion}}</span>
+                                @elseif($sensor->radiacion > 7 && $sensor->radiacion <= 10)
+                                    <span style="color: red;">{{$sensor->radiacion}}</span>
+                                @elseif($sensor->radiacion > 10 )
+                                    <span style="color: purple;">{{$sensor->radiacion}}</span>
+                                @endif
+                                </span> </span>
                         </li>
                         <li class="list-group-item">
                             <span class="list-group-icon"><i class="fa fa-tint" aria-hidden="true"></i></span>
-                            <span class="list-group-text">La Humedad es de <span id="{{$sensor->id}}_humedad">{{$sensor->humedad}}</span> </span>
+                            <span class="list-group-text">La Humedad es de <span id="{{$sensor->id}}_humedad">{{$sensor->humedad}}</span>% </span>
                         </li>
                         <li class="list-group-item">
                             <span class="list-group-icon"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
-                            <span class="list-group-text">El viento es de <span id="{{$sensor->id}}_viento">{{$sensor->viento}}</span> </span>
+                            <span class="list-group-text">El viento es de <span id="{{$sensor->id}}_viento">{{$sensor->viento}}</span>m/s </span>
                         </li>
                         <li class="list-group-item">
                             <span class="list-group-icon"><i class="fa fa-thermometer-half" aria-hidden="true"></i></span>
-                            <span class="list-group-text">La Temperatura es de <span id="{{$sensor->id}}_temperatura">{{$sensor->temperatura}}</span> </span>
+                            <span class="list-group-text">La Temperatura es de <span id="{{$sensor->id}}_temperatura">{{$sensor->temperatura}}</span>ºC </span>
                         </li>
                         <li class="list-group-item">
                             <span class="list-group-icon"><i class="fa fa-shower" aria-hidden="true"></i></span>
-                            <span class="list-group-text">La Lluvia es de <span id="{{$sensor->id}}_llover">{{$sensor->llover}}</span> </span>
+                            <span class="list-group-text"><span id="{{$sensor->id}}_llover">@if($sensor->llover) Llueve @else No llueve @endif</span> </span>
                         </li>
                         @endif
                     </ul>
